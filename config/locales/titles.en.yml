@@ -1,0 +1,5 @@
+en:
+  page:
+    title:
+      controller:
+        action: "String"

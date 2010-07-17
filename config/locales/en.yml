@@ -1,0 +1,16 @@
+en:
+  date:
+    order:
+      - :day
+      - :month
+      - :year
+  time:
+    formats:
+      simple: "%d %B, %Y at %I:%M %p"
+  activerecord:
+    errors:
+      messages:
+        invalid_format: "is an invalid content format"
+        blank: "must be filled in to continue"
+        invalid: "has errors that must be fixed before continuing"
+

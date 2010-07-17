@@ -1,0 +1,7 @@
+rvm use --create --install ree@tedxperth >/dev/null 2>&1
+
+if [[ -s "./tedxperth.gems" ]]; then
+  if ! rvm gemset import tedxperth.gems >/dev/null 2>&1; then
+    echo "ERROR: Unable to bootstrap the gems" >&2
+  fi
+fi

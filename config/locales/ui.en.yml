@@ -1,0 +1,8 @@
+en:
+  ui:
+    content_renderer:
+      renderers:
+        textile: "Textile"
+        markdown: "Markdown"
+        raw: "Raw HTML"
+

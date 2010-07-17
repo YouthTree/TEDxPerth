@@ -1,0 +1,13 @@
+en:
+  formtastic:
+    :yes: 'Yes'
+    :no: 'No'
+    create: 'Create'
+    save: 'Save'
+    submit: 'Submit'
+    required: ": <abbr class='required' title='This field is required'>(required)</abbr>"
+    optional: ":"
+    labels:
+      model:
+        attribute: "Label"
+
