@@ -34,10 +34,10 @@ gem 'awesome_print'
 
 gem 'youthtree-settings', '>= 0.1.1'
 gem 'youthtree-controller-ext'
-gem 'bhm-admin'
+gem 'bhm-admin', '>= 0.1.2'
 
 # Javascript
-gem 'barista'
+gem 'barista', '>= 0.4.3'
 gem 'shuriken'
 gem 'bhm-google-maps'
 gem 'youthtree-js'

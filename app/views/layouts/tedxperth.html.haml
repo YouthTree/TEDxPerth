@@ -1,0 +1,13 @@
+!!! 5
+%html{:lang => "en", :dir => "ltr"}
+  %head
+    %meta{"http-equiv" => "Content-Type", :content => "text/html; charset=utf-8"}
+    %title== #{page_title} - TEDxPerth
+    /[if lte IE 9]
+      = include_javascripts :html5
+    = include_stylesheets(:base, :media => 'screen, projection')
+    = include_javascripts :base
+    = csrf_meta_tag
+    - if Settings.twitter.user?
+      = meta_tag "twitter-user", Settings.twitter.user.to_s
+    = yield :extra_head

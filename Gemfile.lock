@@ -45,8 +45,8 @@ GEM
     arel (0.4.0)
       activesupport (>= 3.0.0.beta)
     awesome_print (0.2.1)
-    barista (0.4.2)
-    bhm-admin (0.1.1.1)
+    barista (0.4.3)
+    bhm-admin (0.1.2)
       compass (>= 0.10.0.rc4)
       compass-960-plugin
       compass-colors
@@ -173,8 +173,8 @@ PLATFORMS
 DEPENDENCIES
   almost-happy
   awesome_print
-  barista
-  bhm-admin
+  barista (>= 0.4.3)
+  bhm-admin (>= 0.1.2)
   bhm-google-maps
   compass (>= 0.10.2)
   compass-colors (>= 0.3.1)

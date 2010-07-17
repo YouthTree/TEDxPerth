@@ -1,8 +1,22 @@
 javascript_compressor: yui
 javascripts:
   base:
-    - "public/javascripts/vendor/{jquery,rails}.js"
+    - public/javascripts/vendor/jquery/*.js
+    - public/javascripts/vendor/css_browser_selector.js
+    - public/javascripts/vendor/shuriken/**/*.js
+    - public/javascripts/tedxperth.js
+    - public/javascripts/tedxperth/util.js
+    - public/javascripts/tedxperth/timestamps.js
+  html5:
+    - public/javascripts/vendor/html5.js
+  admin:
+    - public/javascripts/vendor/jquery/*.js
+    - public/javascripts/vendor/css_browser_selector.js
+    - public/javascripts/tedxperth.js
+    - public/javascripts/tedxperth/util.js
+    
 stylesheets:
   base:
-    - "public/stylesheets/tedxperth.css"
-    - "public/stylesheets/tedxperth-admin.css"
+    - public/stylesheets/tedxperth.css
+  admin:
+    - public/stylesheets/tedxperth-admin.css

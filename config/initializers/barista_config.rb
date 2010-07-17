@@ -1,13 +1,11 @@
 # Configure barista.
-Barista.configure do |config|
+Barista.configure do |c|
 
-  config.root    = Rails.root.join("app", "scripts")
-  config.no_wrap = true
+  c.root    = Rails.root.join("app", "coffeescripts")
+  c.no_wrap = true
 
-  # Properly namespace each item
-  config.each_framework do |framework|
-    config.change_output_prefix! framework.name, "vendor/#{framework.name}"
+  c.each_framework do |framework|
+    c.change_output_prefix! framework.name, "vendor/#{framework.name}"
   end
-  config.change_output_prefix! :default, 'tedxperth'
   
 end
