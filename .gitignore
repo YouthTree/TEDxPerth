@@ -8,3 +8,4 @@ tmp/*.sql
 public/stylesheets/*.css
 config/settings.yml
 .bundle-cache
+public/assets/
