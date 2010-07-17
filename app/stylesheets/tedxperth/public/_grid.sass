@@ -1,0 +1,13 @@
+$ninesixty-columns: 24
+
+$tedxperth-content-width: 24
+$tedxperth-content-sides: ($ninesixty-columns - $tedxperth-content-width) / 2
+
+#container
+  +grid-container
+  +clearfix
+  #content, footer
+    +grid-unit-base
+    +grid-width($tedxperth-content-width)
+    +grid-suffix($tedxperth-content-sides)
+    +grid-prefix($tedxperth-content-sides)

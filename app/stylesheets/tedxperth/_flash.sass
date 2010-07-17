@@ -1,0 +1,19 @@
+=flash-colours($text-colour, $background-colour: lighten($text-colour, 50), $border-colour: lighten($text-colour, 20))
+  border-color: $border-colour
+  background-color: $background-colour
+  color: $text-colour
+  +linear-gradient(color-stops(lighten($background-colour, 10), darken($background-colour, 10)), top)
+
+#flash-messages
+  margin: 0
+  p.flash
+    margin: 0 0 1em
+    padding: 0.5em
+    font-weight: bold
+    text-align: center
+    border: 0.2em solid
+    +flash-colours(#444444)
+    &.alert
+      +flash-colours(#99242a)
+    &.notice
+      +flash-colours(#1d6024)

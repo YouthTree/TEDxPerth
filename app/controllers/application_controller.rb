@@ -6,4 +6,7 @@ class ApplicationController < ActionController::Base
 
   protect_from_forgery
   layout 'application'
+  
+  include TitleEstuary
+  use_controller_exts :translation, :title_estuary
 end

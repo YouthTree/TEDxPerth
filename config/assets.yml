@@ -1,0 +1,8 @@
+javascript_compressor: yui
+javascripts:
+  base:
+    - "public/javascripts/vendor/{jquery,rails}.js"
+stylesheets:
+  base:
+    - "public/stylesheets/tedxperth.css"
+    - "public/stylesheets/tedxperth-admin.css"

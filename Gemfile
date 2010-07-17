@@ -17,7 +17,6 @@ gem 'validation_reflection', '>= 0.3.6'
 gem 'title_estuary',         '>= 1.2.0'
 gem 'show_for'
 gem 'inherited_resources'
-gem 'barista'
 
 # Model Related
 
@@ -36,6 +35,12 @@ gem 'awesome_print'
 gem 'youthtree-settings', '>= 0.1.1'
 gem 'youthtree-controller-ext'
 gem 'bhm-admin'
+
+# Javascript
+gem 'barista'
+gem 'shuriken'
+gem 'bhm-google-maps'
+gem 'youthtree-js'
 
 group :development do
   gem 'rails3-generators'
