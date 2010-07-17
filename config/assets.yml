@@ -14,7 +14,6 @@ javascripts:
     - public/javascripts/vendor/css_browser_selector.js
     - public/javascripts/tedxperth.js
     - public/javascripts/tedxperth/util.js
-    
 stylesheets:
   base:
     - public/stylesheets/tedxperth.css

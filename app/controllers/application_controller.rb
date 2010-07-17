@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   respond_to :html
 
   protect_from_forgery
-  layout 'application'
+  layout 'tedxperth'
   
   include TitleEstuary
   use_controller_exts :translation, :title_estuary

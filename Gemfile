@@ -34,7 +34,7 @@ gem 'awesome_print'
 
 gem 'youthtree-settings', '>= 0.1.1'
 gem 'youthtree-controller-ext'
-gem 'bhm-admin', '>= 0.1.2'
+gem 'bhm-admin', '>= 0.1.3'
 
 # Javascript
 gem 'barista', '>= 0.4.3'
@@ -42,8 +42,11 @@ gem 'shuriken'
 gem 'bhm-google-maps'
 gem 'youthtree-js'
 
+gem 'jammit'
+
 group :development do
   gem 'rails3-generators'
+  gem 'mongrel'
 end
 
 group :test, :development do
