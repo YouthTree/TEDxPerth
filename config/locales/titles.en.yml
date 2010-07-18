@@ -2,7 +2,8 @@ en:
   page:
     title:
       pages:
-        index: "Welcome to TEDxPerth"
+        index: "%{title}"
+        show: "%{title}"
       user_sessions:
         new: Sign In
         create: Sign In

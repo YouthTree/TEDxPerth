@@ -1,7 +1,7 @@
 %ul
   = ml "Home", :root
   - if logged_in?
-    = ml "Your Profile", users_path(:current)
+    = ml "Your Profile", user_path(:current)
     = ml "Sign Out", :sign_out
     - if current_user.admin?
       = ml 'Admin Area', :admin_root

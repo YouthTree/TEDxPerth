@@ -3,6 +3,7 @@ TEDxPerth::Application.routes.draw do |map|
   namespace :admin do
     root :to => 'dashboard#index'
     resources :users
+    resources :pages
   end
 
   resources :user_session, :path => 'user-sessions'
@@ -23,5 +24,7 @@ TEDxPerth::Application.routes.draw do |map|
   end
 
   root :to => 'pages#index'
+  
+  get '/:id', :to => "pages#show"
 
 end

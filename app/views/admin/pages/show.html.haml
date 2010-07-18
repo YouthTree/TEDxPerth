@@ -1,0 +1,13 @@
+%h2.title== Viewing #{current_resource_name}
+
+= show_for resource do |r|
+  
+  = r.attribute :id
+  
+  = r.attribute :key
+  
+  = r.attribute :title
+  
+  = r.attribute :content do
+    = admin_content resource
+  

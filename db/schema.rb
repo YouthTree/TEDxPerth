@@ -9,7 +9,24 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100718023938) do
+ActiveRecord::Schema.define(:version => 20100718025547) do
+
+  create_table "pages", :force => true do |t|
+    t.string   "title"
+    t.text     "content"
+    t.text     "rendered_content"
+    t.datetime "published_at"
+    t.text     "description"
+    t.string   "keywords"
+    t.string   "key"
+    t.string   "cached_slug"
+    t.string   "format"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "pages", ["cached_slug"], :name => "index_pages_on_cached_slug"
+  add_index "pages", ["key"], :name => "index_pages_on_key"
 
   create_table "roles", :force => true do |t|
     t.string   "name",       :null => false
