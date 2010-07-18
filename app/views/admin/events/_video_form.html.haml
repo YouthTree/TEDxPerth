@@ -1,0 +1,5 @@
+= video_form.inputs :class => 'video-input inputs' do
+  = video_form.input :url, :as => :string
+  %li
+    %p.inline-hints= link_to((video_form.object.new_record? ? "Don't add this video" : 'Remove this video'), '#', :class => 'remove-video-link')
+    = video_form.hidden_field :_destroy, :value => destroy_value(video_form)

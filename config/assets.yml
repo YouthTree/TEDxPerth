@@ -25,6 +25,8 @@ javascripts:
     - public/ckeditor/adapters/jquery.js
   convertable_editor:
     - public/javascripts/tedxperth/admin/convertable_editor.js
+  ted_video_editor:
+    - public/javascripts/tedxperth/admin/ted_video_editor.js
 stylesheets:
   base:
     - public/stylesheets/tedxperth.css

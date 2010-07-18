@@ -20,3 +20,18 @@
     
   = r.attribute :notes do
     = admin_content resource, :notes
+    
+  = r.association :ted_videos do
+    - if resource.ted_videos.empty?
+      %p.empty There are no videos yet.
+    - else
+      %ul
+        - resource.ted_videos.each do |v|
+          %li= link_to v.title, v.url
+  
+  = r.association :attendees do
+    %p.attendee-count== #{pluralize resource.attending.size, 'person'} is / are planning to attend.
+    - if resource.attending.size > 0
+      %ul#attendees-list
+        - resource.attending.each do |user|
+          %li= link_to user.name, [:admin, user]

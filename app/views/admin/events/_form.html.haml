@@ -1,4 +1,4 @@
-- has_jammit_js :ck_editor, :convertable_editor
+- has_jammit_js :ck_editor, :convertable_editor, :ted_video_editor
 
 = form.inputs :name => "General Details" do
   = form.input :name
@@ -14,3 +14,14 @@
 = form.inputs :name => "Event Notes", :class => "inputs convertable" do
   = form.input :notes_format, :as => :select, :collection => AlmostHappy::Convertor.for_select, :include_blank => false
   ~ form.input :notes, content_options(form, :notes, :input_html => {:rows => 10})
+  
+%h3 Associated Videos
+
+%p.actions= link_to 'Add another video', '#', :class => 'add-video-link'
+- form.object.ted_videos.build
+= form.fields_for :ted_videos do |tvf|
+  = render :partial => 'video_form', :object => tvf
+  
+- content_for :extra_head do
+  :javascript
+    TEDxPerth.Admin.TEDVideoEditor.template = #{render_ted_video_editor(form).to_str.to_json};

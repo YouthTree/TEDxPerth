@@ -1,10 +1,15 @@
 class Event < ActiveRecord::Base
+  extend RejectIfHelper
   
   validates_presence_of :name, :starts_at, :ends_at, :description, :notes
   validate :check_valid_starts_at
   validate :check_valid_ends_at
   
   has_many :roles, :as => :owner
+  
+  has_many :ted_videos
+  
+  accepts_nested_attributes_for :ted_videos, :reject_if => reject_if_proc, :allow_destroy => true
   
   scope :viewable, where(:state => %w(published completed))
   
@@ -76,9 +81,11 @@ end
 #  name                 :string(255)
 #  starts_at            :datetime
 #  ends_at              :datetime
+#  description_format   :string(255)
 #  description          :text
 #  rendered_description :text
 #  cached_slug          :string(255)
+#  notes_format         :string(255)
 #  notes                :text
 #  rendered_notes       :text
 #  state                :string(255)

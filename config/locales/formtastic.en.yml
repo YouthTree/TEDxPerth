@@ -9,3 +9,5 @@ en:
     optional: ":"
     labels:
       state_event: "Transition state to"
+      ted_video:
+        url: "URL from TED site"
