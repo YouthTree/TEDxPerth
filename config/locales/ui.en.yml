@@ -5,4 +5,11 @@ en:
         textile: "Textile"
         markdown: "Markdown"
         raw: "Raw HTML"
-
+    confirm:
+      remove: "Are you sure you wish to remove this %{object_name}? This can't be reversed."
+    empty_row: "There are currently no %{plural_object_name}."
+    authentication:
+      internal: 'TEDxPerth Account'
+      external: 'Facebook, Google, Live, Yahoo or Twitter Account'
+      no_external: "You have no stored external accounts."
+      external_explanation: "External credentials let you login using an external account (e.g. twitter / facebook)"

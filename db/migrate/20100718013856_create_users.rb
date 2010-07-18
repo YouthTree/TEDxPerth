@@ -13,13 +13,11 @@ class CreateUsers < ActiveRecord::Migration
       t.string   :last_login_ip
       t.string   :current_login_ip
       t.string   :display_name
-      t.boolean  :admin
       t.string   :origin
       t.string   :perishable_token, :null => false
       t.string   :cached_slug
       t.timestamps
     end
-    add_index :users, [:admin],             :name => "index_users_on_admin"
     add_index :users, [:cached_slug],       :name => "index_users_on_cached_slug"
     add_index :users, [:login],             :name => "index_users_on_login"
     add_index :users, [:perishable_token],  :name => "index_users_on_perishable_token"

@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100718015018) do
+ActiveRecord::Schema.define(:version => 20100718023938) do
 
   create_table "roles", :force => true do |t|
     t.string   "name",       :null => false
@@ -22,6 +22,17 @@ ActiveRecord::Schema.define(:version => 20100718015018) do
   add_index "roles", ["name", "owner_type", "owner_id"], :name => "index_roles_on_name_and_owner_type_and_owner_id"
   add_index "roles", ["name", "owner_type"], :name => "index_roles_on_name_and_owner_type"
   add_index "roles", ["name"], :name => "index_roles_on_name"
+
+  create_table "rpx_identifiers", :force => true do |t|
+    t.string   "identifier",    :null => false
+    t.string   "provider_name"
+    t.integer  "user_id",       :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "rpx_identifiers", ["identifier"], :name => "index_rpx_identifiers_on_identifier", :unique => true
+  add_index "rpx_identifiers", ["user_id"], :name => "index_rpx_identifiers_on_user_id"
 
   create_table "slugs", :force => true do |t|
     t.string   "scope"
@@ -58,7 +69,6 @@ ActiveRecord::Schema.define(:version => 20100718015018) do
     t.string   "last_login_ip"
     t.string   "current_login_ip"
     t.string   "display_name"
-    t.boolean  "admin"
     t.string   "origin"
     t.string   "perishable_token",  :null => false
     t.string   "cached_slug"
@@ -66,7 +76,6 @@ ActiveRecord::Schema.define(:version => 20100718015018) do
     t.datetime "updated_at"
   end
 
-  add_index "users", ["admin"], :name => "index_users_on_admin"
   add_index "users", ["cached_slug"], :name => "index_users_on_cached_slug"
   add_index "users", ["login"], :name => "index_users_on_login"
   add_index "users", ["perishable_token"], :name => "index_users_on_perishable_token"

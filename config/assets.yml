@@ -14,6 +14,9 @@ javascripts:
     - public/javascripts/vendor/css_browser_selector.js
     - public/javascripts/tedxperth.js
     - public/javascripts/tedxperth/util.js
+  authentication_with_rpx_now:
+    - public/javascripts/tedxperth/authentication.js
+    - public/javascripts/tedxperth/rpx_now.js
 stylesheets:
   base:
     - public/stylesheets/tedxperth.css

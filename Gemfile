@@ -25,6 +25,7 @@ gem 'stringex'
 gem 'pseudocephalopod', '>= 0.2.4'
 gem 'almost-happy'
 gem 'will_paginate',    '>= 3.0.pre', :git => 'git://github.com/mislav/will_paginate.git', :branch => 'rails3'
+gem 'bcrypt-ruby',      '>= 2.1.2', :require => 'bcrypt'
 gem 'state_machine',    '>= 0.9.0'
 gem 'msales-carmen',    '>= 0.1.4', :require => ['carmen', 'carmen/action_view_helpers']
 
@@ -46,6 +47,8 @@ gem 'jammit'
 
 # Auth
 gem 'authlogic', :git => 'git://github.com/odorcicd/authlogic.git', :branch => 'rails3'
+gem 'authlogic_rpx', :git => 'git://github.com/tardate/authlogic_rpx.git'
+gem 'rpx_now'
 
 group :development do
   gem 'rails3-generators'

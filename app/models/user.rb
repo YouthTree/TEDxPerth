@@ -1,5 +1,9 @@
 class User < ActiveRecord::Base
   
+  def self.for_select
+    all.map { |u| [u.to_s, u.id] }
+  end
+  
   attr_accessible :login, :password, :password_confirmation, :email, :display_name, :mailing_list_ids, :origin
   
   has_many :user_roles, :dependent => :destroy
@@ -8,15 +12,20 @@ class User < ActiveRecord::Base
   is_sluggable :name
 
   acts_as_authentic do |c|
+    c.crypto_provider = Authlogic::CryptoProviders::BCrypt
     c.validate_email_field  true
-    # c.account_merge_enabled true
-    # c.account_mapping_mode  :internal
+    c.account_merge_enabled true
+    c.account_mapping_mode  :internal
   end
   
   def to_s
     display_name.present? ? display_name : login
   end
   alias name to_s
+  
+  def name_changed?
+    display_name_changed? || login_changed?
+  end
   
   def name_was
     if display_name_changed?
@@ -30,6 +39,20 @@ class User < ActiveRecord::Base
   
   def admin?
     has_role? :admin
+  end
+  
+  def can?(action, object)
+    return true if admin?
+    method_name = :"#{action}able_by?"
+    object.respond_to?(method_name) && object.send(method_name, self)
+  end
+
+  def editable_by?(u)
+    u == self
+  end
+
+  def destroyable_by?(u)
+    u == self
   end
   
   # Mailing Lists Tools

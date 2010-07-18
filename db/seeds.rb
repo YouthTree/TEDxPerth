@@ -1,8 +1,8 @@
 BHM::Admin::AttrAccessibleScoping.disable do
   user = User.create!({
    :login                 => "admin",
-   :password              => "monkey",
-   :password_confirmation => "monkey",
+   :password              => "tedxperth",
+   :password_confirmation => "tedxperth",
    :email                 => "test@example.com",
    :display_name          => "TEDxPerth Team"
   })

@@ -1,6 +1,7 @@
 require "application_responder"
 
 class ApplicationController < ActionController::Base
+
   self.responder = ApplicationResponder
   respond_to :html
 
@@ -8,5 +9,6 @@ class ApplicationController < ActionController::Base
   layout 'tedxperth'
   
   include TitleEstuary
-  use_controller_exts :translation, :title_estuary
+  use_controller_exts :translation, :title_estuary, :authlogic_helpers
+
 end
