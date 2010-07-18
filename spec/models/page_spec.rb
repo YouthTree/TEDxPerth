@@ -1,7 +1,63 @@
 require 'spec_helper'
 
 describe Page do
-  pending "add some examples to (or delete) #{__FILE__}"
+
+  describe "validations" do
+
+    it { should validate_presence_of :title }
+
+    it { should validate_presence_of :content }
+
+    it { should validate_presence_of :key }
+
+  end
+
+  describe "publishing pages" do
+
+    it "should let you check if a post is published"
+
+    it "should let you publish a post"
+
+    it "should let you unpublish a post"
+
+    it "should be unpublished if published_at is in the future"
+
+    it "should let you get all published posts"
+
+  end
+
+  describe "scopes" do
+
+    it "should let you get pages from a key"
+
+    it "should let you find the home page"
+
+    it "should let you get an optimized set of posts"
+
+  end
+
+  describe "converting content" do
+
+    it "should automatically convert the content"
+
+    it "should not convert the content when unchanged"
+
+    it "should convert the content when it's format is changed"
+
+    it "should convert the content when it's content is changed"
+
+  end
+
+  describe "slugs" do
+
+    it "should automatically convert the title to a slug"
+
+    it "should let you get posts with a slug"
+
+    it "should let you get it based off of past slugs"
+
+  end
+
 end
 
 # == Schema Information
@@ -21,4 +77,3 @@ end
 #  created_at       :datetime
 #  updated_at       :datetime
 #
-
