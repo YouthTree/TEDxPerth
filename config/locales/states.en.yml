@@ -5,3 +5,8 @@ en:
         pending: "Pending"
         published: "Published"
         completed: "Completed"
+        submitted: "Submitted"
+        approved: "Approved"
+        presented: "Presented"
+        archived: "Archived"
+      

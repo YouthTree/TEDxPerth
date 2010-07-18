@@ -17,3 +17,7 @@ en:
       event:
         publish: "Publish this event"
         complete: "Mark this event as completed"
+      ngo:
+        approve: "Mark this NGO as approved"
+        present: "Mark this NGO as presented"
+        archive: "Archive this NGO"

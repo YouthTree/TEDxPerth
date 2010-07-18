@@ -52,6 +52,8 @@ gem 'authlogic', :git => 'git://github.com/odorcicd/authlogic.git', :branch => '
 gem 'authlogic_rpx', :git => 'git://github.com/tardate/authlogic_rpx.git'
 gem 'rpx_now'
 
+gem 'validates_url_format_of'
+
 group :development do
   gem 'rails3-generators'
   gem 'mongrel'

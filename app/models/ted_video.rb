@@ -3,6 +3,7 @@ class TedVideo < ActiveRecord::Base
   belongs_to :event
   
   validates_presence_of :url, :event
+  validates_url_format_of :url
   
   before_save :automatically_get_response
   
@@ -33,6 +34,7 @@ end
 #  url                  :string(255)
 #  embed_code           :text
 #  raw_embedly_response :text
+#  event_id             :integer
 #  created_at           :datetime
 #  updated_at           :datetime
 #
