@@ -13,3 +13,7 @@ en:
       external: 'Facebook, Google, Live, Yahoo or Twitter Account'
       no_external: "You have no stored external accounts."
       external_explanation: "External credentials let you login using an external account (e.g. twitter / facebook)"
+    state_events:
+      event:
+        publish: "Publish this event"
+        complete: "Mark this event as completed"

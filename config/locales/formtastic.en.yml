@@ -8,6 +8,4 @@ en:
     required: ": <abbr class='required' title='This field is required'>(required)</abbr>"
     optional: ":"
     labels:
-      model:
-        attribute: "Label"
-
+      state_event: "Transition state to"

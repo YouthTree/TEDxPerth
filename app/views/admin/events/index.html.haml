@@ -16,7 +16,7 @@
       %tr{:class => cycle('odd', 'even')}
         %td= r.id
         %td= r.name
-        %td= r.state.humanize
+        %td= r.human_state_name
         %td= l r.starts_at, :format => :simple
         %td= l r.ends_at, :format => :simple
         %td.actions= individual_resource_links r

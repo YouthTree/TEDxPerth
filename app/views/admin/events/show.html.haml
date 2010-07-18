@@ -7,7 +7,7 @@
   = r.attribute :name
   
   = r.attribute :state do
-    = resource.state.humanize
+    = resource.human_state_name
   
   = r.attribute :starts_at do
     = l resource.starts_at, :format => :simple

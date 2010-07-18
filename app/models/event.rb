@@ -34,7 +34,7 @@ class Event < ActiveRecord::Base
   end
   
   def attending?(user)
-    attending.where('users.id = ?', user.id).exists?
+    attending.where(:users => {:id => user.id}).exists?
   end
   
   def attending!(user)
@@ -43,6 +43,13 @@ class Event < ActiveRecord::Base
   
   def withdraw!(user)
     user.remove_role! :attendee, self
+  end
+  
+  def state_events_for_select
+    state_events.map do |se|
+      name = ::I18n.t("#{self.class.model_name.underscore}.#{se}", :default => se.to_s.humanize, :scope => "ui.state_events")
+      [name, se]
+    end
   end
   
   protected

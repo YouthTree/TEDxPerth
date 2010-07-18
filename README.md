@@ -1,14 +1,30 @@
 # TEDxPerth #
 
-This is a host application for the soon-to-be tedxperth.org / tedxperth.com
+This is a host application for the soon-to-be http://tedxperth.org/
 
 ## About this Application ##
 
-See above.
+The core aims for this web app is to facilitate:
+
+* Planning events
+* Managing registrations
+* Posting news
+* General discussions
+* Providing history etc
 
 ## Getting Started ##
 
+The following steps will help you get started. Please ensure you are using rvm
+as it makes the whole process of getting setup a lot simpler.
 
+1. Clone git://github.com/YouthTree/TEDxPerth.git
+2. `cd TEDxPerth` - RVM should pickup the gemset / ruby, install the ruby and bundler as needed.
+3. `./script/configure` - this will perform first time setup etc.
+4. `./script/rails server` - this will start the app so you can browse it.
+
+By default, this uses `rake db:setup` to load the schema.rb file and to run `db/seeds.rb`.
+
+Out of the box, you will have a admin user with the password 'tedxperth'.
 
 ## Contributing ##
 
