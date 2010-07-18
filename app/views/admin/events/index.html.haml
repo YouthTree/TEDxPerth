@@ -1,0 +1,25 @@
+%h2.title Viewing all Events
+
+= will_paginate collection
+
+%table
+  %thead
+    %tr
+      %th ID
+      %th Name
+      %th State
+      %th Starts At
+      %th Ends At
+      %th &nbsp;
+  %tbody
+    - collection.each do |r|
+      %tr{:class => cycle('odd', 'even')}
+        %td= r.id
+        %td= r.name
+        %td= r.state.humanize
+        %td= l r.starts_at, :format => :simple
+        %td= l r.ends_at, :format => :simple
+        %td.actions= individual_resource_links r
+    = empty_row_for_collection 5
+        
+= will_paginate collection

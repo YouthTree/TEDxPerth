@@ -9,7 +9,25 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100718025547) do
+ActiveRecord::Schema.define(:version => 20100718033206) do
+
+  create_table "events", :force => true do |t|
+    t.string   "name"
+    t.datetime "starts_at"
+    t.datetime "ends_at"
+    t.string   "description_format"
+    t.text     "description"
+    t.text     "rendered_description"
+    t.string   "cached_slug"
+    t.string   "notes_format"
+    t.text     "notes"
+    t.text     "rendered_notes"
+    t.string   "state"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "events", ["cached_slug"], :name => "index_events_on_cached_slug"
 
   create_table "pages", :force => true do |t|
     t.string   "title"

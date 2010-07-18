@@ -1,0 +1,12 @@
+= form.inputs :name => "General Details" do
+  = form.input :name
+  = form.input :starts_at, :use_short_month => true, :start_year => Time.now.year, :end_year => (Time.now.year + 2)
+  = form.input :ends_at,   :use_short_month => true, :start_year => Time.now.year, :end_year => (Time.now.year + 2)
+  
+= form.inputs :name => "Event Description" do
+  = form.input :description_format, :as => :select, :collection => AlmostHappy::Convertor.for_select, :include_blank => false
+  ~ form.input :description, :input_html => {:rows => 10}
+  
+= form.inputs :name => "Event Notes" do
+  = form.input :notes_format, :as => :select, :collection => AlmostHappy::Convertor.for_select, :include_blank => false
+  ~ form.input :notes, :input_html => {:rows => 10}

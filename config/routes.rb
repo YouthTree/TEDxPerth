@@ -4,6 +4,7 @@ TEDxPerth::Application.routes.draw do |map|
     root :to => 'dashboard#index'
     resources :users
     resources :pages
+    resources :events
   end
 
   resources :user_session, :path => 'user-sessions'

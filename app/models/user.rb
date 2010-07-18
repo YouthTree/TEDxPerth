@@ -91,7 +91,22 @@ class User < ActiveRecord::Base
     roles.delete(Role[name, obj]) if has_role?(name, obj)
     true
   end
-
+  
+  def attending?(event)
+    event && event.attending?(self)
+  end
+  
+  def attending!(event)
+    event && event.attending!(event)
+  end
+  
+  def withdraw!(event)
+    event && event.withdraw!(event)
+  end
+  
+  def events
+    Event.includes(:roles => :user_roles).where(:user_roles => {:user_id => self.id})
+  end
   
 end
 

@@ -8,6 +8,9 @@
   
   = r.attribute :title
   
+  = r.attribute :published do
+    = resource.published? ? "Yes" : "No"
+  
   = r.attribute :content do
     = admin_content resource
   

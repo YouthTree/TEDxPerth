@@ -58,7 +58,7 @@ GEM
       activemodel (= 3.0.0.beta4)
       activesupport (= 3.0.0.beta4)
     activesupport (3.0.0.beta4)
-    almost-happy (0.2.3)
+    almost-happy (0.3.0)
       RedCloth
       activerecord (>= 3.0.0.beta3)
       nokogiri
@@ -207,7 +207,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  almost-happy
+  almost-happy (>= 0.3.0)
   annotate!
   authlogic!
   authlogic_rpx!
