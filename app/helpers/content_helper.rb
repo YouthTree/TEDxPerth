@@ -8,4 +8,12 @@ module ContentHelper
     content_tag(:article, page.content_as_html, :class => "page-content #{page.key.gsub(".", "-")}")
   end
   
+  def content_options(form, field, opts = {})
+    if form.object.send(:format_for, field) == "raw"
+      opts.merge(:wrapper_html => {:class => 'ckeditor'})
+    else
+      opts
+    end
+  end
+  
 end

@@ -1,3 +1,5 @@
+- has_jammit_js :ck_editor, :convertable_editor
+
 = form.inputs :name => "General Details" do
   = form.input :name
   - unless form.object.new_record?
@@ -5,10 +7,10 @@
   = form.input :starts_at, :use_short_month => true, :start_year => Time.now.year, :end_year => (Time.now.year + 2)
   = form.input :ends_at,   :use_short_month => true, :start_year => Time.now.year, :end_year => (Time.now.year + 2)
   
-= form.inputs :name => "Event Description" do
+= form.inputs :name => "Event Description", :class => "inputs convertable" do
   = form.input :description_format, :as => :select, :collection => AlmostHappy::Convertor.for_select, :include_blank => false
-  ~ form.input :description, :input_html => {:rows => 10}
+  ~ form.input :description, content_options(form, :description, :input_html => {:rows => 10})
   
-= form.inputs :name => "Event Notes" do
+= form.inputs :name => "Event Notes", :class => "inputs convertable" do
   = form.input :notes_format, :as => :select, :collection => AlmostHappy::Convertor.for_select, :include_blank => false
-  ~ form.input :notes, :input_html => {:rows => 10}
+  ~ form.input :notes, content_options(form, :notes, :input_html => {:rows => 10})

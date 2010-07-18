@@ -1,0 +1,7 @@
+en:
+  activerecord:
+    state_machines:
+      states:
+        pending: "Pending"
+        published: "Published"
+        completed: "Completed"

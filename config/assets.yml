@@ -12,11 +12,19 @@ javascripts:
   admin:
     - public/javascripts/vendor/jquery/*.js
     - public/javascripts/vendor/css_browser_selector.js
+    - public/javascripts/vendor/shuriken/**/*.js
     - public/javascripts/tedxperth.js
     - public/javascripts/tedxperth/util.js
+    - public/javascripts/tedxperth/admin.js
   authentication_with_rpx_now:
     - public/javascripts/tedxperth/authentication.js
     - public/javascripts/tedxperth/rpx_now.js
+  ck_editor:
+    - public/javascripts/tedxperth/ck_editor.js
+    - public/ckeditor/ckeditor.js
+    - public/ckeditor/adapters/jquery.js
+  convertable_editor:
+    - public/javascripts/tedxperth/admin/convertable_editor.js
 stylesheets:
   base:
     - public/stylesheets/tedxperth.css

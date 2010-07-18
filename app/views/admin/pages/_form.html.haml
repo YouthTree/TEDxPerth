@@ -1,9 +1,11 @@
+- has_jammit_js :ck_editor, :convertable_editor
+
 = form.inputs :name => "General Details" do  
   - if form.object.new_record?
     = form.input :key
   = form.input :title
   = form.input :published, :as => :boolean
   
-= form.inputs :name => "Content" do
+= form.inputs :name => "Content", :class => "inputs convertable" do
   = form.input :format, :as => :select, :collection => AlmostHappy::Convertor.for_select, :include_blank => false
-  ~ form.input :content, :input_html => {:rows => 25}
+  ~ form.input :content, content_options(form, :content, :input_html => {:rows => 25})
