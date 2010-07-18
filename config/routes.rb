@@ -24,6 +24,16 @@ TEDxPerth::Application.routes.draw do |map|
     end
   end
 
+  resources :events, :only => [:index, :show] do
+    member do
+      post :withdraw
+      post :attending
+    end
+  end
+
+  get 'contact-us',  :to => 'contacts#new', :as => :contact_us
+  post 'contact-us', :to => 'contacts#create'
+
   root :to => 'pages#index'
   
   get '/:id', :to => "pages#show"

@@ -45,6 +45,8 @@ gem 'youthtree-js'
 
 gem 'jammit'
 
+gem 'mail_form'
+
 # Auth
 gem 'authlogic', :git => 'git://github.com/odorcicd/authlogic.git', :branch => 'rails3'
 gem 'authlogic_rpx', :git => 'git://github.com/tardate/authlogic_rpx.git'
@@ -63,6 +65,9 @@ group :test, :development do
 end
 
 group :test do
+  gem 'ZenTest'
+  gem 'autotest-growl'
+  gem 'autotest-fsevent'
   gem 'remarkable', '>= 4.0.0.alpah4', :require => 'remarkable/core'
   gem 'remarkable_activerecord', '>= 4.0.0.alpah4', :require => 'remarkable/active_record'
   gem 'rr'

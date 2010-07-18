@@ -22,6 +22,9 @@ en:
       contacts:
         new: "Contact the TEDxPerth team"
         create: "Contact the TEDxPerth team"
+      events:
+        show: "%{event}"
+        index: "All TEDxPerth Events"
   error_pages:
     title:
       not_found: "Page Not Found"

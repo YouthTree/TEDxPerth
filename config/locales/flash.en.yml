@@ -36,3 +36,8 @@ en:
       thanks: "Thanks for contacting us - we'll be sure to get back to your shortly!"
     signup:
       thanks: "Thanks for signing up!"
+    events:
+      attending: "You're now marked as planning to attend %{event}."
+      withdrawn: "You've successfully withdrawn your attendance from %{event}."
+      unable_to_attend: "We are currently unable to mark you as attending %{event}."
+      unable_to_withdraw: "We are currently unable to withdraw you from %{event}."

@@ -14,3 +14,6 @@ en:
         blank: "must be filled in to continue"
         invalid: "has errors that must be fixed before continuing"
 
+  actionmailer:
+    contact_form:
+      subject: "Message received via the TEDxPerth website"

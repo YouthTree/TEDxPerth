@@ -11,7 +11,7 @@ class Event < ActiveRecord::Base
   
   accepts_nested_attributes_for :ted_videos, :reject_if => reject_if_proc, :allow_destroy => true
   
-  scope :viewable, where(:state => %w(published completed))
+  scope :viewable, where(:state => %w(published completed)).includes(:ted_videos)
   
   is_sluggable :name
   
@@ -55,6 +55,20 @@ class Event < ActiveRecord::Base
       name = ::I18n.t("#{self.class.model_name.underscore}.#{se}", :default => se.to_s.humanize, :scope => "ui.state_events")
       [name, se]
     end
+  end
+  
+  # Permissions control.
+  
+  def can_attend?(user)
+    can_change_attendance? && !attending?(user)
+  end
+  
+  def can_withdraw?(user)
+    can_change_attendance? && attending?(user)
+  end
+  
+  def can_change_attendance?
+    published? && starts_at < Time.now
   end
   
   protected
