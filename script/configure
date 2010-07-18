@@ -1,0 +1,54 @@
+#!/usr/bin/env ruby
+
+require 'yaml'
+require 'pathname'
+
+editor = ENV['EDITOR'] || "vim"
+base   = Pathname(__FILE__).dirname.dirname
+
+if !(ARGV & ["-h", "--help", "help"]).empty?
+  puts "Usage: #$0"
+  puts ""
+  puts "Configures the current application (settings and database)"
+end
+
+$step = 0
+def step(text)
+  puts "Step #{$step += 1}. #{text}"
+end
+
+def run_sh(cmd)
+  puts ">> #{cmd}"
+  system cmd
+end
+
+Dir.chdir base do
+
+  if `which bundle`.empty? || `bundle -v` !~ /^Bundler version 1\./
+    step "Installing the latest bundler"
+    system "gem install bundler --pre"
+  end
+
+  step "Installing dependencies"
+  run_sh "bundle install"
+
+  db_yml = base.join("config", "database.yml")
+  if !db_yml.readable?
+    step "Copy across database"
+    run_sh "cp '#{db_yml}.example' '#{db_yml}'"
+    step "Edit database config"
+    run_sh "#{editor} '#{db_yml}'"
+  end
+
+  settings_yml = base.join("config", "settings.yml")
+  if !settings_yml.readable?
+    step "Copy across settings"
+    run_sh "cp '#{settings_yml.gsub(".yml", ".example.yml")}' '#{settings_yml}'"
+    step "Edit settings"
+    run_sh "#{editor} '#{settings_yml}'"
+  end
+
+  step "Setting up db"
+  run_sh "rake db:setup"
+
+end

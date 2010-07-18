@@ -24,7 +24,7 @@ gem 'uuid'
 gem 'stringex'
 gem 'pseudocephalopod', '>= 0.2.4'
 gem 'almost-happy'
-gem 'will_paginate',    '>= 3.0.pre', :git => "git://github.com/mislav/will_paginate.git", :branch => "rails3"
+gem 'will_paginate',    '>= 3.0.pre', :git => 'git://github.com/mislav/will_paginate.git', :branch => 'rails3'
 gem 'state_machine',    '>= 0.9.0'
 gem 'msales-carmen',    '>= 0.1.4', :require => ['carmen', 'carmen/action_view_helpers']
 
@@ -44,9 +44,13 @@ gem 'youthtree-js'
 
 gem 'jammit'
 
+# Auth
+gem 'authlogic', :git => 'git://github.com/odorcicd/authlogic.git', :branch => 'rails3'
+
 group :development do
   gem 'rails3-generators'
   gem 'mongrel'
+  gem 'annotate', :git => 'git://github.com/miyucy/annotate_models.git'
 end
 
 group :test, :development do
@@ -56,7 +60,7 @@ group :test, :development do
 end
 
 group :test do
-  gem 'remarkable', '>= 4.0.0.alpah4', :require => "remarkable/core"
-  gem 'remarkable_activerecord', '>= 4.0.0.alpah4', :require => "remarkable/active_record"
+  gem 'remarkable', '>= 4.0.0.alpah4', :require => 'remarkable/core'
+  gem 'remarkable_activerecord', '>= 4.0.0.alpah4', :require => 'remarkable/active_record'
   gem 'rr'
 end
