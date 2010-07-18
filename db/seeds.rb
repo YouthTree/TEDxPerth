@@ -1,4 +1,7 @@
 BHM::Admin::AttrAccessibleScoping.disable do
+  # Initial Roles
+  Role.create! :name => "admin"
+  Role.create! :name => "organizer"
   # Initial users
   user = User.create!({
    :login                 => "admin",

@@ -10,3 +10,11 @@
   
   = s.attribute :admin do
     = @user.admin? ? "Yes" : "No"
+  
+  = s.attribute :roles do
+    - if @user.roles.empty?
+      %p.empty This user has no roles.
+    - else
+      %ul#roles
+        - @user.roles.each do |role|
+          %li= role.name.to_s.humanize

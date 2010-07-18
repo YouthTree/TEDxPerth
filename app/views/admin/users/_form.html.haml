@@ -6,3 +6,6 @@
 = form.inputs :name => "Password Authentication" do
   = form.input :password
   = form.input :password_confirmation
+  
+= form.inputs :name => "Site-wide Roles" do
+  = form.input :role_ids, :collection => Role.site_wide_for_select, :as => :select, :multiple => true

@@ -27,6 +27,10 @@ class Role < ActiveRecord::Base
         where :owner_id => nil, :owner_type => nil
       end
     end
+    
+    def site_wide_for_select
+      on(nil).all.map { |r| [r.name.humanize, r.id] }
+    end
 
   end
 
