@@ -1,5 +1,26 @@
 en:
   page:
     title:
-      controller:
-        action: "String"
+      pages:
+        index: "Welcome to TEDxPerth"
+      user_sessions:
+        new: Sign In
+        create: Sign In
+      users:
+        new: Sign Up
+        create: Sign Up
+        show: "%{user}'s Profile"
+        edit: "Edit %{user}'s Profile"
+        update: "Edit %{user}'s Profile"
+        welcome: "Welcome to TEDxPerth"
+      password_resets:
+        new: "Request a Password Reset"
+        edit: "Reset your Password"
+        create: "Request a Password Reset"
+        update: "Reset your Password"
+      contacts:
+        new: "Contact the TEDxPerth team"
+        create: "Contact the TEDxPerth team"
+  error_pages:
+    title:
+      not_found: "Page Not Found"

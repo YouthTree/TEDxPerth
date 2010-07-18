@@ -1,0 +1,10 @@
+- if logged_in? && @user == current_user
+  %p
+    Hey, this is your profile! 
+    = link_to "Click here", edit_user_path(params[:id])
+    to edit your details.
+
+- if can?(:edit, @user)
+  %p.actions
+    = rpx_identifiers_to_s @user
+    = link_to "(Edit Profile)", edit_user_path(params[:id])

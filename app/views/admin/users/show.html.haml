@@ -1,0 +1,12 @@
+%h2.title Viewing User
+
+= show_for @user do |s|
+  
+  = s.attribute :login
+  
+  = s.attribute :display_name
+  
+  = s.attribute :email
+  
+  = s.attribute :admin do
+    = @user.admin? ? "Yes" : "No"
