@@ -1,4 +1,6 @@
 class Page < ActiveRecord::Base
+
+  attr_accessible :title, :content, :key, :description, :keywords, :format
   
   validates_presence_of :title, :content, :key
   
@@ -9,7 +11,7 @@ class Page < ActiveRecord::Base
   scope :renderable, includes(:rendered_content, :title, :keywords, :description)
   
   def self.[](identifier)
-    where('key = :identifier OR id = :identifier', :identifier => identifier.to_s).first
+    where(:key => identifier.to_s).first
   end
   
   def self.home

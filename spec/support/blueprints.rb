@@ -8,10 +8,10 @@ Ngo.blueprint do
 end
 
 Page.blueprint do
-  title   { Forgery(:lorem_ipsum).sentence(:random => true )}
-  key     { title.gsub(/\W/, '.').squeeze('.').downcase }
-  format  { 'markdown' }
-  content { Forgery(:lorem_ipsum).paragraphs(2 + rand(10), :random => true) } 
+  self.title   { Forgery(:lorem_ipsum).sentence(:random => true )}
+  self.key     { "some-random-key-#{sn}" }
+  self.format  { 'markdown' }
+  self.content { Forgery(:lorem_ipsum).paragraphs(2 + rand(10), :random => true) } 
 end
 
 User.blueprint do

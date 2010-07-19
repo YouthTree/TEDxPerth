@@ -35,7 +35,7 @@ Dir.chdir base do
   db_yml = base.join("config", "database.yml")
   if !db_yml.readable?
     step "Copy across database"
-    run_sh "cp '#{db_yml}.example' '#{db_yml}'"
+    run_sh "cp '#{db_yml.to_s.gsub(".yml", ".example.yml")}.example' '#{db_yml}'"
     step "Edit database config"
     run_sh "#{editor} '#{db_yml}'"
   end
@@ -43,7 +43,7 @@ Dir.chdir base do
   settings_yml = base.join("config", "settings.yml")
   if !settings_yml.readable?
     step "Copy across settings"
-    run_sh "cp '#{settings_yml.gsub(".yml", ".example.yml")}' '#{settings_yml}'"
+    run_sh "cp '#{settings_yml.to_s.gsub(".yml", ".example.yml")}' '#{settings_yml}'"
     step "Edit settings"
     run_sh "#{editor} '#{settings_yml}'"
   end

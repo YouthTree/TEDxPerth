@@ -8,3 +8,8 @@ TEDxPerth::Application.configure do
   config.action_mailer.delivery_method              = :test
   # config.active_record.schema_format              = :sql
 end
+
+require 'machinist'
+Machinist.configure do |config|
+  config.cache_objects = false
+end
