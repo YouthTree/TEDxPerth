@@ -7,5 +7,6 @@ tmp/restart.txt
 tmp/*.sql
 public/stylesheets/*.css
 config/settings.yml
+config/database.yml
 .bundle-cache
 public/assets/
