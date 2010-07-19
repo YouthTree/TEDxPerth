@@ -5,7 +5,7 @@ class Ngo < ActiveRecord::Base
   validates_presence_of   :name, :url
   validates_url_format_of :url
   
-  state_machine :state do
+  state_machine :state, :initial => :submitted do
     state :submitted
     state :approved
     state :presented

@@ -1,4 +1,6 @@
 class Role < ActiveRecord::Base
+  
+  attr_accessible :name, :owner
 
   validates_presence_of :name
   belongs_to :owner, :polymorphic => true

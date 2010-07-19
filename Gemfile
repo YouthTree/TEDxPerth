@@ -4,7 +4,7 @@ gem 'rails', '3.0.0.beta4'
 
 gem 'json'
 gem 'sqlite3-ruby', :require => 'sqlite3'
-gem 'forgery'
+
 
 # View Related
 
@@ -13,7 +13,7 @@ gem 'compass',               '>= 0.10.2'
 gem 'compass-colors',        '>= 0.3.1'
 gem 'fancy-buttons',         '>= 0.5.4'
 gem 'formtastic',            '>= 1.0.0.beta'
-gem 'validation_reflection', '>= 0.3.6'
+gem 'validation_reflection', '>= 0.3.6', :git => "git://github.com/Sutto/validation_reflection.git"
 gem 'title_estuary',         '>= 1.2.0'
 gem 'show_for'
 gem 'inherited_resources'
@@ -63,7 +63,8 @@ end
 group :test, :development do
   gem 'rspec',       '>= 2.0.0.beta.16'
   gem 'rspec-rails', '>= 2.0.0.beta.16'
-  gem 'machinist', :require => nil
+  gem 'machinist',   '>= 2.0.0.beta2', :require => nil
+  gem 'forgery',                       :require => nil
 end
 
 group :test do

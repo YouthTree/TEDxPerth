@@ -1,4 +1,8 @@
 class UserRole < ActiveRecord::Base
+  
+  # N.B: Ensure no user facing forms have access to this.
+  attr_accessible :all
+  
   belongs_to :user
   belongs_to :role
 
