@@ -1,0 +1,4 @@
+#search
+  = form_tag '#' do
+    = text_field_tag :q, "", :type => "search", :placeholder => tu("search.placeholder"), :class => "search-box"
+    = button_tag "search &raquo;".html_safe, :type => "submit"

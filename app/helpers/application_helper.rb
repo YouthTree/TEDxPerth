@@ -79,6 +79,10 @@ module ApplicationHelper
     end
     doc.at('*').to_html.html_safe
   end
+
+  def button_tag(text, opts = {})
+    content_tag :button, text, opts
+  end
   
   protected
   

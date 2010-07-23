@@ -1,11 +1,10 @@
-footer
+footer#page-footer
   text-align: center
+  color: $footer-text-colour
+  border-top: 0.1em solid $footer-top-border
   nav
-    font-size: 0.8em
-    border-top: 0.1em solid #DDD
-    border-bottom: 0.1em solid #DDD
-    padding: 0.3em 0
-    margin: 0.5em 0
+    padding: 0
+    margin: 1em 0 0.75em
     font-weight: bold
     ul
       +inline-list
@@ -13,3 +12,7 @@ footer
       margin: 0
       li
         margin: 0 0.5em
+        a
+          +link-colors($footer-link, $footer-link-hover, $footer-link-active, $footer-link-visited)
+  p, nav
+    font-size: 0.9em

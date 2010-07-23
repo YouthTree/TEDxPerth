@@ -14,10 +14,10 @@
   %body
     = flash_messages :alert, :notice
     #container
-      %header= render :partial => 'shared/header'
+      %header#page-header= render :partial => 'shared/header'
       %section#content
         %section#inner-content= yield
-      %footer= render :partial => 'shared/footer'
+      %footer#page-footer= render :partial => 'shared/footer'
     = yield :page_bottom
     
     

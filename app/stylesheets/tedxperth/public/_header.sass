@@ -1,17 +1,39 @@
-header
+header#page-header
   text-align: center
   h1
     font-weight: bold
     margin: 0.5em 0
+    a
+      +inline-block
+      +replace-text-with-dimensions("/images/tedxperth/tedxperth-logo.png")
   nav
-    border-top: 0.1em solid #DDD
-    border-bottom: 0.1em solid #DDD
-    padding: 0.5em 0
-    margin: 0 0 1.5em
-    font-weight: bold
+    padding: 0.5em 1em
+    margin: 0 0 1em
+    background: $header-menu-bg
+    +border-bottom-radius(0.5em)
+    +clearfix
     ul
+      float: left
       +inline-list
       padding: 0
       margin: 0
       li
-        margin: 0 1em
+        margin: 0 1em 0 0
+        a
+          font-size: 0.8em
+          text-transform: uppercase
+          font-weight: bold
+          +unstyled-link
+          +link-colors($header-menu-link, $header-menu-hover, $header-menu-active, $header-menu-visited)
+    #search
+      float: right
+      input.search-box
+        width: 20em
+      button
+        background: none
+        border: none
+        font-weight: bold
+        padding: 0
+        margin: 0
+        +link-colors($header-menu-link, $header-menu-hover, $header-menu-active, $header-menu-visited)
+          
