@@ -57,6 +57,7 @@ gem 'validates_url_format_of'
 group :development do
   gem 'rails3-generators'
   gem 'mongrel'
+  gem 'barista_growl'
   gem 'annotate', :git => 'git://github.com/miyucy/annotate_models.git'
 end
 

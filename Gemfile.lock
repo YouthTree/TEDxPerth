@@ -76,6 +76,9 @@ GEM
     awesome_print (0.2.1)
     barista (0.5.0)
       open4
+    barista_growl (0.1.0)
+      barista
+      growl
     bcrypt-ruby (2.1.2)
     bhm-admin (0.1.4)
       compass (>= 0.10.0.rc4)
@@ -110,6 +113,7 @@ GEM
       actionpack (>= 2.3.0)
       activesupport (>= 2.3.0)
     gem_plugin (0.2.3)
+    growl (1.0.3)
     haml (3.0.13)
     has_scope (0.5.0)
     i18n (0.4.1)
@@ -223,6 +227,7 @@ DEPENDENCIES
   authlogic_rpx!
   awesome_print
   barista (>= 0.5.0)
+  barista_growl
   bcrypt-ruby (>= 2.1.2)
   bhm-admin (>= 0.1.4)
   bhm-google-maps
