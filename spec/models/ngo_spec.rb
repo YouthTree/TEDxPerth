@@ -119,12 +119,11 @@ describe Ngo do
   end
 
 end
-
 # == Schema Information
 #
 # Table name: ngos
 #
-#  id          :integer         not null, primary key
+#  id          :integer(4)      not null, primary key
 #  name        :string(255)
 #  description :text
 #  url         :string(255)
@@ -133,6 +132,7 @@ end
 #  created_at  :datetime
 #  updated_at  :datetime
 #
+
 
 # == Schema Information
 #

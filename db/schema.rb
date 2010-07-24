@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100724082404) do
+ActiveRecord::Schema.define(:version => 20100724135109) do
 
   create_table "events", :force => true do |t|
     t.string   "name"
@@ -63,6 +63,23 @@ ActiveRecord::Schema.define(:version => 20100724082404) do
   add_index "pages", ["key"], :name => "index_pages_on_key"
   add_index "pages", ["menu_position"], :name => "index_pages_on_menu_position"
   add_index "pages", ["show_in_menu", "menu_position"], :name => "index_pages_on_show_in_menu_and_menu_position"
+
+  create_table "posts", :force => true do |t|
+    t.string   "title"
+    t.datetime "published_at"
+    t.text     "rendered_summary"
+    t.text     "content"
+    t.text     "rendered_content"
+    t.string   "format"
+    t.string   "preview_key"
+    t.string   "cached_slug"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "posts", ["cached_slug", "published_at"], :name => "index_posts_on_cached_slug_and_published_at"
+  add_index "posts", ["cached_slug"], :name => "index_posts_on_cached_slug"
+  add_index "posts", ["preview_key"], :name => "index_posts_on_preview_key"
 
   create_table "roles", :force => true do |t|
     t.string   "name",       :null => false
