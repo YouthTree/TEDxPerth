@@ -8,8 +8,14 @@
   
   = r.attribute :title
   
-  = r.attribute :published do
-    = resource.published? ? "Yes" : "No"
+  = r.attribute :published
+    
+  = r.attribute :show_in_menu
+  
+  - if resource.show_in_menu?
+    = r.attribute :menu_title
+    = r.attribute :menu_subtitle
+    = r.attribute :menu_position
   
   = r.attribute :content do
     = admin_content resource

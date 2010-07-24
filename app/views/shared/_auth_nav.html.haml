@@ -1,0 +1,9 @@
+- if logged_in?
+  Logged in as
+  %span#current-user= current_user.to_s
+  = link_to "(sign out)", sign_out_path
+- else
+  Want the full experience?
+  %span.auth-action= link_to "Sign up", :new_user
+  or
+  %span.auth-action= link_to "Sign in", :sign_in

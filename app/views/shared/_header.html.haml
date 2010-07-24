@@ -1,5 +1,6 @@
-%nav
-  = render :partial => 'shared/menu'
-  = render :partial => 'shared/search'
-
 %h1= link_to "TEDxPerth", :root
+%section#inner-header-right
+  %nav#authentication= render :partial => 'shared/auth_nav'
+  #search= render :partial => 'shared/search'
+
+%nav#page-navigation= render :partial => 'shared/menu', :locals => {:expanded => true}

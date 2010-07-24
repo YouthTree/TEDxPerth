@@ -36,6 +36,6 @@ TEDxPerth::Application.routes.draw do |map|
 
   root :to => 'pages#index'
   
-  get '/:id', :to => "pages#show"
+  get '/:id', :to => "pages#show", :as => :page
 
 end

@@ -3,37 +3,80 @@ header#page-header
   h1
     font-weight: bold
     margin: 0.5em 0
+    float: left
+    width: 350px
+    height: 90px
     a
-      +inline-block
+      display: block
       +replace-text-with-dimensions("/images/tedxperth/tedxperth-logo.png")
-  nav
-    padding: 0.5em 1em
-    margin: 0 0 1em
-    background: $header-menu-bg
-    +border-bottom-radius(0.5em)
-    +clearfix
-    ul
-      float: left
-      +inline-list
-      padding: 0
-      margin: 0
-      li
-        margin: 0 1em 0 0
-        a
-          font-size: 0.8em
-          text-transform: uppercase
-          font-weight: bold
-          +unstyled-link
-          +link-colors($header-menu-link, $header-menu-hover, $header-menu-active, $header-menu-visited)
+  section#inner-header-right
+    float: right
+    text-align: center
+    width: 300px
     #search
-      float: right
+      padding-top: 0.25em
       input.search-box
         width: 20em
       button
-        background: none
+        background: $search-button-bg
         border: none
         font-weight: bold
-        padding: 0
+        padding: 0.2em 0.75em 0.3em
         margin: 0
+        +border-radius(0.4em)
         +link-colors($header-menu-link, $header-menu-hover, $header-menu-active, $header-menu-visited)
+        &:hover
+          background-color: darken($search-button-bg, 50%)
+    nav#authentication
+      padding-top: 3em
+      font-size: 0.9em
+      color: lighten($header-menu-link, 10%)
+      span#current-user, span.auth-action a
+        color: $header-menu-link
+        font-weight: bold
+
+  nav#page-navigation
+    clear: both
+    padding: 0
+    margin: 1em 0 1.5em
+    +clearfix
+    border-top: 0.1em dashed #CCC
+    border-bottom: 0.2em solid #CCC
+    ul
+      +inline-list
+      padding: 0
+      margin: 0
+      text-align: center
+      li
+        +inline-block
+        margin: 0
+        a
+          +unstyled-link
+          display: block
+          padding: 0.75em 1.25em
+          &:hover
+            background-color: $main-nav-hover-bg
+            span.menu-item-title
+              color: $main-nav-title-hover
+            span.menu-item-expanded
+              color: $main-nav-expanded-hover
+          &:active
+            span.menu-item-title
+              color: $main-nav-title-active
+            span.menu-item-expanded
+              color: $main-nav-expanded-active
+          &:visited
+            span.menu-item-title
+              color: $main-nav-title-visited
+            span.menu-item-expanded
+              color: $main-nav-expanded-visited
+          span.menu-item-title, span.menu-item-expanded
+            display: block
+            text-align: center
+          span.menu-item-title
+            color: $main-nav-title-link
+            font-size: 1.1em
+            font-weight: bold
+          span.menu-item-expanded
+            color: $main-nav-expanded-link
           

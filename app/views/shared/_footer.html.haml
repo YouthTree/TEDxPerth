@@ -1,3 +1,4 @@
-%nav= render :partial => 'shared/menu'
+%nav= render :partial => 'shared/menu', :locals => {:expanded => false}
 %p#copyright-statement
   == &copy; #{copyright 2010}, The TED<sup>x</sup>Perth Team. All rights reserved.
+  This independent TEDx event is operated under license from TED.

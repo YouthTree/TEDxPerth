@@ -19,4 +19,18 @@ module ContentHelper
     end
   end
   
+  def eml(text, url, options = {})
+    expanded_text = options.delete(:title)
+    expanded = options.delete(:expanded)
+    if expanded
+      inner = ActiveSupport::SafeBuffer.new
+      inner << content_tag(:span, text, :class => 'menu-item-title')
+      inner << content_tag(:span, expanded_text, :class => 'menu-item-expanded') unless expanded_text.blank?
+    else
+      inner = text
+      options.merge! :title => expanded_text
+    end
+    ml inner, url, options
+  end
+  
 end

@@ -84,6 +84,10 @@ module ApplicationHelper
     content_tag :button, text, opts
   end
   
+  def page_path_with_home(page)
+    page.key == "home" ? root_path : page_path(page)
+  end
+  
   protected
   
   def normalized_content_scope(key, scope = nil)

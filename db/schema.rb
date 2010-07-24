@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100718095611) do
+ActiveRecord::Schema.define(:version => 20100724082404) do
 
   create_table "events", :force => true do |t|
     t.string   "name"
@@ -53,10 +53,16 @@ ActiveRecord::Schema.define(:version => 20100718095611) do
     t.string   "format"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "menu_subtitle"
+    t.string   "menu_title"
+    t.integer  "menu_position"
+    t.boolean  "show_in_menu",     :default => false
   end
 
   add_index "pages", ["cached_slug"], :name => "index_pages_on_cached_slug"
   add_index "pages", ["key"], :name => "index_pages_on_key"
+  add_index "pages", ["menu_position"], :name => "index_pages_on_menu_position"
+  add_index "pages", ["show_in_menu", "menu_position"], :name => "index_pages_on_show_in_menu_and_menu_position"
 
   create_table "roles", :force => true do |t|
     t.string   "name",       :null => false

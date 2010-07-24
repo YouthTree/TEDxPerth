@@ -13,10 +13,13 @@ BHM::Admin::AttrAccessibleScoping.disable do
   user.has_role! :admin
   # Initial Pages
   Page.create!({
-    :title        => "Wecome to TEDxPerth",
-    :content      => "Welcome!",
-    :format       => "markdown",
-    :key          => "home",
-    :published_at => Time.now
+    :title         => "Wecome to TEDxPerth",
+    :content       => "Welcome!",
+    :format        => "markdown",
+    :key           => "home",
+    :show_in_menu  => true,
+    :menu_title    => "Home",
+    :menu_subtitle => "Our next event & more!",
+    :published_at  => Time.now
   })
 end

@@ -6,6 +6,15 @@
   = form.input :title
   = form.input :published, :as => :boolean
   
+= form.inputs :name => "Menu Information" do
+  = form.input :show_in_menu
+  = form.input :menu_title
+  = form.input :menu_subtitle
+  
 = form.inputs :name => "Content", :class => "inputs convertable" do
   = form.input :format, :as => :select, :collection => AlmostHappy::Convertor.for_select, :include_blank => false
   ~ form.input :content, content_options(form, :content, :input_html => {:rows => 25})
+
+= form.inputs :name => "Extra Information" do
+  = form.input :keywords, :as => :string, :hint => "Comma-separated values describing the page"
+  = form.input :description, :as => :string, :hint => "A brief, search engine friendly description of the page"
