@@ -1,0 +1,5 @@
+%h1 All TEDxPerth Events
+
+%ul#events
+  - @events.each do |event|
+    %li= link_to event.name, event

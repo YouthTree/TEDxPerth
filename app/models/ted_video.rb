@@ -2,17 +2,19 @@ class TedVideo < ActiveRecord::Base
   
   belongs_to :event
   
-  validates_presence_of :url, :event
+  validates_presence_of :url
   validates_url_format_of :url
   
   before_save :automatically_get_response
   
   def automatically_get_response
-    unless raw_embedly_response?
-      embedly = Embedly[self.url]
-      self.raw_embedly_response = embedly.to_json
-      self.embed_code           = embedly[:html]
-    end
+    get_embedly_response unless raw_embedly_response?
+  end
+  
+  def get_embedly_response
+    embedly = Embedly[self.url, {:max_width => 700, :max_height => 520}]
+    self.raw_embedly_response = embedly.to_json
+    self.embed_code           = embedly[:html]
   end
   
   def title
