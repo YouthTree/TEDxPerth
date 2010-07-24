@@ -1,8 +1,6 @@
 %ul
   - Page.for_menu.each do |page|
     = eml page.menu_title, page_path_with_home(page), :expanded => expanded, :title => page.menu_subtitle
-  - if logged_in?
-    = eml "Your Profile", user_path(:current), :expanded => expanded, :title => "See how we see you"
-    - if current_user.admin?
-      = eml 'Admin Area', :admin_root, :expanded => expanded, :title => "You are awesome!"
+  = eml "Events", '#', :expanded => expanded, :title => "Past & Previous Events"
+  = eml "News", '#', :expanded => expanded, :title => "Find out what's going on"
   = eml "Contact Us", :contact_us, :expanded => expanded, :title => "Let us know what you think!"
