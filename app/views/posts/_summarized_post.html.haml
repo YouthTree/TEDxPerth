@@ -1,0 +1,5 @@
+%article.post
+  %header
+    %h1= link_to summarized_post.title, post_path(summarized_post)
+    = render :partial => 'post_metadata', :object => summarized_post
+  = summarized_post.summary_as_html

@@ -5,6 +5,7 @@ TEDxPerth::Application.routes.draw do |map|
     resources :users
     resources :pages
     resources :events
+    resources :posts
   end
 
   resources :user_session, :path => 'user-sessions'
@@ -30,6 +31,8 @@ TEDxPerth::Application.routes.draw do |map|
       post :attending
     end
   end
+  
+  resources :posts, :only => [:index, :show]
 
   get 'contact-us',  :to => 'contacts#new', :as => :contact_us
   post 'contact-us', :to => 'contacts#create'

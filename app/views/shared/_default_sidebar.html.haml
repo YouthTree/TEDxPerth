@@ -9,4 +9,9 @@
 
 %h2 Recent News
 
-%P Show a list of recently posted topics here
+- posts = Post.for_sidebar.all
+%ul#posts-listing
+  - if posts.empty?
+    %li.loading There are currently no published posts on this blog.
+  - posts.each do |post|
+    %li= link_to post.title, post_path(post)

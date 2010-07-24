@@ -1,37 +1,40 @@
 // Sass Port / Variant of the Better Web Readability Project: http://code.google.com/p/better-web-readability-project/
 
-=better-content-typography
-  font-size: 1.15em
-  line-height: 1.8em
-  
-  a
-    +unstyled-link
-    +link-colors($typography-link, $typography-hover, $typography-active, $typography-visited)
-  
+=better-headers
   h1, h2, h3, h4, h5, h6
     margin: 0
     padding: 0
     +header-font-stack
-  
+
   h1
     font-size: 2.125em
     margin-bottom: 0.765em
-  
+
   h2
     font-size: 1.9em
     margin-bottom: 0.855em
-  
+
   h3
     font-size: 1.7em
     margin-bottom: 0.956em
-  
+
   h4
     font-size: 1.4em
     margin-bottom: 1.161em
-  
+
   h5, h6
     font-size: 1.313em
     margin-bottom: 1.238em
+
+
+=better-content-typography
+  font-size: 1.15em
+  line-height: 1.8em
+  +better-headers
+  
+  a
+    +unstyled-link
+    +link-colors($typography-link, $typography-hover, $typography-active)
   
   ul
     list-style-position: outside

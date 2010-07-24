@@ -9,6 +9,7 @@ class ApplicationController < ActionController::Base
   layout 'tedxperth'
   
   include TitleEstuary
-  use_controller_exts :translation, :title_estuary, :authlogic_helpers, :authorization_helpers
+  use_controller_exts :translation, :title_estuary, :authlogic_helpers,
+                      :authorization_helpers, :sidebar
 
 end

@@ -3,6 +3,8 @@ class UsersController < ApplicationController
   before_filter :require_user, :only   => [:edit, :destroy, :update, :welcome]
   before_filter :prepare_user, :except => [:new, :create, :index, :welcome]
   before_filter :check_authz,  :only   => [:edit, :destroy, :update]
+  
+  hide_sidebar! :only => [:new, :edit, :create, :update]
 
   def show
   end

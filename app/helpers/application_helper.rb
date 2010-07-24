@@ -1,5 +1,9 @@
 module ApplicationHelper
   
+  def yes_no?(value)
+    value ? "Yes" : "No"
+  end
+  
   def destroy_value(form)
     form.object._destroy ? 1 : 0
   end
@@ -48,7 +52,7 @@ module ApplicationHelper
   def google_analytics_snippet_js(identifier)
     return <<-END_OF_JS
       var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', #{identifier.to_json}]]);
+      _gaq.push(['_setAccount', #{identifier.to_json}]);
       _gaq.push(['_trackPageview']);
 
       (function() {

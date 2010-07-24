@@ -45,6 +45,8 @@ gem 'youthtree-js'
 
 gem 'jammit'
 
+gem 'nokogiri'
+
 gem 'mail_form'
 
 # Auth

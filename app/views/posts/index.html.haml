@@ -1,0 +1,10 @@
+%h1= page_title
+
+%section#posts
+  = render :collection => @posts, :partial => 'summarized_post', :spacer_template => 'post_spacer'
+  - if @posts.blank?
+    %p#empty-listing Woops! it looks like there aren't any posts here at the moment...
+  - else
+    %hr.post-spacer
+    = pagination_links_for @posts
+  

@@ -1,5 +1,7 @@
 class UserSessionsController < ApplicationController
 
+  hide_sidebar!
+
   def new
     @user_session = UserSession.new
   end

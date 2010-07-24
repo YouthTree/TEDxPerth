@@ -1,6 +1,9 @@
 en:
   page:
     title:
+      posts:
+        index: "The TEDxPerth Team Blog"
+        show: "%w{post_title}"
       pages:
         index: "%{title}"
         show: "%{title}"

@@ -245,6 +245,7 @@ DEPENDENCIES
   mongrel
   msales-carmen (>= 0.1.4)
   mysql
+  nokogiri
   pseudocephalopod (>= 0.2.4)
   rails (= 3.0.0.beta4)
   rails3-generators

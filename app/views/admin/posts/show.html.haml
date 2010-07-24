@@ -1,0 +1,13 @@
+%h2.title Viewing Post
+
+= show_for resource do |r|
+  
+  = r.attribute :title
+  
+  = r.attribute :published
+  
+  = r.attribute :summary do
+    = admin_content resource, :summary
+  
+  = r.attribute :content do
+    = admin_content resource

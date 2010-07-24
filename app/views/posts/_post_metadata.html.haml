@@ -1,0 +1,5 @@
+%p.post-metadata
+  Posted
+  - if post_metadata.published?
+    %abbr.timestamp{:title => post_metadata.published_at.iso8601}
+      = post_metadata.published_at.to_date.to_s(:long)
