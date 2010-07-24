@@ -13,6 +13,7 @@ header#page-header
     float: right
     text-align: center
     width: 300px
+    padding-top: 2.5em
     #search
       padding-top: 0.25em
       input.search-box
@@ -28,7 +29,6 @@ header#page-header
         &:hover
           background-color: darken($search-button-bg, 50%)
     nav#authentication
-      padding-top: 3em
       font-size: 0.9em
       color: lighten($header-menu-link, 10%)
       span#current-user, span.auth-action a
@@ -40,8 +40,8 @@ header#page-header
     padding: 0
     margin: 1em 0 1.5em
     +clearfix
-    border-top: 0.1em dashed #CCC
-    border-bottom: 0.2em solid #CCC
+    border-top: 0.1em dashed $main-nav-border
+    border-bottom: 0.2em solid darken($main-nav-border, 10%)
     ul
       +inline-list
       padding: 0
@@ -54,7 +54,21 @@ header#page-header
           +unstyled-link
           display: block
           padding: 0.75em 1.25em
+          border-left: 0.1em dashed transparent
+          border-right: 0.1em dashed transparent
+          &:link
+            span.menu-item-title
+              color: $main-nav-title-link
+            span.menu-item-expanded
+              color: $main-nav-expanded-link
+          &:visited
+            span.menu-item-title
+              color: $main-nav-title-visited
+            span.menu-item-expanded
+              color: $main-nav-expanded-visited
           &:hover
+            border-left-color: $main-nav-border
+            border-right-color: $main-nav-border
             background-color: $main-nav-hover-bg
             span.menu-item-title
               color: $main-nav-title-hover
@@ -65,18 +79,10 @@ header#page-header
               color: $main-nav-title-active
             span.menu-item-expanded
               color: $main-nav-expanded-active
-          &:visited
-            span.menu-item-title
-              color: $main-nav-title-visited
-            span.menu-item-expanded
-              color: $main-nav-expanded-visited
           span.menu-item-title, span.menu-item-expanded
             display: block
             text-align: center
           span.menu-item-title
-            color: $main-nav-title-link
-            font-size: 1.1em
+            font-size: 1.25em
             font-weight: bold
-          span.menu-item-expanded
-            color: $main-nav-expanded-link
           

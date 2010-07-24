@@ -6,8 +6,17 @@ $tedxperth-content-sides: ($ninesixty-columns - $tedxperth-content-width) / 2
 #container
   +grid-container
   +clearfix
-  #content, footer#page-footer, header#page-header
+  .inner-content, footer#page-footer, header#page-header
     +grid-unit-base
+  footer#page-footer, header#page-header, .inner-content.full-width
     +grid-width($tedxperth-content-width)
     +grid-suffix($tedxperth-content-sides)
     +grid-prefix($tedxperth-content-sides)
+  .inner-content.left
+    +grid-width($tedxperth-content-width / 4 * 3)
+    +grid-prefix($tedxperth-content-sides)
+  .inner-content.right
+    +grid-width($tedxperth-content-width / 4)
+    +grid-suffix($tedxperth-content-sides)
+    
+    

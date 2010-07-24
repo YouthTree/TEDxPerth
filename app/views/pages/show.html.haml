@@ -1,7 +1,4 @@
-- content_for :extra_head do
-  - if @page.keywords.present?
-    = meta_tag :keywords, @page.keywords
-  - if @page.description.present?
-    = meta_tag :description, @page.description
-    
+- meta_for_page! @page
+- render_to_sidebar! 'shared/default_sidebar'
+
 = render_page! @page, :title => @page.title

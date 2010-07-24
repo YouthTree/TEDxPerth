@@ -16,7 +16,10 @@
     #container
       %header#page-header= render :partial => 'shared/header'
       %section#content
-        %section#inner-content= yield
+        %section.inner-content{:class => main_content_class}= yield
+        - if has_sidebar?
+          %section.inner-content.right= sidebar_content
+        
       %footer#page-footer= render :partial => 'shared/footer'
     = yield :page_bottom
     

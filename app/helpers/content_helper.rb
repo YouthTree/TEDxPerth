@@ -33,4 +33,9 @@ module ContentHelper
     ml inner, url, options
   end
   
+  def meta_for_page!(page)
+    content_for(:extra_head, meta_tag(:description, page.description)) if page.description?
+    content_for(:extra_head, meta_tag(:keywords, page.keywords))       if page.keywords?
+  end
+  
 end

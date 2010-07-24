@@ -1,7 +1,15 @@
 #contact_form_nickname_input
   display: none
 
-article.page-content
-  h1,h2,h3,h4,h5,h6
-    +header-font-stack
-  //+better-content-typography
+article.page-content, section.inner-content.right
+  +better-content-typography
+  
+  object
+    margin: 0 0 1.5em 1em
+  
+section.inner-content.right
+  font-size: 0.8em
+  text-align: right
+  
+  p, ul
+    font-size: 1.3em
