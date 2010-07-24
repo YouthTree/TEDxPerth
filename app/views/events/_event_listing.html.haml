@@ -1,0 +1,8 @@
+%li.event
+  %h3= link_to event_listing.name, event_listing
+  %p.event-metadata
+    This event
+    = event_listing.upcoming? ? "will be" : "was"
+    == run from #{pretty_date_range event_listing.starts_at, event_listing.ends_at}.
+      
+  = linked_event_preview event_listing

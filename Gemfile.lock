@@ -65,6 +65,7 @@ GEM
       activemodel (= 3.0.0.beta4)
       activesupport (= 3.0.0.beta4)
     activesupport (3.0.0.beta4)
+    acts_as_indexed (0.6.3)
     almost-happy (0.3.0)
       RedCloth
       activerecord (>= 3.0.0.beta3)
@@ -221,6 +222,7 @@ PLATFORMS
 
 DEPENDENCIES
   ZenTest
+  acts_as_indexed
   almost-happy (>= 0.3.0)
   annotate!
   authlogic!

@@ -14,12 +14,14 @@ class Event < ActiveRecord::Base
   scope :viewable, where(:state => %w(published completed)).includes(:ted_videos)
   scope :for_sidebar, select('id, name, starts_at, ends_at, cached_slug')
   
+  acts_as_indexed :fields => [:name, :rendered_description, :rendered_notes], :if => Proc.new { |event| event.published? || event.completed? }
+  
   def self.upcoming
     viewable.order('starts_at ASC').where('starts_at >= ?', Time.now)
   end
   
   def self.completed
-    viewable.orders('starts_at DESC').where('starts_at <= ?', Time.now)
+    viewable.order('ends_at DESC').where('ends_at <= ?', Time.now)
   end
   
   def self.next
@@ -82,6 +84,14 @@ class Event < ActiveRecord::Base
   
   def can_change_attendance?
     published? && starts_at < Time.now
+  end
+  
+  def upcoming?
+    (completed? || published?) && starts_at >= Time.now
+  end
+  
+  def completed?
+    (published? || completed?) && ends_at <= Time.now
   end
   
   protected

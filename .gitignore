@@ -10,3 +10,4 @@ config/settings.yml
 config/database.yml
 .bundle-cache
 public/assets/
+index/

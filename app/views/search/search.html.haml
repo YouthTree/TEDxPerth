@@ -1,0 +1,25 @@
+%h1 Your Search Results
+
+%p#search-summary
+  Your search for
+  %span.search-term= "\'#{params[:query]}\'"
+  returned
+  == #{pluralize @total_count, "result"}.
+
+%h2 TEDxPerth Events
+%ul.search-result#found-events
+  = possibly_empty_row @events, 'events'
+  - @events.each do |event|
+    %li.found-event= link_to event.name, event
+
+%h2 Blog Posts
+%ul.search-result#found-blog-posts
+  = possibly_empty_row @posts, 'blog posts'
+  - @posts.each do |post|
+    %li.found-post= link_to post.title, post
+
+%h2 Pages
+%ul.search-result#found-pages
+  = possibly_empty_row @pages, 'pages'
+  - @pages.each do |page|
+    %li.found-page= link_to page.title, page_path_with_home(page)

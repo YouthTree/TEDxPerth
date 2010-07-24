@@ -1,5 +1,17 @@
 %h1 All TEDxPerth Events
 
-%ul#events
-  - @events.each do |event|
-    %li= link_to event.name, event
+= render_page! @events_page if @events_page
+
+%h2 Upcoming Events
+
+%ul.events#upcoming-events
+  = render :collection => @upcoming_events, :partial => 'event_listing'
+  - if @upcoming_events.empty?
+    %li.no-events There are currently no details on upcoming events.
+    
+%h2 Completed Events
+
+%ul.events#completed-events
+  = render :collection => @completed_events, :partial => 'event_listing'
+  - if @completed_events.empty?
+    %li.no-events There are currently no details on completed events.

@@ -1,3 +1,18 @@
 - has_jammit_js :events_page
 - content_for :extra_head, js_for_videos
 %h1= page_title
+
+%dt#event-information
+  %dt Who?
+  %dd SPEAKERS WILL GO HERE, MMM KAY?
+  %dt What?
+  %dd
+    %article#event-description= @event.description_as_html
+  %dt Where?
+  %dd THE LOCATION WILL GO HERE WITH A MAP
+  %dt When?
+  %dd= pretty_date_range @event.starts_at, @event.ends_at
+  
+
+%h2 Event Notes
+%article#event-notes= @event.notes_as_html

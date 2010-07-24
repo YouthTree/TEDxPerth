@@ -4,7 +4,9 @@ class EventsController < ApplicationController
   before_filter :prepare_event, :except => [:index]
   
   def index
-    @events = Event.viewable.all
+    @upcoming_events  = Event.upcoming.all
+    @completed_events = Event.completed.all
+    @events_page      = Page[:events]
   end
   
   def show

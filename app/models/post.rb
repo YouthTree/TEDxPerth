@@ -1,4 +1,6 @@
 class Post < ActiveRecord::Base
+
+  acts_as_indexed :fields => [:title, :rendered_content], :if => Proc.new { |post| post.published? }
   
   validates_presence_of :title, :content
   

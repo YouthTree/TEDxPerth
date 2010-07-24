@@ -37,6 +37,8 @@ TEDxPerth::Application.routes.draw do |map|
   get 'contact-us',  :to => 'contacts#new', :as => :contact_us
   post 'contact-us', :to => 'contacts#create'
 
+  post 'search', :to => 'search#search'
+
   root :to => 'pages#index'
   
   get '/:id', :to => "pages#show", :as => :page

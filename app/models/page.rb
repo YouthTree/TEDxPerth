@@ -6,6 +6,9 @@ class Page < ActiveRecord::Base
   
   validates_presence_of :title, :content, :key
   validates_presence_of :menu_subtitle, :menu_title, :if => :show_in_menu?
+
+  acts_as_indexed :fields => [:title, :rendered_content, :description, :menu_title, :menu_subtitle],
+                  :if => Proc.new { |page| page.published? }
   
   is_publishable
   is_convertable :content
@@ -13,7 +16,7 @@ class Page < ActiveRecord::Base
   is_sortable    :menu_position, :if_field => :show_in_menu
   
   scope :renderable, select('rendered_content, `key`, title, keywords, description')
-  scope :for_menu,   published.sortable_items.sorted_asc.select('id, `key`, cached_slug, menu_subtitle, menu_title')
+  scope :for_menu,   published.sortable_items.sorted_asc.select('id, `key`, cached_slug, menu_subtitle, menu_title, title')
   
   def self.[](identifier)
     where(:key => identifier.to_s).first
