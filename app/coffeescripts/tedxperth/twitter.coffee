@@ -12,14 +12,13 @@ TEDxPerth.withNS 'Twitter', (ns) ->
       utilNS.highlightTags utilNS.highlightUsers TEDxPerth.Util.autolink t
 
   ns.processTweets: (tweets) ->
-    ns.debug tweets
     ns.container.empty()
     for tweet in tweets
       ns.showTweet tweet
+    $.jStorage.set 'tweets-cache', tweets
       
       
   ns.showTweet: (tweet) ->
-    ns.debug tweet
     formattedText: ns.Util.twitterize tweet.text
     ns.container.append $("<li />").html(formattedText)
     
@@ -35,6 +34,8 @@ TEDxPerth.withNS 'Twitter', (ns) ->
     
   ns.setup: ->
     ns.container: $ "#tweets-listing"
+    existing: $.jStorage.get 'tweets-cache'
+    ns.processTweets existing if existing?
     ns.load()
     # Set it to update every 5 minutes.
     setInterval (=> ns.load()), 300000

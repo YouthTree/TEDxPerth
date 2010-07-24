@@ -1,8 +1,9 @@
 javascript_compressor: yui
 javascripts:
   base:
-    - public/javascripts/vendor/jquery/*.js
+    - public/javascripts/vendor/json2.js
     - public/javascripts/vendor/css_browser_selector.js
+    - public/javascripts/vendor/jquery/*.js
     - public/javascripts/vendor/shuriken/**/*.js
     - public/javascripts/tedxperth.js
     - public/javascripts/tedxperth/util.js

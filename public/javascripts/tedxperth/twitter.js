@@ -12,19 +12,17 @@ TEDxPerth.withNS('Twitter', function(ns) {
     return utilNS.twitterize;
   });
   ns.processTweets = function(tweets) {
-    var _a, _b, _c, _d, tweet;
-    ns.debug(tweets);
+    var _a, _b, _c, tweet;
     ns.container.empty();
-    _a = []; _c = tweets;
-    for (_b = 0, _d = _c.length; _b < _d; _b++) {
-      tweet = _c[_b];
-      _a.push(ns.showTweet(tweet));
+    _b = tweets;
+    for (_a = 0, _c = _b.length; _a < _c; _a++) {
+      tweet = _b[_a];
+      ns.showTweet(tweet);
     }
-    return _a;
+    return $.jStorage.set('tweets-cache', tweets);
   };
   ns.showTweet = function(tweet) {
     var formattedText;
-    ns.debug(tweet);
     formattedText = ns.Util.twitterize(tweet.text);
     return ns.container.append($("<li />").html(formattedText));
   };
@@ -42,7 +40,12 @@ TEDxPerth.withNS('Twitter', function(ns) {
     }
   };
   ns.setup = function() {
+    var existing;
     ns.container = $("#tweets-listing");
+    existing = $.jStorage.get('tweets-cache');
+    if (typeof existing !== "undefined" && existing !== null) {
+      ns.processTweets(existing);
+    }
     ns.load();
     return setInterval(((function(__this) {
       var __func = function() {
