@@ -114,13 +114,13 @@ end
 #
 # Table name: users
 #
-#  id                :integer         not null, primary key
+#  id                :integer(4)      not null, primary key
 #  login             :string(255)
 #  crypted_password  :string(255)
 #  password_salt     :string(255)
 #  persistence_token :string(255)
 #  email             :string(255)
-#  login_count       :integer
+#  login_count       :integer(4)
 #  last_request_at   :datetime
 #  last_login_at     :datetime
 #  current_login_at  :datetime

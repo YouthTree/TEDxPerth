@@ -91,7 +91,7 @@ end
 #
 # Table name: events
 #
-#  id                   :integer         not null, primary key
+#  id                   :integer(4)      not null, primary key
 #  name                 :string(255)
 #  starts_at            :datetime
 #  ends_at              :datetime

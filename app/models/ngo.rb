@@ -69,7 +69,7 @@ end
 #
 # Table name: ngos
 #
-#  id          :integer         not null, primary key
+#  id          :integer(4)      not null, primary key
 #  name        :string(255)
 #  description :text
 #  url         :string(255)

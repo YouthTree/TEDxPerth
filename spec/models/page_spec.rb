@@ -105,3 +105,26 @@ end
 #  created_at       :datetime
 #  updated_at       :datetime
 #
+
+# == Schema Information
+#
+# Table name: pages
+#
+#  id               :integer(4)      not null, primary key
+#  title            :string(255)
+#  content          :text
+#  rendered_content :text
+#  published_at     :datetime
+#  description      :text
+#  keywords         :string(255)
+#  key              :string(255)
+#  cached_slug      :string(255)
+#  format           :string(255)
+#  created_at       :datetime
+#  updated_at       :datetime
+#  menu_subtitle    :string(255)
+#  menu_title       :string(255)
+#  menu_position    :integer(4)
+#  show_in_menu     :boolean(1)      default(FALSE)
+#
+

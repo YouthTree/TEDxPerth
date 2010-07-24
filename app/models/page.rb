@@ -29,7 +29,7 @@ end
 #
 # Table name: pages
 #
-#  id               :integer         not null, primary key
+#  id               :integer(4)      not null, primary key
 #  title            :string(255)
 #  content          :text
 #  rendered_content :text
@@ -41,5 +41,9 @@ end
 #  format           :string(255)
 #  created_at       :datetime
 #  updated_at       :datetime
+#  menu_subtitle    :string(255)
+#  menu_title       :string(255)
+#  menu_position    :integer(4)
+#  show_in_menu     :boolean(1)      default(FALSE)
 #
 
