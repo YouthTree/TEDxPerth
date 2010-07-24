@@ -1,0 +1,33 @@
+form.formtastic
+
+  fieldset.inputs
+    margin: 0 0 0.5em
+    
+    & > legend span
+      font-weight: bold
+      font-size: 1.25em
+      +header-font-stack
+      padding-bottom: 0.75em
+    
+    ol li
+      label
+        color: $forms-label-colour
+        padding-top: 0
+        abbr.required
+          color: $forms-required-label
+          font-size: 0.9em
+  
+  fieldset.buttons
+    ol li.commit
+      button, a#auth-selector-link
+        font-weight: bold
+        +fancy-button-structure(14px)
+        +fix-fb-padding
+      button
+        +fancy-button-colors($forms-submit-button)
+      a#auth-selector-link
+        +fancy-button-colors($forms-submit-return)
+      span.or
+        padding: 0 1em
+        font-weight: bold
+        color: $forms-submit-or
