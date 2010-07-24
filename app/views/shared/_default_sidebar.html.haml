@@ -1,6 +1,20 @@
 %h2 The Next Event
 
-%p Something goes here.
+- next_event = Event.for_sidebar.next
+- if next_event.present?
+  #next-event
+    %p
+      The next TEDxPerth event is
+      == #{link_to next_event.name, next_event},
+      == held #{pretty_date_range next_event.starts_at, next_event.ends_at}.
+    %p
+      This is approximately
+      = distance_of_time_in_words Time.now, next_event.starts_at, false
+      away.
+- else
+  %p#no-next-event
+    There is currently no available information
+    on the next TEDxPerth event.
 
 %h2 TEDxPerth Tweets
 

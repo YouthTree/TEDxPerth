@@ -8,3 +8,28 @@ article, aside.inner-content.right
 
   object
     margin: 0 0 1.5em 1em
+    
+.pagination
+  text-align: center
+  font-weight: bold
+  font-size: 0.9em
+  padding: 0.5em 0
+  line-height: 1.25em
+  
+  span
+    color: $pagination-inactive
+    
+  span, a
+    margin: 0 1em
+    
+  a
+    +link-colors($pagination-link, $pagination-hover)
+
+#homepage-slider
+  height: 250px
+  width: 700px
+  padding: 0
+  margin: 1em 0 2em
+  overflow: hidden
+  img
+    +border-radius(0.5em)

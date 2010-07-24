@@ -12,6 +12,19 @@ class Event < ActiveRecord::Base
   accepts_nested_attributes_for :ted_videos, :reject_if => reject_if_proc, :allow_destroy => true
   
   scope :viewable, where(:state => %w(published completed)).includes(:ted_videos)
+  scope :for_sidebar, select('id, name, starts_at, ends_at, cached_slug')
+  
+  def self.upcoming
+    viewable.order('starts_at ASC').where('starts_at >= ?', Time.now)
+  end
+  
+  def self.completed
+    viewable.orders('starts_at DESC').where('starts_at <= ?', Time.now)
+  end
+  
+  def self.next
+    upcoming.first
+  end
   
   is_sluggable :name
   

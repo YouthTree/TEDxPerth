@@ -1,0 +1,11 @@
+- has_disqus_identifier_for @post
+- has_jammit_js :disqus
+
+%article#post
+  %header
+    %h1= @post.title
+    = partial 'post_metadata', :post => @post
+  = @post.content_as_html
+
+%section#post-comments
+  #disqus_thread

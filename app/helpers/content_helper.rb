@@ -38,4 +38,29 @@ module ContentHelper
     content_for(:extra_head, meta_tag(:keywords, page.keywords))       if page.keywords?
   end
   
+  def pretty_date_range(from, to)
+    from_day, to_day = from.day.ordinalize, to.day.ordinalize
+    if [from.day, from.month, from.year] == [to.day, to.month, to.year]
+      "#{ampm from} to #{ampm to}, #{to_day} #{to.strftime "%B, %Y"}"
+    elsif [from.month, from.year] == [to.month, to.year]
+      "#{ampm from} #{from_day} to #{ampm to} #{to_day}, #{to.strftime "%B, %Y"}"
+    else
+      "#{ampm from} #{from_day}, #{from.strftime "%B, %Y"} to #{ampm to} #{to_day}, #{to.strftime "%B, %Y"}"
+    end
+  end
+  
+  def ampm(t)
+    t.strftime("%I:%M %p").gsub(/^0/, '')
+  end
+  
+  def pretty_time(t)
+    "#{ampm t}, #{t.day.ordinalize} #{t.strftime "%B, %Y"}"
+  end
+  
+  def slider_for(*args)
+    options = args.extract_options!
+    inner = args.flatten.map { |i| image_tag(i) }.sum(ActiveSupport::SafeBuffer.new)
+    content_tag(:div, inner, options.merge(:class => 'image-slider'))
+  end
+  
 end

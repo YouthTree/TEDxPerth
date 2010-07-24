@@ -1,0 +1,15 @@
+- has_jammit_js :home_page
+- meta_for_page! @page
+%h1= page_title
+
+= slider_for ('a'..'d').map { |i| "/images/homepage-slider/image-#{i}.jpg"}, :id => "homepage-slider"
+
+#upcoming-event
+  - if @event.present?
+    %h2== Next Event: #{@event.name}
+    = linked_event_preview @event
+  - else
+    %p#no-upcoming-events
+      There are currently no upcoming events.eve
+
+= render_page! @page

@@ -1,5 +1,10 @@
 %p.post-metadata
   Posted
-  - if post_metadata.published?
-    %abbr.timestamp{:title => post_metadata.published_at.iso8601}
-      = post_metadata.published_at.to_date.to_s(:long)
+  - if post.published?
+    %abbr.timestamp{:title => post.published_at.iso8601}
+      = post.published_at.to_date.to_s(:long)
+  - if defined?(link_to_full) && link_to_full
+    \-
+    = link_to "Click to view the full post", post_path(post)
+  \-
+  = link_to "Comments", post_path(post, :anchor => "disqus_thread")

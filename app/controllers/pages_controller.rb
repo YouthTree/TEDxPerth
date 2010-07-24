@@ -1,9 +1,9 @@
 class PagesController < ApplicationController
   
   def index
-    @page = Page.published.home
+    @page  = Page.published.home
+    @event = Event.next
     add_title_variables! :title => @page.title
-    render :action => "show"
   end
 
   def show

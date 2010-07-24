@@ -1,5 +1,5 @@
 - if logged_in?
-  Logged in as
+  Signed in as
   %span#current-user= link_to current_user.to_s, user_path(:current), :title => "View your profile"
   = link_to "(sign out)", sign_out_path
 - else

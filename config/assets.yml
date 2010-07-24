@@ -30,6 +30,10 @@ javascripts:
     - public/javascripts/tedxperth/admin/ted_video_editor.js
   events_page:
     - public/javascripts/tedxperth/ted_video.js
+  home_page:
+    - public/javascripts/tedxperth/home_page.js
+  disqus:
+    - public/javascripts/tedxperth/disqus.js
 stylesheets:
   base:
     - public/stylesheets/tedxperth.css

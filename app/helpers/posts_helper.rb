@@ -1,12 +1,7 @@
 module PostsHelper
   
   def paged_posts_path(page = nil)
-    return "#"
-    if page.blank? || page.to_i < 2
-      root_path
-    else
-      post_listing_path(:page => page)
-    end
+    posts_path(:page => page)
   end
 
   def summary_with_full_link(post, options = {})
@@ -54,11 +49,16 @@ module PostsHelper
     "#{object.class.model_name.underscore.dasherize}-#{object.id}"
   end
   
-  def has_disqus_identifier_for(object)
-    inner = meta_tag("disqus-identifier", disqus_identifier_for(object))
+  def has_disqus_site_identifier
+    inner = ActiveSupport::SafeBuffer.new
     inner << meta_tag("disqus-site", Settings.disqus.site) if Settings.disqus.site?
     inner << meta_tag("disqus-developer", "true") unless Rails.env.production?
     content_for :extra_head, inner
+  end
+  
+  def has_disqus_identifier_for(object)
+    has_disqus_site_identifier
+    content_for :extra_head, meta_tag("disqus-identifier", disqus_identifier_for(object))
   end
   
   protected

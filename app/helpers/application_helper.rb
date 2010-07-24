@@ -92,6 +92,16 @@ module ApplicationHelper
     page.key == "home" ? root_path : page_path(page)
   end
   
+  def partial(name, options = nil)
+    opts = {:partial => name.to_s}
+    if options.is_a?(Hash)
+      opts[:locals] = options
+    elsif options.present?
+      opts[:object] = options
+    end
+    render opts
+  end
+  
   protected
   
   def normalized_content_scope(key, scope = nil)

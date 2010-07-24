@@ -12,13 +12,13 @@
   %body
     = flash_messages :alert, :notice
     #container
-      %header#page-header= render :partial => 'shared/header'
+      %header#page-header= partial 'shared/header'
       %section#content
         %section.inner-content{:class => main_content_class}= yield
         - if has_sidebar?
           %aside.inner-content.right= sidebar_content
         
-      %footer#page-footer= render :partial => 'shared/footer'
+      %footer#page-footer= partial 'shared/footer'
     = yield :page_bottom
     
     

@@ -20,7 +20,7 @@
 %p.actions= link_to 'Add another video', '#', :class => 'add-video-link'
 - form.object.ted_videos.build
 = form.fields_for :ted_videos do |tvf|
-  = render :partial => 'video_form', :object => tvf
+  = partial :video_form, tvf
   
 - content_for :extra_head do
   :javascript
