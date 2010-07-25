@@ -1,27 +1,45 @@
 TEDxPerth.withNS 'TEDVideo', (ns) ->
 
   ns.videos: []
-
-  class ns.VideoInstance
-    constructor: (id, raw) ->
-      @raw: raw
-      @id:  id
-      
-    toEmbedCode: ->
-      if Modernizr.video.h264
-        @raw.html5
-      else
-        @raw.html
+  
+  class ns.InnerVideo
     
-    title:       -> @raw.title
-    thumbnail:   -> @raw.thumnail_url
-    url:         -> @raw.url
-    description: -> @raw.description
+    constructor: (parent) ->
+      @parent: parent
   
-  ns.add: (id, raw) ->
-    ns.videos.push new ns.VideoInstance(id, raw)
+  ns.loadVideosFromHTML: ->
+    $("#event-videos li.event-video").each ->
+      $this: $ this
+      video: new ns.InnerVideo $this
+      ns.videos.push video
+      $this.find("a.show-video").show().click ->
+        ns.playVideo video unless ns.currentVideoIs video
+        return false
+      $this.find("a.hide-video").click ->
+        ns.hideVideo video if ns.currentVideoIs video
+        return false
   
-  ns.eachVideo: (callback) ->
-    for video in ns.videos
-      callback video
+  ns.currentVideoIs: (video) ->
+    ns.lastVideo? && ns.lastVideo is video
+  
+  ns.hideVideo: (video, callback) ->
+    if video?
+      video.parent.find("a.hide-video").hide()
+      video.parent.find("a.show-video").show()
+      video.parent.find(".video-embed").slideUp(callback)
+      delete ns.lastVideo if ns.currentVideoIs video
+  
+  ns.playVideo: (video) ->
+    cb: ->
+      video.parent.find(".video-embed").slideDown()
+      video.parent.find("a.hide-video").show()
+      video.parent.find("a.show-video").hide()
+    if ns.lastVideo?
+      ns.hideVideo ns.lastVideo, cb
+    else
+      cb()
+    ns.lastVideo: video
+  
+  ns.setup: -> ns.loadVideosFromHTML()
+      
       

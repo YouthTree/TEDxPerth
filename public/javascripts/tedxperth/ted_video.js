@@ -1,37 +1,57 @@
 TEDxPerth.withNS('TEDVideo', function(ns) {
   ns.videos = [];
-  ns.VideoInstance = function(id, raw) {
-    this.raw = raw;
-    this.id = id;
+  ns.InnerVideo = function(parent) {
+    this.parent = parent;
     return this;
   };
-  ns.VideoInstance.prototype.toEmbedCode = function() {
-    return Modernizr.video.h264 ? this.raw.html5 : this.raw.html;
-  };
-  ns.VideoInstance.prototype.title = function() {
-    return this.raw.title;
-  };
-  ns.VideoInstance.prototype.thumbnail = function() {
-    return this.raw.thumnail_url;
-  };
-  ns.VideoInstance.prototype.url = function() {
-    return this.raw.url;
-  };
-  ns.VideoInstance.prototype.description = function() {
-    return this.raw.description;
-  };
 
-  ns.add = function(id, raw) {
-    return ns.videos.push(new ns.VideoInstance(id, raw));
+  ns.loadVideosFromHTML = function() {
+    return $("#event-videos li.event-video").each(function() {
+      var $this, video;
+      $this = $(this);
+      video = new ns.InnerVideo($this);
+      ns.videos.push(video);
+      $this.find("a.show-video").show().click(function() {
+        if (!(ns.currentVideoIs(video))) {
+          ns.playVideo(video);
+        }
+        return false;
+      });
+      return $this.find("a.hide-video").click(function() {
+        if (ns.currentVideoIs(video)) {
+          ns.hideVideo(video);
+        }
+        return false;
+      });
+    });
   };
-  ns.eachVideo = function(callback) {
-    var _a, _b, _c, _d, video;
-    _a = []; _c = ns.videos;
-    for (_b = 0, _d = _c.length; _b < _d; _b++) {
-      video = _c[_b];
-      _a.push(callback(video));
+  ns.currentVideoIs = function(video) {
+    var _a;
+    return (typeof (_a = ns.lastVideo) !== "undefined" && _a !== null) && ns.lastVideo === video;
+  };
+  ns.hideVideo = function(video, callback) {
+    if (typeof video !== "undefined" && video !== null) {
+      video.parent.find("a.hide-video").hide();
+      video.parent.find("a.show-video").show();
+      video.parent.find(".video-embed").slideUp(callback);
+      if (ns.currentVideoIs(video)) {
+        return delete ns.lastVideo;
+      }
     }
-    return _a;
   };
-  return ns.eachVideo;
+  ns.playVideo = function(video) {
+    var _a, cb;
+    cb = function() {
+      video.parent.find(".video-embed").slideDown();
+      video.parent.find("a.hide-video").show();
+      return video.parent.find("a.show-video").hide();
+    };
+    (typeof (_a = ns.lastVideo) !== "undefined" && _a !== null) ? ns.hideVideo(ns.lastVideo, cb) : cb();
+    ns.lastVideo = video;
+    return ns.lastVideo;
+  };
+  ns.setup = function() {
+    return ns.loadVideosFromHTML();
+  };
+  return ns.setup;
 });

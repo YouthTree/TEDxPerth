@@ -59,10 +59,12 @@ class Event < ActiveRecord::Base
   
   def attending!(user)
     user.has_role! :attendee, self
+    increment! :attendee_count
   end
   
   def withdraw!(user)
     user.remove_role! :attendee, self
+    decrement! :attendee_count
   end
   
   def state_events_for_select

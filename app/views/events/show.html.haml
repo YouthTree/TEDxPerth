@@ -1,18 +1,42 @@
 - has_jammit_js :events_page
-- content_for :extra_head, js_for_videos
-%h1= page_title
 
-%dt#event-information
-  %dt Who?
-  %dd SPEAKERS WILL GO HERE, MMM KAY?
-  %dt What?
-  %dd
-    %article#event-description= @event.description_as_html
-  %dt Where?
-  %dd THE LOCATION WILL GO HERE WITH A MAP
-  %dt When?
-  %dd= pretty_date_range @event.starts_at, @event.ends_at
+%article#event
+
+  %h1= page_title
+
+  %dl#event-information
+    %dt Who?
+    %dd SPEAKERS WILL GO HERE, MMM KAY?
+    %dt What?
+    %dd
+      %article#event-description= @event.description_as_html
+    %dt Where?
+    %dd THE LOCATION WILL GO HERE WITH A MAP
+    %dt When?
+    %dd= pretty_date_range @event.starts_at, @event.ends_at
   
 
-%h2 Event Notes
-%article#event-notes= @event.notes_as_html
+  %h2 Event Notes
+  %article#event-notes= @event.notes_as_html
+
+  - unless @event.ted_videos.empty?
+
+    %h2 Event Videos
+
+    #video-player-container
+
+    %ul#event-videos
+      - @event.ted_videos.each do |video|
+        %li.event-video
+          .video-controls
+            = link_to video.title, video.url, :class => 'video-title'
+            = link_to "show video", '#', :class => 'show-video'
+            = link_to "hide video", '#', :class => 'hide-video'
+          %p.video-description= video.description
+          .video-embed= video.embed_code.html_safe
+  
+    %p.video-copyright-notice
+      Videos used under a
+      = link_to "Creative Commons by-nc-nd", "http://creativecommons.org/licenses/by-nc-nd/3.0/"
+      license from
+      == #{link_to "TED.com", "http://ted.com/"}.

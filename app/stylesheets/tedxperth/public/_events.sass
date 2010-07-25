@@ -20,3 +20,41 @@ ul.events
         border-top: 0.1em solid $posts-meta-border
         border-bottom: 0.1em solid $posts-meta-border
         color: $posts-meta-text
+
+article#event
+  ul#event-videos
+    margin: 0
+    padding: 0
+    li.event-video
+      list-style: none
+      margin: 0 0 1em
+      padding: 0
+      .video-embed
+        display: none
+        text-align: center
+        padding: 0
+        margin: 0
+    
+        video, object, embed
+          margin: 0
+      p.video-description
+        margin: 0
+      .video-controls
+        +clearfix
+        a.video-title
+          float: left
+          font-weight: bold
+          font-size: 1.2em
+        a.show-video, a.hide-video
+          float: right
+          display: none
+  p.video-copyright-notice
+    font-size: 0.8em
+    margin: 1em 0
+    text-align: center
+    color: $event-video-copyright
+    a
+      font-weight: bold
+      +link-colors(darken($event-video-copyright, 40%), darken($event-video-copyright, 15%))
+      &:hover
+        text-decoration: underline
