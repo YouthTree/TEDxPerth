@@ -1,0 +1,1 @@
+RPXIdentifier.send :attr_accessible, :all
