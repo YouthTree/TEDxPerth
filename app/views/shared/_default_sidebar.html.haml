@@ -8,7 +8,7 @@
       == #{link_to next_event.name, next_event},
       == held #{pretty_date_range next_event.starts_at, next_event.ends_at}.
     %p
-      This is approximately
+      This is
       = distance_of_time_in_words Time.now, next_event.starts_at, false
       away.
 - else

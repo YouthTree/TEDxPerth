@@ -22,9 +22,40 @@ ul.events
         color: $posts-meta-text
 
 article#event
+  p#event-information
+    margin: 1em 0 0.5em
+    font-size: 1.1em
+    color: $events-information-text
+    span#event-time
+      color: darken($events-information-text, 10%)
+      font-weight: bold
+    a#event-venue
+      font-weight: bold
+
+  #attendance
+    margin: 0 0 1em
+    font-size: 1.1em
+    form
+      margin: 0
+      padding: 0
+      display: inline
+      button
+        +fancy-button-structure(12px)
+        +fix-fb-padding(2px, 4px)
+    &.attending button
+      +fancy-button-colors($events-withdraw-button)
+    &.attend button
+      +fancy-button-colors($events-attend-button)
+    &.attended
+
   ul#event-videos
     margin: 0
     padding: 0
+    li.event-not-completed
+      list-style: none
+      color: $events-information-text
+      font-size: 1.1em
+      margin: 0 0 1em
     li.event-video
       list-style: none
       margin: 0 0 1em
@@ -36,12 +67,14 @@ article#event
         margin: 0
     
         video, object, embed
-          margin: 0
+          margin: 1em 0
+          background: black
       p.video-description
         margin: 0
       .video-controls
         +clearfix
         a.video-title
+          +header-font-stack
           float: left
           font-weight: bold
           font-size: 1.2em
@@ -51,10 +84,16 @@ article#event
   p.video-copyright-notice
     font-size: 0.8em
     margin: 1em 0
-    text-align: center
+    text-align: left
     color: $event-video-copyright
     a
       font-weight: bold
       +link-colors(darken($event-video-copyright, 40%), darken($event-video-copyright, 15%))
       &:hover
         text-decoration: underline
+
+#venue-map
+  margin-bottom: 1em
+  .gmap
+    width: 700px
+    height: 350px

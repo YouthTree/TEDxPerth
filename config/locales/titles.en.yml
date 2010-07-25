@@ -1,6 +1,8 @@
 en:
   page:
     title:
+      venues:
+        show: "Venue: %{venue_name}"
       posts:
         index: "The TEDxPerth Team Blog"
         show: "%{post_title}"

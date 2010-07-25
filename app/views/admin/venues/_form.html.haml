@@ -1,0 +1,7 @@
+= form.inputs :name => "Venue Details" do
+  = form.input :name, :hint => "e.g. Theatre 42"
+  = form.input :location_name, :hint => 'e.g. Scitech'
+  
+= form.inputs :name => "Address" do
+  ~ form.input :address, :input_html => {:rows => 3}
+  ~ form.input :instructions, :hint => 'How to get there', :input_html => {:rows => 3}

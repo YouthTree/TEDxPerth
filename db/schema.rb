@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100725090912) do
+ActiveRecord::Schema.define(:version => 20100725115803) do
 
   create_table "events", :force => true do |t|
     t.string   "name"
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(:version => 20100725090912) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "attendee_count",       :default => 0
+    t.integer  "venue_id"
   end
 
   add_index "events", ["cached_slug"], :name => "index_events_on_cached_slug"
@@ -160,5 +161,19 @@ ActiveRecord::Schema.define(:version => 20100725090912) do
   add_index "users", ["login"], :name => "index_users_on_login"
   add_index "users", ["perishable_token"], :name => "index_users_on_perishable_token"
   add_index "users", ["persistence_token"], :name => "index_users_on_persistence_token"
+
+  create_table "venues", :force => true do |t|
+    t.string   "name"
+    t.string   "location_name"
+    t.text     "instructions"
+    t.text     "address"
+    t.decimal  "lat",           :precision => 15, :scale => 10
+    t.decimal  "lng",           :precision => 15, :scale => 10
+    t.string   "cached_slug"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "venues", ["cached_slug"], :name => "index_venues_on_cached_slug"
 
 end

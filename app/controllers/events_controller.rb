@@ -34,7 +34,7 @@ class EventsController < ApplicationController
   protected
   
   def prepare_event
-    @event = Event.viewable.find_using_slug!(params[:id])
+    @event = Event.viewable.optimized.find_using_slug!(params[:id])
   end
   
 end

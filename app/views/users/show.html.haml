@@ -1,16 +1,22 @@
-- if logged_in? && current_user.admin?
-  %p
-    = link_to 'Click here', :admin_root
-    to visit the admin area.
-
-- if logged_in? && @user == current_user
-  %p
-    Hey, this is your profile! 
+- if can?(:edit, @user)
+  %p#edit-profile
+    Hey, it looks like this may be your profile!
     = link_to "Click here", edit_user_path(params[:id])
     to edit your details.
-
-- if can?(:edit, @user)
-  %p.actions
-    = rpx_identifiers_to_s @user
-    = link_to "(Edit Profile)", edit_user_path(params[:id])
     
+%h3 Events Attended
+- events = @user.completed_events.all
+%ul#events-attended
+  - if events.empty?
+    %li.no-attended-events We are yet to record this users attendance to an event.
+  - events.each do |event|
+    %li.attended-event
+      Attended
+      = link_to event.name, event
+      at
+      = pretty_time event.starts_at
+
+- if logged_in? && current_user.admin?
+  %p#holy-crap-an-admin
+    = link_to 'Click here', :admin_root
+    to visit the admin area.

@@ -1,0 +1,11 @@
+%article#venue
+  %h1= @venue.to_s(" at ")
+
+  #venue-map= draw_map_of @venue, :static_map => {:width => 700, :height => 350}
+
+  %h2 Where is it?
+  %address= @venue.address
+
+  - if @venue.instructions.present?
+    %h2 How do I get there?
+    %p#venue-description= @venue.instructions

@@ -63,4 +63,10 @@ module ContentHelper
     content_tag(:div, inner, options.merge(:class => 'image-slider'))
   end
   
+  def inline_button(text, url, opts = {})
+    form_tag(url) do
+      concat content_tag(:button, text, :type => "submit")
+    end
+  end
+  
 end

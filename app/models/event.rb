@@ -1,9 +1,11 @@
 class Event < ActiveRecord::Base
   extend RejectIfHelper
   
-  validates_presence_of :name, :starts_at, :ends_at, :description, :notes
+  validates_presence_of :name, :starts_at, :ends_at, :description, :notes, :venue
   validate :check_valid_starts_at
   validate :check_valid_ends_at
+  
+  belongs_to :venue
   
   has_many :roles, :as => :owner
   
@@ -11,8 +13,9 @@ class Event < ActiveRecord::Base
   
   accepts_nested_attributes_for :ted_videos, :reject_if => reject_if_proc, :allow_destroy => true
   
-  scope :viewable, where(:state => %w(published completed)).includes(:ted_videos)
-  scope :for_sidebar, select('id, name, starts_at, ends_at, cached_slug')
+  scope :viewable, where(:state => %w(published completed))
+  scope :for_sidebar, select('id, venue_id, name, starts_at, ends_at, cached_slug')
+  scope :optimized, includes(:ted_videos, :venue)
   
   acts_as_indexed :fields => [:name, :rendered_description, :rendered_notes], :if => Proc.new { |event| event.published? || event.completed? }
   
@@ -130,5 +133,7 @@ end
 #  state                :string(255)
 #  created_at           :datetime
 #  updated_at           :datetime
+#  attendee_count       :integer(4)      default(0)
+#  venue_id             :integer(4)
 #
 

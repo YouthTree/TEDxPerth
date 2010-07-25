@@ -3,21 +3,32 @@
 %article#event
 
   %h1= page_title
+  
+  %p#event-information
+    %span#event-time= pretty_date_range @event.starts_at, @event.ends_at
+    at
+    = link_to @event.venue.to_s, @event.venue, :id => "event-venue"
+    
+  - if @event.upcoming?
+    - if logged_in? && @event.attending?(current_user)
+      .attending#attendance
+        You've marked yourself as attending.
+        = inline_button "I can no longer attend!", withdraw_event_path(@event)
+    - else
+      .attend#attendance
+        Want to attend this event?
+        = inline_button "I want to attend!", attending_event_path(@event)
+    
+  - elsif @event.completed? && logged_in? && @event.attending?(current_user)
+    .attended#attendance
+      You attended this TEDxPerth event.
 
-  %dl#event-information
-    %dt Who?
-    %dd SPEAKERS WILL GO HERE, MMM KAY?
-    %dt What?
-    %dd
-      %article#event-description= @event.description_as_html
-    %dt Where?
-    %dd THE LOCATION WILL GO HERE WITH A MAP
-    %dt When?
-    %dd= pretty_date_range @event.starts_at, @event.ends_at
+  %h2== About #{@event.name}
+  %section#event-description= @event.description_as_html
   
 
   %h2 Event Notes
-  %article#event-notes= @event.notes_as_html
+  %section#event-notes= @event.notes_as_html
 
   - unless @event.ted_videos.empty?
 
@@ -26,14 +37,17 @@
     #video-player-container
 
     %ul#event-videos
-      - @event.ted_videos.each do |video|
-        %li.event-video
-          .video-controls
-            = link_to video.title, video.url, :class => 'video-title'
-            = link_to "show video", '#', :class => 'show-video'
-            = link_to "hide video", '#', :class => 'hide-video'
-          %p.video-description= video.description
-          .video-embed= video.embed_code.html_safe
+      - if @event.completed?
+        - @event.ted_videos.each do |video|
+          %li.event-video
+            .video-controls
+              = link_to video.title, video.url, :class => 'video-title'
+              = link_to "show video", '#', :class => 'show-video'
+              = link_to "hide video", '#', :class => 'hide-video'
+            %p.video-description= video.description
+            .video-embed= video.embed_code.html_safe
+      - else
+        %li.event-not-completed== The videos shown at #{@event.name} will be revealed post-event.
   
     %p.video-copyright-notice
       Videos used under a

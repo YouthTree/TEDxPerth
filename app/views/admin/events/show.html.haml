@@ -2,9 +2,10 @@
 
 = show_for resource do |r|
   
-  = r.attribute :id
-  
   = r.attribute :name
+  
+  = r.association :venue do
+    = link_to resource.venue.to_s, [:admin, resource.venue]
   
   = r.attribute :state do
     = resource.human_state_name

@@ -21,5 +21,7 @@ end
 #  state                :string(255)
 #  created_at           :datetime
 #  updated_at           :datetime
+#  attendee_count       :integer(4)      default(0)
+#  venue_id             :integer(4)
 #
 

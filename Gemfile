@@ -51,6 +51,8 @@ gem 'mail_form'
 
 gem 'acts_as_indexed'
 
+gem 'geokit'
+
 # Auth
 gem 'authlogic', :git => 'git://github.com/odorcicd/authlogic.git', :branch => 'rails3'
 gem 'authlogic_rpx', :git => 'git://github.com/tardate/authlogic_rpx.git'

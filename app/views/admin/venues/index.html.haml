@@ -1,0 +1,21 @@
+%h2.title Viewing all Venues
+
+= will_paginate collection
+
+%table
+  %thead
+    %tr
+      %th Name
+      %th Location Name
+      %th Address
+      %th &nbsp;
+  %tbody
+    - collection.each do |r|
+      %tr{:class => cycle('odd', 'even')}
+        %td= r.name
+        %td= r.location_name
+        %td= r.address
+        %td.actions= individual_resource_links r
+    = empty_row_for_collection 3
+        
+= will_paginate collection

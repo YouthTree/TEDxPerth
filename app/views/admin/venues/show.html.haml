@@ -1,0 +1,7 @@
+%h2.title== Viewing #{current_resource_name}
+
+= show_for resource do |r|
+  = r.attribute :name
+  = r.attribute :location_name
+  = r.attribute :address
+  = r.attribute :instructions

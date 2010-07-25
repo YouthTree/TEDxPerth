@@ -108,6 +108,10 @@ class User < ActiveRecord::Base
     Event.includes(:roles => :user_roles).where(:user_roles => {:user_id => self.id})
   end
   
+  def completed_events
+    events.where(:state => %w(published completed)).where('ends_at <= ?', Time.now)
+  end
+  
 end
 
 # == Schema Information

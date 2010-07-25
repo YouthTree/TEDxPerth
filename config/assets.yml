@@ -34,6 +34,8 @@ javascripts:
     - public/javascripts/tedxperth/home_page.js
   disqus:
     - public/javascripts/tedxperth/disqus.js
+  gmaps_js:
+    - public/javascripts/vendor/bhm-google-maps/*.js
 stylesheets:
   base:
     - public/stylesheets/tedxperth.css
