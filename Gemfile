@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.0.beta4'
+gem 'rails', '3.0.0.rc'
 
 gem 'json'
 gem 'mysql'
@@ -35,7 +35,7 @@ gem 'awesome_print'
 
 gem 'youthtree-settings', '>= 0.1.1'
 gem 'youthtree-controller-ext'
-gem 'bhm-admin', '>= 0.1.4'
+gem 'bhm-admin', '>= 0.2.0'
 
 # Javascript
 gem 'barista', '>= 0.5.0'

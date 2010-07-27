@@ -9,7 +9,7 @@ module TEDxPerth
     # config.plugins = [ :exception_notification, :ssl_requirement, :all ]
     # config.active_record.observers = :cacher, :garbage_collector, :forum_observer
 
-    config.load_paths += %W( #{config.root}/app/mailers #{config.root}/app/observers )
+    config.autoload_paths += %W( #{config.root}/app/mailers #{config.root}/app/observers #{config.root}/lib )
     
     config.generators do |g|
       g.orm             :active_record
