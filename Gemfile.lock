@@ -141,7 +141,7 @@ GEM
       fastthread (>= 1.0.1)
       gem_plugin (>= 0.2.3)
     msales-carmen (0.1.4)
-    mysql (2.8.1)
+    mysql2 (0.1.9)
     nokogiri (1.4.2)
     open4 (1.0.1)
     polyglot (0.3.1)
@@ -248,7 +248,7 @@ DEPENDENCIES
   mail_form
   mongrel
   msales-carmen (>= 0.1.4)
-  mysql
+  mysql2
   nokogiri
   pseudocephalopod (>= 0.2.4)
   rails (= 3.0.0.rc)
