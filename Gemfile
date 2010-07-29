@@ -35,7 +35,7 @@ gem 'awesome_print'
 
 gem 'youthtree-settings', '>= 0.1.1'
 gem 'youthtree-controller-ext'
-gem 'bhm-admin', '>= 0.2.0'
+gem 'bhm-admin', '>= 0.2.1'
 
 # Javascript
 gem 'barista', '>= 0.5.0'
