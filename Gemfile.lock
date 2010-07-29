@@ -81,7 +81,7 @@ GEM
       barista
       growl
     bcrypt-ruby (2.1.2)
-    bhm-admin (0.2.0)
+    bhm-admin (0.2.1)
       compass (>= 0.10.0.rc4)
       compass-960-plugin
       compass-colors
@@ -232,7 +232,7 @@ DEPENDENCIES
   barista (>= 0.5.0)
   barista_growl
   bcrypt-ruby (>= 2.1.2)
-  bhm-admin (>= 0.2.0)
+  bhm-admin (>= 0.2.1)
   bhm-google-maps
   compass (>= 0.10.2)
   compass-colors (>= 0.3.1)
