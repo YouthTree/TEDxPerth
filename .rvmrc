@@ -5,3 +5,7 @@ if [[ -s "./tedxperth.gems" ]]; then
     echo "ERROR: Unable to bootstrap the gems" >&2
   fi
 fi
+
+if command -v bundle >/dev/null; then
+  bundle install >/dev/null 2>&1
+fi

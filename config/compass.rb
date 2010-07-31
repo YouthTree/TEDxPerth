@@ -9,5 +9,5 @@ environment     = Compass::AppIntegration::Rails.env
 http_path       = "/"
 css_dir         = "public/stylesheets"
 sass_dir        = "app/stylesheets"
-images_dir      = "public/"
+images_dir      = "public/images"
 javascripts_dir = "public/"

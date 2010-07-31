@@ -1,4 +1,4 @@
-TEDxPerth::Application.routes.draw do |map|
+TEDxPerth::Application.routes.draw do
 
   namespace :admin do
     root :to => 'dashboard#index'
