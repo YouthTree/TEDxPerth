@@ -6,8 +6,6 @@ TEDxPerth.withNS('HomePage', function(ns) {
       directionNav: false
     });
   };
-  ns.setup = function() {
-    return ns.setupSlider();
-  };
+  ns.setup = function() {  };
   return ns.setup;
 });

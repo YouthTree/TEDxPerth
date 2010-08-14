@@ -1,0 +1,9 @@
+= form.inputs :name => "Item Details" do
+  = form.input :title
+  = form.input :url
+  = form.input :description, :input_html => {:rows => 4}
+  = form.input :published_after
+  = form.input :published_until
+  
+= form.inputs :name => "Banner Image" do
+  = form.input :image, :as => :file

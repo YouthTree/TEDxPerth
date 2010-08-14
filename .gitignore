@@ -11,3 +11,4 @@ config/database.yml
 .bundle-cache
 public/assets/
 index/
+public/uploads/

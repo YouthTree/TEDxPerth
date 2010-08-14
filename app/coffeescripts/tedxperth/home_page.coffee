@@ -9,4 +9,4 @@ TEDxPerth.withNS 'HomePage', (ns) ->
     })
 
   ns.setup: ->
-    ns.setupSlider()
+    # ns.setupSlider()

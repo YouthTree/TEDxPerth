@@ -1,0 +1,9 @@
+%h2.title== Viewing #{current_resource_name}
+
+= show_for resource do |r|
+  = r.attribute :title
+  = r.attribute :description
+  = r.attribute :published_after
+  = r.attribute :published_until
+  = r.attribute :image do
+    = link_to "View Image", resource.image.to_s, :target => "_blank"

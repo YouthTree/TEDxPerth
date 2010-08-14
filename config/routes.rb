@@ -7,6 +7,7 @@ TEDxPerth::Application.routes.draw do
     resources :events
     resources :posts
     resources :venues
+    resources :banner_items, :path => 'banner-items'
   end
 
   resources :user_session, :path => 'user-sessions'
