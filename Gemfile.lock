@@ -1,4 +1,11 @@
 GIT
+  remote: git://github.com/jnicklas/carrierwave.git
+  revision: eb6e799
+  specs:
+    carrierwave (0.5.0.beta2)
+      activesupport (>= 3.0.0.beta4)
+
+GIT
   remote: git://github.com/justinfrench/formtastic.git
   revision: 42b4eb8
   branch: rails3
@@ -241,6 +248,7 @@ DEPENDENCIES
   bcrypt-ruby (>= 2.1.2)
   bhm-admin (>= 0.2.1)
   bhm-google-maps
+  carrierwave!
   compass (>= 0.10.2)
   compass-colors (>= 0.3.1)
   fancy-buttons (>= 0.5.4)

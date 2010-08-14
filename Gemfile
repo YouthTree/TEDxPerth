@@ -53,6 +53,7 @@ gem 'mail_form'
 gem 'acts_as_indexed'
 
 gem 'geokit'
+gem 'carrierwave', :git => "git://github.com/jnicklas/carrierwave.git"
 
 # Auth
 gem 'authlogic', :git => 'git://github.com/odorcicd/authlogic.git', :branch => 'rails3'
