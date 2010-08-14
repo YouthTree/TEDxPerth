@@ -1,16 +1,16 @@
 GIT
   remote: git://github.com/justinfrench/formtastic.git
-  revision: 6c3a884
+  revision: 42b4eb8
   branch: rails3
   specs:
-    formtastic (1.0.0.beta3)
+    formtastic (1.0.0)
       actionpack (>= 2.3.0)
       activesupport (>= 2.3.0)
       i18n (>= 0.4.0)
 
 GIT
   remote: git://github.com/mislav/will_paginate.git
-  revision: fccbb0b
+  revision: 3615938
   branch: rails3
   specs:
     will_paginate (3.0.pre2)
@@ -31,9 +31,9 @@ GIT
 
 GIT
   remote: git://github.com/pluginaweek/state_machine.git
-  revision: 4718436
+  revision: e625d26
   specs:
-    state_machine (0.9.3)
+    state_machine (0.9.4)
 
 GIT
   remote: git://github.com/tardate/authlogic_rpx.git
@@ -105,7 +105,7 @@ GEM
     builder (2.1.2)
     cgi_multipart_eof_fix (2.5.0)
     closure-compiler (0.3.2)
-    compass (0.10.2)
+    compass (0.10.4)
       haml (>= 3.0.4)
     compass-960-plugin (0.9.13)
       compass (>= 0.10.0.rc3)
@@ -123,7 +123,7 @@ GEM
     gem_plugin (0.2.3)
     geokit (1.5.0)
     growl (1.0.3)
-    haml (3.0.15)
+    haml (3.0.16)
     has_scope (0.5.0)
     i18n (0.4.1)
     inherited_resources (1.1.2)
@@ -132,8 +132,8 @@ GEM
     jammit (0.5.1)
       closure-compiler (>= 0.1.0)
       yui-compressor (>= 0.9.1)
-    json (1.4.3)
-    json_pure (1.4.3)
+    json (1.4.6)
+    json_pure (1.4.6)
     macaddr (1.0.0)
     machinist (2.0.0.beta2)
     mail (2.2.5)
@@ -169,7 +169,7 @@ GEM
       activesupport (= 3.0.0.rc)
       bundler (>= 1.0.0.rc.1)
       railties (= 3.0.0.rc)
-    rails3-generators (0.11.0)
+    rails3-generators (0.12.1)
     railties (3.0.0.rc)
       actionpack (= 3.0.0.rc)
       activesupport (= 3.0.0.rc)
@@ -251,6 +251,7 @@ DEPENDENCIES
   inherited_resources
   jammit
   json
+  json_pure (>= 1.4.5)
   machinist (>= 2.0.0.beta2)
   mail_form
   mongrel
