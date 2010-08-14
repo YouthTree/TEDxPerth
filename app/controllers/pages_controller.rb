@@ -4,6 +4,7 @@ class PagesController < ApplicationController
     @page  = Page.published.home
     @event = Event.next
     add_title_variables! :title => @page.title
+    hide_sidebar!
   end
 
   def show
