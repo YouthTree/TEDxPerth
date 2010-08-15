@@ -54,6 +54,8 @@ GEM
   remote: http://rubygems.org/
   specs:
     RedCloth (4.2.3)
+    RubyInline (3.8.4)
+      ZenTest
     ZenTest (4.3.3)
     abstract (1.0.0)
     actionmailer (3.0.0.rc)
@@ -98,7 +100,7 @@ GEM
       barista
       growl
     bcrypt-ruby (2.1.2)
-    bhm-admin (0.2.1)
+    bhm-admin (0.2.2)
       compass (>= 0.10.0.rc4)
       compass-960-plugin
       compass-colors
@@ -194,6 +196,7 @@ GEM
       remarkable_activemodel (~> 4.0.0.alpha4)
       rspec (>= 2.0.0.alpha11)
     responders (0.6.2)
+    rmagick (2.13.1)
     rpx_now (0.6.23)
       json_pure
     rr (0.10.11)
@@ -236,6 +239,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  RubyInline
   ZenTest
   acts_as_indexed
   almost-happy (>= 0.3.0)
@@ -246,7 +250,7 @@ DEPENDENCIES
   barista (>= 0.5.0)
   barista_growl
   bcrypt-ruby (>= 2.1.2)
-  bhm-admin (>= 0.2.1)
+  bhm-admin (>= 0.2.2)
   bhm-google-maps
   carrierwave!
   compass (>= 0.10.2)
@@ -271,6 +275,7 @@ DEPENDENCIES
   rails3-generators
   remarkable (>= 4.0.0.alpah4)
   remarkable_activerecord (>= 4.0.0.alpah4)
+  rmagick
   rpx_now
   rr
   rspec (>= 2.0.0.beta.16)

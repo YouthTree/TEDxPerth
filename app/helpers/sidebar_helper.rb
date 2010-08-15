@@ -14,7 +14,7 @@ module SidebarHelper
   end
   
   def main_content_class
-    has_sidebar? ? "left" : "full-width"
+    (Array(@extra_content_classes) + [has_sidebar? ? "left" : "full-width"]).uniq.sort.join(" ")
   end
   
   def render_to_sidebar!(partial_name, options = {})

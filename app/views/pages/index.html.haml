@@ -1,15 +1,70 @@
 - has_jammit_js :home_page
 - meta_for_page! @page
-%h1= page_title
 
-= slider_for ('a'..'d').map { |i| "/images/homepage-slider/image-#{i}.jpg"}, :id => "homepage-slider"
+%section#homepage-content
 
-#upcoming-event
-  - if @event.present?
-    %h2== Next Event: #{@event.name}
-    = linked_event_preview @event
-  - else
-    %p#no-upcoming-events
-      There are currently no upcoming events.
+  %ul#banner-items
+    - @banner_items.each_with_index do |banner_item, idx|
+      %li.banner-item{:class => ("first" if idx == 0)}
+        = link_to banner_item.url, :style => "background-image: url('#{banner_item.image.url}')" do
+          .inner-banner-item
+            %h2= banner_item.title
+            %p= banner_item.description
+    %li.navigate-banner-items
+      - @banner_items.each_with_index do |i, index|
+        %a.banner-item-nav{:class => ("active" if index == 0)} &nbsp;
+        
 
-= render_page! @page
+  #homepage-twitter-feed
+    %h1
+      Recently Tweeted by 
+      = link_to Settings.twitter.user, "http://twitter.com/#{Settings.twitter.user}"
+    %span#follow-on-twitter
+    %p#recent-tweet
+      Insert some inane comment here. Also, make sure it is sub-140 chars.
+
+  %section.left
+    %article#homepage-contents
+      %h1= @page.title
+      = render_page! @page
+    %article#homepage-blog
+      %h1 From the blog
+      %ul#homepage-blog-posts
+        - if @blog_posts.empty?
+          %li.empty
+            There are currently no posts on the TEDxPerth Blog.
+        - else
+          - @blog_posts.each do |post|
+            %li.homepage-blog-post
+              %header
+                %h1= link_to post.title, post
+              = post.summary_as_html
+              %p.homepage-post-metadata
+                Posted
+                %abbr.timestamp{:title => post.published_at.iso8601}
+                  = post.published_at.to_date.to_s(:long)
+                \-
+                = link_to "View full post", post
+                
+      
+  %section.right
+    %article#upcoming-event
+      %h1 Our Next Event
+      - if @event.present?
+        #homepage-next-event
+          %p
+            The next TEDxPerth event is
+            == #{link_to @event.name, @event},
+            == held #{pretty_date_range @event.starts_at, @event.ends_at}.
+          %p
+            This is
+            = distance_of_time_in_words Time.now, @event.starts_at, false
+            away.
+      - else
+        %p#homepage-no-next-event
+          There is currently no information
+          on the next TEDxPerth event. Sorry!
+      
+    %article#flickr-photos
+      %h1 Photos from Events
+  

@@ -36,7 +36,7 @@ gem 'awesome_print'
 
 gem 'youthtree-settings', '>= 0.1.1'
 gem 'youthtree-controller-ext'
-gem 'bhm-admin', '>= 0.2.1'
+gem 'bhm-admin', '>= 0.2.2'
 
 # Javascript
 gem 'barista', '>= 0.5.0'
@@ -53,6 +53,9 @@ gem 'mail_form'
 gem 'acts_as_indexed'
 
 gem 'geokit'
+
+gem 'RubyInline'
+gem 'rmagick'
 gem 'carrierwave', :git => "git://github.com/jnicklas/carrierwave.git"
 
 # Auth

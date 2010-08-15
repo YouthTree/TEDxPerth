@@ -1,0 +1,127 @@
+ul#banner-items
+  width: 100%
+  display: block
+  margin: 0 0 1.5em
+  padding: 0
+  list-style: none
+  position: relative
+  height: 300px
+  overflow: hidden
+  li
+    margin: 0
+    padding: 0
+    list-style: none
+    position: absolute
+  li.banner-item
+    width: 100%
+    height: 300px
+    top: 0
+    right: 0
+    display: none
+    a
+      position: relative
+      display: block
+      width: 100%
+      height: 300px
+      background: center center repeat-none
+      +border-radius(0.5em)
+      .inner-banner-item
+        max-width: 40%
+        padding: 0.5em 0.75em
+        position: absolute
+        bottom: 10px
+        right: 10px
+        text-align: right
+        background: $homepage-banner-box
+        +opacity(0.9)
+        +border-radius(0.5em)
+        h2
+          margin: 0 0 0.15em
+          color: $homepage-banner-title
+        p
+          margin: 0
+          padding: 0
+          font-size: 0.9em
+          line-height: 1.5em
+          color: $homepage-banner-text
+  li.first
+    display: block
+  li.navigate-banner-items
+    display: block
+    left: 1em
+    bottom: 1em
+    z-index: 50
+    +clearfix
+    a.banner-item-nav
+      display: block
+      float: left
+      margin-right: 1em
+      background: white
+      width: 0.8em
+      height: 0.8em
+      +border-radius(0.4em)
+      &.active
+        background-color: #999
+    
+        
+#homepage-twitter-feed
+  display: none
+  +clearfix
+  margin: 0 0 1.5em
+  padding: 0.45em 0.55em
+  border: 0.2em solid $homepage-tweet-border
+  background: $homepage-tweet-bg
+  +border-radius(0.5em)
+  position: relative
+  padding-left: 110px
+  background-image: url(/images/twitter.png)
+  background-repeat: no-repeat
+  background-position: 10px center
+  h1, p#recent-tweet
+    font-size: 1em
+    margin: 0
+    padding: 0
+  h1
+    color: #000
+    margin-right: 0.5em
+    padding-top: 0.35em
+    float: left
+  #follow-on-twitter
+    float: right
+  p#recent-tweet
+    clear: both
+    padding-top: 0.35em
+    color: $homepage-tweet-text
+  
+section#homepage-content
+  section.left, section.right
+    +grid-unit-base
+    margin-bottom: 1em
+    article h1
+      font-size: 1.3em
+      margin: 0 0 0.25em
+  section.left
+    +grid-width($tedxperth-content-width / 3 * 2)
+    margin-left: 0
+  section.right
+    +grid-width($tedxperth-content-width / 3)
+    margin-right: 0
+    
+ul#homepage-blog-posts
+  margin: 0
+  padding: 0
+  li
+    margin: 0.25em 0
+    padding: 0
+    list-style: none
+    header h1
+      font-size: 1em !important
+      margin: 0 0
+      border-bottom: 0.1em solid #EEE
+    p
+      font-size: 0.9em
+      margin: 0 0 0.25em
+    p.homepage-post-metadata
+      margin: 0
+      color: #444
+      border-top: 0.1em solid #EEE

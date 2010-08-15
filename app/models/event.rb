@@ -96,7 +96,7 @@ class Event < ActiveRecord::Base
   end
   
   def completed?
-    (published? || completed?) && ends_at <= Time.now
+    published? && ends_at <= Time.now
   end
   
   protected
