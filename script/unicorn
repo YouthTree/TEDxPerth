@@ -1,0 +1,17 @@
+#!/bin/bash
+
+config_file="config/unicorn"
+
+app_env="${1:-"production"}"
+shift
+
+[[ -s "$config_file.$app_env.rb" ]] && config_file="$config_file.$app_env"
+
+if command -v unicorn >/dev/null ; then
+  mkdir -p tmp/pids tmp/sockets log
+  RAILS_ENV="$app_env" RACK_ENV="$app_env" unicorn -c "$config_file.rb" "$@" config.ru
+else
+  echo "ERROR: Please install unicorn first" >&2
+  exit 1
+fi
+
