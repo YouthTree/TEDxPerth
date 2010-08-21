@@ -21,8 +21,8 @@ TEDxPerth.withNS('Admin.TEDVideoEditor', function(ns) {
   ns.addVideo = function() {
     var inner;
     inner = ns.template.replace(/VIDEO_IDX/g, Number(new Date()));
-    $("$ns.fieldsetSelector:last").after(inner);
-    return ns.attachEventOn($("$ns.fieldsetSelector:last"));
+    $(("" + (ns.fieldsetSelector) + ":last")).after(inner);
+    return ns.attachEventOn($(("" + (ns.fieldsetSelector) + ":last")));
   };
   ns.deleteVideo = function(link) {
     link = $(link);

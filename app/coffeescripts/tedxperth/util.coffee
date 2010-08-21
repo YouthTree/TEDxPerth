@@ -4,7 +4,7 @@ TEDxPerth.withNS 'Util', (ns) ->
     s.replace(/&/g, '&amp;').replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/'/g, "&#39;").replace(/"/g, "&quot;")
   
   ns.autolink = (text) ->
-    text.replace /(\bhttp:\/\/\S+(\/|\b))/gi, '<a href="$1" target="_blank">$1</a>'
+    text.replace(/(\bhttp:\/\/\S+(\/|\b))/gi, '<a href="$1" target="_blank">$1</a>')
     
   ns.format = (text) ->
     ns.autolink ns.escapeHTML text
@@ -27,7 +27,7 @@ TEDxPerth.withNS 'Util', (ns) ->
       hour -= 12
     minutes = time.getMinutes()
     minutesPrefix = if minutes < 10 then "0" else ""
-    "$hour:$minutesPrefix$minutes $period"
+    "#{hour}:#{minutesPrefix}#{minutes} #{period}"
   
   ns.attachUpdatingTimeAgo = (object, date) ->
     existing = $(object).dataAttr "time-ago-interval"
@@ -40,7 +40,7 @@ TEDxPerth.withNS 'Util', (ns) ->
   ns.truncate = (text, length) ->
     length?= 100
     suffix = if text.length > length then "&hellip;" else ""
-    text = "${ns.h text.slice(0, length)}$suffix"
+    text = "#{ns.h text.slice(0, length)}#{suffix}"
   
   ns.timeAgoInWords = (date) ->
     if $.browser.ie?

@@ -30,7 +30,7 @@ TEDxPerth.withNS('Util', function(ns) {
     }
     minutes = time.getMinutes();
     minutesPrefix = minutes < 10 ? "0" : "";
-    return "$hour:$minutesPrefix$minutes $period";
+    return "" + (hour) + ":" + (minutesPrefix) + (minutes) + " " + (period);
   };
   ns.attachUpdatingTimeAgo = function(object, date) {
     var existing, update;
@@ -48,7 +48,7 @@ TEDxPerth.withNS('Util', function(ns) {
     var suffix;
     length = (typeof length !== "undefined" && length !== null) ? length : 100;
     suffix = text.length > length ? "&hellip;" : "";
-    return (text = "${ns.h text.slice(0, length)}$suffix");
+    return (text = ("" + (ns.h(text.slice(0, length))) + (suffix)));
   };
   return (ns.timeAgoInWords = function(date) {
     var _a, now, time;

@@ -8,7 +8,7 @@ TEDxPerth.require('Authentication', function() {
       language_preference: 'en'
     };
     conditionallySet = function(element, key, callback) {
-      key = "$ns.dataPrefix$key";
+      key = ("" + (ns.dataPrefix) + (key));
       if (ns.hasData(element, key)) {
         return callback(ns.data(element, key));
       }

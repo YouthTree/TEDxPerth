@@ -8,7 +8,7 @@ TEDxPerth.withNS('HomePage', function(ns) {
     });
   };
   ns.updateMarker = function() {
-    return ns.markers.removeClass('active').filter(":eq($ns.currentIndex)").addClass('active');
+    return ns.markers.removeClass('active').filter((":eq(" + (ns.currentIndex) + ")")).addClass('active');
   };
   ns.advanceImage = function() {
     return ns.goToImage((ns.currentIndex + 1) % ns.imageCount);
@@ -19,8 +19,8 @@ TEDxPerth.withNS('HomePage', function(ns) {
     if (imageIndex === ns.currentIndex) {
       return ns.startAdvancing();
     } else {
-      from = ns.images.filter(":eq($ns.currentIndex)");
-      to = ns.images.filter(":eq($imageIndex)");
+      from = ns.images.filter((":eq(" + (ns.currentIndex) + ")"));
+      to = ns.images.filter((":eq(" + (imageIndex) + ")"));
       from.fadeOut("slow");
       return to.fadeIn("slow", function() {
         var _a;

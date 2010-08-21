@@ -18,8 +18,8 @@ TEDxPerth.withNS 'Admin.TEDVideoEditor', (ns) ->
   
   ns.addVideo = ->
     inner = ns.template.replace /VIDEO_IDX/g, Number(new Date())
-    $("$ns.fieldsetSelector:last").after inner
-    ns.attachEventOn $("$ns.fieldsetSelector:last")
+    $("#{ns.fieldsetSelector}:last").after inner
+    ns.attachEventOn $("#{ns.fieldsetSelector}:last")
   
   ns.deleteVideo = (link) ->
     link = $ link

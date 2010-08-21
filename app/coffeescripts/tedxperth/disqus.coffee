@@ -15,11 +15,11 @@ TEDxPerth.withNS 'Disqus', (ns) ->
   
   ns.addScripts = ->
     ns.configureDisqus()
-    script = $ "<script />", {type: "text/javascript", async: true}
+    script = $ "<script />", type: "text/javascript", async: true
     if $("#posts").size() > 0
-      script.attr "src", "http://disqus.com/forums/${ns.currentSite()}/count.js"
+      script.attr "src", "http://disqus.com/forums/#{ns.currentSite()}/count.js"
     else
-      script.attr "src", "http://${ns.currentSite()}.disqus.com/embed.js"
+      script.attr "src", "http://#{ns.currentSite()}.disqus.com/embed.js"
     script.appendTo $ "head"
     
   ns.setup = -> ns.addScripts()

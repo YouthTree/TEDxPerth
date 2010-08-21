@@ -36,12 +36,12 @@ TEDxPerth.withNS('Twitter', function(ns) {
   };
   ns.showTweet = function(tweet) {
     var tweetID;
-    tweetID = "anywhere-tweet-${tweet.id}";
+    tweetID = ("anywhere-tweet-" + (tweet.id));
     ns.container.append($("<li />", {
       id: tweetID
     }).text(tweet.text));
     return ns.anywhere(function(T) {
-      return T("#${tweetID}").hovercards();
+      return T(("#" + (tweetID))).hovercards();
     });
   };
   ns.anywhere = function(cb) {
@@ -59,7 +59,7 @@ TEDxPerth.withNS('Twitter', function(ns) {
     return $.metaAttr("twitter-user");
   };
   ns.urlFor = function(user) {
-    return "http://api.twitter.com/1/statuses/user_timeline/${user}.json?callback=TEDxPerth.Twitter.processTweets&count=4";
+    return "http://api.twitter.com/1/statuses/user_timeline/" + (user) + ".json?callback=TEDxPerth.Twitter.processTweets&count=4";
   };
   ns.showFollowButton = function() {
     var cu;

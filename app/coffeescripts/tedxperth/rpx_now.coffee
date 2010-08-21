@@ -8,7 +8,7 @@ TEDxPerth.require 'Authentication', ->
       language_preference: 'en'
     
     conditionallySet = (element, key, callback) ->
-      key = "$ns.dataPrefix$key"
+      key = "#{ns.dataPrefix}#{key}"
       callback ns.data(element, key) if ns.hasData element, key
     
     ns.configuration = ->

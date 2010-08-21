@@ -28,9 +28,9 @@ TEDxPerth.withNS 'Twitter', (ns) ->
       $("#homepage-twitter-feed").show()
       
   ns.showTweet = (tweet) ->
-    tweetID = "anywhere-tweet-${tweet.id}"
+    tweetID = "anywhere-tweet-#{tweet.id}"
     ns.container.append $("<li />", id: tweetID).text(tweet.text)
-    ns.anywhere (T) -> T("#${tweetID}").hovercards()
+    ns.anywhere (T) -> T("##{tweetID}").hovercards()
     
 
   ns.anywhere = (cb) ->
@@ -44,7 +44,7 @@ TEDxPerth.withNS 'Twitter', (ns) ->
   ns.currentUser = -> $.metaAttr "twitter-user"
 
   ns.urlFor = (user) ->
-    "http://api.twitter.com/1/statuses/user_timeline/${user}.json?callback=TEDxPerth.Twitter.processTweets&count=4"
+    "http://api.twitter.com/1/statuses/user_timeline/#{user}.json?callback=TEDxPerth.Twitter.processTweets&count=4"
   
   ns.showFollowButton = () ->
     cu = ns.currentUser()

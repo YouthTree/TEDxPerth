@@ -10,7 +10,7 @@ TEDxPerth.withNS 'HomePage', (ns) ->
     )
     
   ns.updateMarker = ->
-    ns.markers.removeClass('active').filter(":eq($ns.currentIndex)").addClass 'active'
+    ns.markers.removeClass('active').filter(":eq(#{ns.currentIndex})").addClass 'active'
     
   ns.advanceImage = ->
     ns.goToImage((ns.currentIndex + 1) % ns.imageCount)
@@ -20,8 +20,8 @@ TEDxPerth.withNS 'HomePage', (ns) ->
     if imageIndex == ns.currentIndex
       ns.startAdvancing()
     else
-      from = ns.images.filter ":eq($ns.currentIndex)"
-      to = ns.images.filter ":eq($imageIndex)"
+      from = ns.images.filter ":eq(#{ns.currentIndex})"
+      to = ns.images.filter ":eq(#{imageIndex})"
       from.fadeOut("slow")
       to.fadeIn("slow", ->
         ns.currentIndex = imageIndex
