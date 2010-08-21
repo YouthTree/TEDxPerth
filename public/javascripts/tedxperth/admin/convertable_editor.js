@@ -1,3 +1,6 @@
+var __bind = function(func, context) {
+    return function(){ return func.apply(context, arguments); };
+  };
 TEDxPerth.withNS('Admin.ConvertableEditor', function(ns) {
   ns.containerSelector = 'fieldset.inputs.convertable';
   ns.editorSelector = 'textarea';
@@ -19,18 +22,12 @@ TEDxPerth.withNS('Admin.ConvertableEditor', function(ns) {
   };
   ns.attachEvents = function() {
     return $(ns.containerSelector).each(function() {
-      return $(this).find(ns.formatSelector).change((function(__this) {
-        var __func = function() {
-          return ns.toggleEditorOn(this);
-        };
-        return (function() {
-          return __func.apply(__this, arguments);
-        });
-      })(this));
+      return $(this).find(ns.formatSelector).change(__bind(function() {
+        return ns.toggleEditorOn(this);
+      }, this));
     });
   };
-  ns.setup = function() {
+  return (ns.setup = function() {
     return ns.attachEvents();
-  };
-  return ns.setup;
+  });
 });

@@ -110,7 +110,7 @@ GEM
       show_for
       will_paginate
       will_paginate
-    bhm-google-maps (0.1.3)
+    bhm-google-maps (0.2.1)
     builder (2.1.2)
     cgi_multipart_eof_fix (2.5.0)
     closure-compiler (0.3.2)
@@ -212,7 +212,7 @@ GEM
       rspec (= 2.0.0.beta.19)
       webrat (>= 0.7.2.beta.1)
     show_for (0.2.3)
-    shuriken (0.1.4)
+    shuriken (0.2.1)
     stringex (1.1.0)
     thor (0.14.0)
     title_estuary (1.2.0)
@@ -230,7 +230,7 @@ GEM
       rack-test (>= 0.5.3)
     youthtree-controller-ext (0.1.0)
       activesupport (>= 3.0.0.beta4)
-    youthtree-js (0.1.1)
+    youthtree-js (0.2.0)
     youthtree-settings (0.1.1)
       activesupport (>= 3.0.0.beta4)
     yui-compressor (0.9.1)
@@ -251,7 +251,7 @@ DEPENDENCIES
   barista_growl
   bcrypt-ruby (>= 2.1.2)
   bhm-admin (>= 0.2.2)
-  bhm-google-maps
+  bhm-google-maps (>= 0.2.0)
   carrierwave!
   compass (>= 0.10.2)
   compass-colors (>= 0.3.1)
@@ -281,7 +281,7 @@ DEPENDENCIES
   rspec (>= 2.0.0.beta.16)
   rspec-rails (>= 2.0.0.beta.16)
   show_for
-  shuriken
+  shuriken (>= 0.2.0)
   state_machine (>= 0.9.0)!
   stringex
   title_estuary (>= 1.2.0)
@@ -290,5 +290,5 @@ DEPENDENCIES
   validation_reflection (>= 1.0.0.rc.1)
   will_paginate (>= 3.0.pre)!
   youthtree-controller-ext
-  youthtree-js
+  youthtree-js (>= 0.2.0)
   youthtree-settings (>= 0.1.1)

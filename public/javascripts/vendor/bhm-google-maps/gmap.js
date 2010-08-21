@@ -15,7 +15,7 @@ this['GMap'] = (function($) {
   };
   dataKey = function(key, spacer) {
     spacer = (typeof spacer !== "undefined" && spacer !== null) ? spacer : "";
-    return "data-" + spacer + key;
+    return "data-" + (spacer) + (key);
   };
   hasData = function(e, key, spacer) {
     return e.is(("[" + (dataKey(key, spacer)) + "]"));
@@ -30,8 +30,7 @@ this['GMap'] = (function($) {
       key = _c[_b];
       _a.push((function() {
         if (hasData(element, key, spacer)) {
-          options[key] = getData(element, key, spacer);
-          return options[key];
+          return (options[key] = getData(element, key, spacer));
         }
       })());
     }
@@ -52,14 +51,19 @@ this['GMap'] = (function($) {
     });
   };
   map.setupElement = function(e) {
-    var $e, currentMap, id, lat, lng, mapOptions, marker, markerOptions, point;
+    var $e, address, currentMap, id, lat, lng, mapOptions, marker, markerOptions, point;
     $e = $(e);
     id = $e.attr("id");
-    if (!(typeof id !== "undefined" && id !== null)) {
+    if (!((typeof id !== "undefined" && id !== null))) {
       $e.attr("id", ("" + (map.autoIDPrefix) + (map.count++)));
     }
-    lat = Number(getData($e, "latitude"));
-    lng = Number(getData($e, "longitude"));
+    if (hasData($e, "latitude" && hasData($e, "longitude"))) {
+      lat = Number(getData($e, "latitude"));
+      lng = Number(getData($e, "longitude"));
+      map.drawLatLng($e, e, lat, lng);
+    } else {
+      address = getData($e, "address");
+    }
     point = new google.maps.LatLng(lat, lng);
     mapOptions = mapOptionsForElement($e);
     mapOptions.center = point;

@@ -4,7 +4,6 @@ TEDxPerth.withNS('TEDVideo', function(ns) {
     this.parent = parent;
     return this;
   };
-
   ns.loadVideosFromHTML = function() {
     return $("#event-videos li.event-video").each(function() {
       var $this, video;
@@ -30,7 +29,7 @@ TEDxPerth.withNS('TEDVideo', function(ns) {
     return (typeof (_a = ns.lastVideo) !== "undefined" && _a !== null) && ns.lastVideo === video;
   };
   ns.hideVideo = function(video, callback) {
-    if (typeof video !== "undefined" && video !== null) {
+    if ((typeof video !== "undefined" && video !== null)) {
       video.parent.find("a.hide-video").hide();
       video.parent.find("a.show-video").show();
       video.parent.find(".video-embed").slideUp(callback);
@@ -46,12 +45,14 @@ TEDxPerth.withNS('TEDVideo', function(ns) {
       video.parent.find("a.hide-video").show();
       return video.parent.find("a.show-video").hide();
     };
-    (typeof (_a = ns.lastVideo) !== "undefined" && _a !== null) ? ns.hideVideo(ns.lastVideo, cb) : cb();
-    ns.lastVideo = video;
-    return ns.lastVideo;
+    if ((typeof (_a = ns.lastVideo) !== "undefined" && _a !== null)) {
+      ns.hideVideo(ns.lastVideo, cb);
+    } else {
+      cb();
+    };
+    return (ns.lastVideo = video);
   };
-  ns.setup = function() {
+  return (ns.setup = function() {
     return ns.loadVideosFromHTML();
-  };
-  return ns.setup;
+  });
 });

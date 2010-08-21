@@ -39,10 +39,10 @@ gem 'youthtree-controller-ext'
 gem 'bhm-admin', '>= 0.2.2'
 
 # Javascript
-gem 'barista', '>= 0.5.0'
-gem 'shuriken'
-gem 'bhm-google-maps'
-gem 'youthtree-js'
+gem 'barista',         '>= 0.5.0'
+gem 'shuriken',        '>= 0.2.0'
+gem 'bhm-google-maps', '>= 0.2.0'
+gem 'youthtree-js',    '>= 0.2.0'
 
 gem 'jammit'
 

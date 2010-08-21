@@ -1,3 +1,6 @@
+var __bind = function(func, context) {
+    return function(){ return func.apply(context, arguments); };
+  };
 TEDxPerth.withNS('Util', function(ns) {
   ns.escapeHTML = function(s) {
     return s.replace(/&/g, '&amp;').replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/'/g, "&#39;").replace(/"/g, "&quot;");
@@ -27,22 +30,17 @@ TEDxPerth.withNS('Util', function(ns) {
     }
     minutes = time.getMinutes();
     minutesPrefix = minutes < 10 ? "0" : "";
-    return "" + hour + ":" + minutesPrefix + minutes + " " + period;
+    return "$hour:$minutesPrefix$minutes $period";
   };
   ns.attachUpdatingTimeAgo = function(object, date) {
     var existing, update;
     existing = $(object).dataAttr("time-ago-interval");
-    if (typeof existing !== "undefined" && existing !== null) {
+    if ((typeof existing !== "undefined" && existing !== null)) {
       clearInterval(parseInt(existing, 10));
     }
-    update = (function(__this) {
-      var __func = function() {
-        return object.html(ns.timeAgoInWords(date));
-      };
-      return (function() {
-        return __func.apply(__this, arguments);
-      });
-    })(this);
+    update = __bind(function() {
+      return object.html(ns.timeAgoInWords(date));
+    }, this);
     update();
     return $(object).dataAttr("time-ago-interval", setInterval(update, 60000));
   };
@@ -50,15 +48,17 @@ TEDxPerth.withNS('Util', function(ns) {
     var suffix;
     length = (typeof length !== "undefined" && length !== null) ? length : 100;
     suffix = text.length > length ? "&hellip;" : "";
-    text = ("" + (ns.h(text.slice(0, length))) + suffix);
-    return text;
+    return (text = "${ns.h text.slice(0, length)}$suffix");
   };
-  ns.timeAgoInWords = function(date) {
+  return (ns.timeAgoInWords = function(date) {
     var _a, now, time;
-    (typeof (_a = $.browser.ie) !== "undefined" && _a !== null) ? (date = Date.parse(date.replace(/( \+)/, " UTC$1"))) : (date = Date.parse(date));
+    if ((typeof (_a = $.browser.ie) !== "undefined" && _a !== null)) {
+      date = Date.parse(date.replace(/( \+)/, " UTC$1"));
+    } else {
+      date = Date.parse(date);
+    };
     time = Number(new Date(date));
     now = Number(new Date());
     return $.timeago.inWords(now - time);
-  };
-  return ns.timeAgoInWords;
+  });
 });

@@ -11,8 +11,7 @@ TEDxPerth.withNS('Disqus', function(ns) {
   ns.configureDisqus = function() {
     window.disqus_identifier = ns.currentIdentifier();
     if (ns.isDebug()) {
-      window.disqus_developer = 1;
-      return window.disqus_developer;
+      return (window.disqus_developer = 1);
     }
   };
   ns.addScripts = function() {
@@ -22,11 +21,14 @@ TEDxPerth.withNS('Disqus', function(ns) {
       type: "text/javascript",
       async: true
     });
-    $("#posts").size() > 0 ? script.attr("src", ("http://disqus.com/forums/" + (ns.currentSite()) + "/count.js")) : script.attr("src", ("http://" + (ns.currentSite()) + ".disqus.com/embed.js"));
+    if ($("#posts").size() > 0) {
+      script.attr("src", "http://disqus.com/forums/${ns.currentSite()}/count.js");
+    } else {
+      script.attr("src", "http://${ns.currentSite()}.disqus.com/embed.js");
+    };
     return script.appendTo($("head"));
   };
-  ns.setup = function() {
+  return (ns.setup = function() {
     return ns.addScripts();
-  };
-  return ns.setup;
+  });
 });

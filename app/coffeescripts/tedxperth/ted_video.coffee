@@ -1,16 +1,16 @@
 TEDxPerth.withNS 'TEDVideo', (ns) ->
 
-  ns.videos: []
+  ns.videos = []
   
   class ns.InnerVideo
     
     constructor: (parent) ->
-      @parent: parent
+      @parent = parent
   
-  ns.loadVideosFromHTML: ->
+  ns.loadVideosFromHTML = ->
     $("#event-videos li.event-video").each ->
-      $this: $ this
-      video: new ns.InnerVideo $this
+      $this = $ this
+      video = new ns.InnerVideo $this
       ns.videos.push video
       $this.find("a.show-video").show().click ->
         ns.playVideo video unless ns.currentVideoIs video
@@ -19,18 +19,18 @@ TEDxPerth.withNS 'TEDVideo', (ns) ->
         ns.hideVideo video if ns.currentVideoIs video
         return false
   
-  ns.currentVideoIs: (video) ->
+  ns.currentVideoIs = (video) ->
     ns.lastVideo? && ns.lastVideo is video
   
-  ns.hideVideo: (video, callback) ->
+  ns.hideVideo = (video, callback) ->
     if video?
       video.parent.find("a.hide-video").hide()
       video.parent.find("a.show-video").show()
       video.parent.find(".video-embed").slideUp(callback)
       delete ns.lastVideo if ns.currentVideoIs video
   
-  ns.playVideo: (video) ->
-    cb: ->
+  ns.playVideo = (video) ->
+    cb = ->
       video.parent.find(".video-embed").slideDown()
       video.parent.find("a.hide-video").show()
       video.parent.find("a.show-video").hide()
@@ -38,8 +38,8 @@ TEDxPerth.withNS 'TEDVideo', (ns) ->
       ns.hideVideo ns.lastVideo, cb
     else
       cb()
-    ns.lastVideo: video
+    ns.lastVideo = video
   
-  ns.setup: -> ns.loadVideosFromHTML()
+  ns.setup = -> ns.loadVideosFromHTML()
       
       
