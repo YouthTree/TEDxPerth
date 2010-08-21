@@ -6,6 +6,7 @@ TEDxPerth::Application.configure do
   config.action_dispatch.show_exceptions            = false
   config.action_controller.allow_forgery_protection = false
   config.action_mailer.delivery_method              = :test
+  config.active_support.deprecation                 = :stderr
   # config.active_record.schema_format              = :sql
 end
 
