@@ -2,7 +2,7 @@
 
 %article#event
   
-  #event-image{:style => style_for_event(@event)}
+  #event-image{:style => style_for_event(@event.image)}
     %h1= page_title
     = partial 'attendance'
     = partial 'information'

@@ -2,7 +2,7 @@
   - Page.for_menu.each do |page|
     = eml page.menu_title, page_path_with_home(page), :expanded => expanded, :title => page.menu_subtitle
   = eml "Events", :events, :expanded => expanded, :title => "Upcoming & Past Events"
-  = eml "News", posts_path, :expanded => expanded, :title => "Find out what's going on"
+  = eml "Our Blog", posts_path, :expanded => expanded, :title => "Find out what's going on"
   = eml "Contact Us", :contact_us, :expanded => expanded, :title => "Let us know what you think!"
   - if !expanded
     = ml "Admin Area", :admin_root

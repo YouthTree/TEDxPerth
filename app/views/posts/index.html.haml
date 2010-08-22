@@ -4,10 +4,17 @@
 %h1= page_title
 
 %section#posts
-  = render :collection => @posts, :partial => 'summarized_post', :spacer_template => 'post_spacer'
   - if @posts.blank?
     %p#empty-listing Woops! it looks like there aren't any posts here at the moment...
-  - else
-    %hr.post-spacer
-    = pagination_links_for @posts
+    
+  - @posts.each_with_index do |post, index|
+    - if index == 0
+      = link_to post_path(post), :class => "post-preview large-preview", :style => style_for_image(post.image) do
+        .inner-preview
+          %h2= post.title
+          = post.summary_as_html
+    - elsif index == 1
+    - elsif (2..5).include? index
+    - else
+  
   

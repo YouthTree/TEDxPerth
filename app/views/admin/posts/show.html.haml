@@ -6,6 +6,10 @@
   
   = r.attribute :published
   
+  = r.attribute :image do
+    - if resource.image.present?
+      = link_to "View Image", resource.image.url
+  
   = r.attribute :summary do
     = admin_content resource, :summary
   

@@ -2,7 +2,7 @@ class Post < ActiveRecord::Base
 
   acts_as_indexed :fields => [:title, :rendered_content], :if => Proc.new { |post| post.published? }
   
-  validates_presence_of :title, :content
+  validates_presence_of :title, :content, :image
   
   is_publishable
   is_convertable :content
@@ -10,6 +10,8 @@ class Post < ActiveRecord::Base
   
   scope :for_listing, select('title, cached_slug, published_at, id')
   scope :for_sidebar, ordered.published.for_listing
+
+  mount_uploader :image, BlogImageUploader
 
   def self.find_using_preview_key(key)
     where(:preview_key => key).first

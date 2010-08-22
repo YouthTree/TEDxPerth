@@ -2,6 +2,7 @@
 
 = form.inputs :name => "General Details" do  
   = form.input :title
+  = form.input :image, :as => :file
   = form.input :published, :as => :boolean
 
 = form.inputs :name => "Post Contents", :class => "inputs convertable" do
