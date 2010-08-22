@@ -166,7 +166,7 @@ GEM
       activesupport (>= 3.0.0.beta2)
       uuid
     rack (1.2.1)
-    rack-mount (0.6.9)
+    rack-mount (0.6.11)
       rack (>= 1.0.0)
     rack-test (0.5.4)
       rack (>= 1.0)
@@ -218,7 +218,7 @@ GEM
     title_estuary (1.2.0)
     treetop (1.4.8)
       polyglot (>= 0.3.1)
-    tzinfo (0.3.22)
+    tzinfo (0.3.23)
     uuid (2.3.1)
       macaddr (~> 1.0)
     validates_url_format_of (0.1.0)
@@ -230,6 +230,11 @@ GEM
       rack-test (>= 0.5.3)
     youthtree-controller-ext (0.1.0)
       activesupport (>= 3.0.0.beta4)
+    youthtree-helpers (0.1.3)
+      actionpack (~> 3.0.0.rc)
+      activesupport (~> 3.0.0.rc)
+      youthtree-js
+      youthtree-settings
     youthtree-js (0.2.0)
     youthtree-settings (0.1.1)
       activesupport (>= 3.0.0.beta4)
@@ -290,5 +295,6 @@ DEPENDENCIES
   validation_reflection (>= 1.0.0.rc.1)
   will_paginate (>= 3.0.pre)!
   youthtree-controller-ext
+  youthtree-helpers (>= 0.1.2)
   youthtree-js (>= 0.2.0)
   youthtree-settings (>= 0.1.1)

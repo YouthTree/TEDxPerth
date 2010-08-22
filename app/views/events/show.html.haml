@@ -1,27 +1,11 @@
 - has_jammit_js :events_page
 
 %article#event
-
-  %h1= page_title
   
-  %p#event-information
-    %span#event-time= pretty_date_range @event.starts_at, @event.ends_at
-    at
-    = link_to @event.venue.to_s, @event.venue, :id => "event-venue"
-    
-  - if @event.upcoming?
-    - if logged_in? && @event.attending?(current_user)
-      .attending#attendance
-        You've marked yourself as attending.
-        = inline_button "I can no longer attend!", withdraw_event_path(@event)
-    - else
-      .attend#attendance
-        Want to attend this event?
-        = inline_button "I want to attend!", attending_event_path(@event)
-    
-  - elsif @event.completed? && logged_in? && @event.attending?(current_user)
-    .attended#attendance
-      You attended this TEDxPerth event.
+  #event-image{:style => style_for_event(@event)}
+    %h1= page_title
+    = partial 'attendance'
+    = partial 'information'
 
   %h2== About #{@event.name}
   %section#event-description= @event.description_as_html

@@ -1,17 +1,14 @@
 TEDxPerth.withNS 'Twitter', (ns) ->
 
+  ns.anywhereInstance = null
+
   ns.withNS 'Util', (utilNS) ->
-    
-    ns.anywhereInstance = null
-    
-    utilNS.highlightUsers = (t) ->
-      t.replace /(^|\s)@([_a-z0-9]+)/gi, '$1@<a href="http://twitter.com/$2" target="_blank">$2</a>'
     
     utilNS.highlightTags = (t) ->
       t.replace /(^|\s)#(\S+(\/|\b))/gi, '$1<a href="http://twitter.com/search?q=%23$2" target="_blank">#$2</a>'
     
     utilNS.twitterize = (t) ->
-      utilNS.highlightTags utilNS.highlightUsers TEDxPerth.Util.autolink t
+      utilNS.highlightTags TEDxPerth.Util.autolink t
 
   ns.processTweets = (tweets) ->
     ns.container.empty()
@@ -23,13 +20,13 @@ TEDxPerth.withNS 'Twitter', (ns) ->
       
   ns.showHomepageTweet = (tweet) ->
     if tweet?
-      $("#homepage-twitter-feed #recent-tweet").text tweet.text
+      $("#homepage-twitter-feed #recent-tweet").html ns.Util.twitterize(tweet.text)
       ns.anywhere (T) -> T("#homepage-twitter-feed #recent-tweet").hovercards()
       $("#homepage-twitter-feed").show()
       
   ns.showTweet = (tweet) ->
     tweetID = "anywhere-tweet-#{tweet.id}"
-    ns.container.append $("<li />", id: tweetID).text(tweet.text)
+    ns.container.append $("<li />", id: tweetID).html(ns.Util.twitterize(tweet.text))
     ns.anywhere (T) -> T("##{tweetID}").hovercards()
     
 

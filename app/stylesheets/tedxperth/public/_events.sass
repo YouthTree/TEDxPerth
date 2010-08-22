@@ -22,30 +22,72 @@ ul.events
         color: $posts-meta-text
 
 article#event
-  p#event-information
-    margin: 1em 0 0.5em
-    font-size: 1.1em
-    color: $events-information-text
-    span#event-time
-      color: darken($events-information-text, 10%)
-      font-weight: bold
-    a#event-venue
-      font-weight: bold
-
-  #attendance
-    margin: 0 0 1em
-    font-size: 1.1em
-    form
+  
+  #event-image
+    width: 100%
+    height: 300px
+    padding: 0
+    margin: 0 0 2em
+    background: #EEE center center no-repeat
+    position: relative
+    +border-radius(0.5em)
+    
+    h1
+      position: absolute
+      top: 0
+      left: 0
       margin: 0
-      padding: 0
-      display: inline
-      button
-        +fancy-button-structure(12px)
-        +fix-fb-padding(2px, 4px)
-    &.attending button
-      +fancy-button-colors($events-withdraw-button)
-    &.attend button
-      +fancy-button-colors($events-attend-button)
+      padding: 15px
+      width: 100%
+      background: #FFF
+      z-index: 50
+      +opacity(0.85)
+  
+    dl#event-information
+      z-index: 50
+      position: absolute
+      bottom: 0
+      left: 0
+      background: white
+      margin: 0
+      padding: 0.5em 0 0.3em
+      width: 100%
+      font-size: 1.1em
+      color: $events-information-text
+      clear: both
+      +clearfix
+      line-height: 1.8em
+      vertical-align: middle
+      +opacity(0.85)
+      dt
+        font-weight: bold
+        color: darken($events-information-text, 50%)
+        width: 10%
+        float: left
+        clear: left
+        padding: 0 0 0 0.8em
+      dd
+        float: left
+        padding: 0 0.8em 0 0
+
+    #attendance
+      z-index: 75
+      position: absolute
+      top: 12px
+      right: 15px
+      margin: 0
+      font-size: 1.2em
+      form
+        margin: 0
+        padding: 0
+        display: inline
+        button
+          +fancy-button-structure(14px)
+          +fix-fb-padding(7px, 12px)
+      &.attending button
+        +fancy-button-colors($events-withdraw-button)
+      &.attend button
+        +fancy-button-colors($events-attend-button)
 
   ul#event-videos
     margin: 0

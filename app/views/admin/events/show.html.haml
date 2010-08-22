@@ -7,6 +7,10 @@
   = r.association :venue do
     = link_to resource.venue.to_s, [:admin, resource.venue]
   
+  = r.attribute :image do
+    - if resource.image.present?
+      = link_to "View Image", resource.image.url
+  
   = r.attribute :state do
     = resource.human_state_name
   

@@ -1,1 +1,10 @@
-= render :partial => 'admin/shared/new_base'
+%h2.title== Add a new #{current_resource_name}
+
+%pre= resource.errors.full_messages.to_sentence
+
+= humanized_errors_on resource
+
+= semantic_form_for resource, :url => collection_url, :html => {:multipart => true} do |form|
+  = render :partial => 'form', :object => form
+  = form.buttons do
+    = form.commit_button

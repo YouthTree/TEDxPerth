@@ -1,7 +1,7 @@
 class Event < ActiveRecord::Base
   extend RejectIfHelper
   
-  validates_presence_of :name, :starts_at, :ends_at, :description, :notes, :venue
+  validates_presence_of :name, :starts_at, :ends_at, :description, :notes, :venue, :image
   validate :check_valid_starts_at
   validate :check_valid_ends_at
   
@@ -12,6 +12,8 @@ class Event < ActiveRecord::Base
   has_many :ted_videos
   
   accepts_nested_attributes_for :ted_videos, :reject_if => reject_if_proc, :allow_destroy => true
+  
+  mount_uploader :image, EventImageUploader
   
   scope :viewable, where(:state => %w(published completed))
   scope :for_sidebar, select('id, venue_id, name, starts_at, ends_at, cached_slug')

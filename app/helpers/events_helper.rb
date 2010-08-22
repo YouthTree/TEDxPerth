@@ -6,4 +6,12 @@ module EventsHelper
     html.gsub(/(\.|\!|\?)?\s*<\/p>/) { "#{$1 || "."} #{link}</p>" }.html_safe
   end
   
+  def style_for_event(event)
+    if event.image.blank?
+      nil
+    else
+      "background-image: url('#{event.image.url}');"
+    end
+  end
+  
 end

@@ -1,0 +1,11 @@
+- if @event.upcoming?
+  - if logged_in? && @event.attending?(current_user)
+    .attending#attendance= inline_button "I can't make it!", withdraw_event_path(@event)
+  - elsif logged_in?
+    .attend#attendance= inline_button "I plan on attending!", attending_event_path(@event)
+  - else
+    .attend#attendance= inline_button "I'd like to attend!", attending_event_path(@event)
+  
+- elsif @event.completed? && logged_in? && @event.attending?(current_user)
+  .attended#attendance
+    You attended this TEDxPerth event.

@@ -7,6 +7,7 @@
   = form.input :starts_at, :use_short_month => true, :start_year => Time.now.year, :end_year => (Time.now.year + 2)
   = form.input :ends_at,   :use_short_month => true, :start_year => Time.now.year, :end_year => (Time.now.year + 2)
   = form.input :venue_id, :as => :select, :collection => Venue.for_select
+  = form.input :image, :as => :file
   
 = form.inputs :name => "Event Description", :class => "inputs convertable" do
   = form.input :description_format, :as => :select, :collection => AlmostHappy::Convertor.for_select, :include_blank => false

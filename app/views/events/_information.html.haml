@@ -1,0 +1,5 @@
+%dl#event-information
+  %dt.event-venue: Where:
+  %dd.event-venue= link_to @event.venue.to_s, @event.venue, :id => "event-venue"
+  %dt.event-time When:
+  %dd.event-time= pretty_date_range @event.starts_at, @event.ends_at
