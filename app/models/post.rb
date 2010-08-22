@@ -36,7 +36,7 @@ class Post < ActiveRecord::Base
   end
   
   def summary_from_content
-    content.blank? ? "" : Nokogiri::HTML(content).at('p').try(:to_html).try(:html_safe)
+    content.blank? ? "" : Nokogiri::HTML(rendered_content).at('p').try(:to_html).try(:html_safe)
   rescue
     ""
   end
