@@ -112,6 +112,12 @@ GEM
       will_paginate
     bhm-google-maps (0.2.1)
     builder (2.1.2)
+    capistrano (2.5.19)
+      highline
+      net-scp (>= 1.0.0)
+      net-sftp (>= 2.0.0)
+      net-ssh (>= 2.0.14)
+      net-ssh-gateway (>= 1.0.0)
     cgi_multipart_eof_fix (2.5.0)
     closure-compiler (0.3.2)
     compass (0.10.4)
@@ -134,6 +140,7 @@ GEM
     growl (1.0.3)
     haml (3.0.16)
     has_scope (0.5.0)
+    highline (1.6.1)
     i18n (0.4.1)
     inherited_resources (1.1.2)
       has_scope (~> 0.5.0)
@@ -158,6 +165,13 @@ GEM
       gem_plugin (>= 0.2.3)
     msales-carmen (0.1.4)
     mysql2 (0.1.9)
+    net-scp (1.0.3)
+      net-ssh (>= 1.99.1)
+    net-sftp (2.0.5)
+      net-ssh (>= 2.0.9)
+    net-ssh (2.0.23)
+    net-ssh-gateway (1.0.1)
+      net-ssh (>= 1.99.1)
     nokogiri (1.4.3.1)
     open4 (1.0.1)
     polyglot (0.3.1)
@@ -211,6 +225,7 @@ GEM
     rspec-rails (2.0.0.beta.19)
       rspec (= 2.0.0.beta.19)
       webrat (>= 0.7.2.beta.1)
+    rvm (1.0.0)
     show_for (0.2.3)
     shuriken (0.2.1)
     stringex (1.1.0)
@@ -257,6 +272,7 @@ DEPENDENCIES
   bcrypt-ruby (>= 2.1.2)
   bhm-admin (>= 0.2.2)
   bhm-google-maps (>= 0.2.0)
+  capistrano
   carrierwave!
   compass (>= 0.10.2)
   compass-colors (>= 0.3.1)
@@ -285,6 +301,7 @@ DEPENDENCIES
   rr
   rspec (>= 2.0.0.beta.16)
   rspec-rails (>= 2.0.0.beta.16)
+  rvm
   show_for
   shuriken (>= 0.2.0)
   state_machine (>= 0.9.0)!

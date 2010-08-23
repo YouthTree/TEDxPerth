@@ -71,6 +71,9 @@ group :development do
   gem 'mongrel'
   gem 'barista_growl'
   gem 'annotate', :git => 'git://github.com/miyucy/annotate_models.git'
+  # For deployment
+  gem 'capistrano'
+  gem 'rvm'
 end
 
 group :test, :development do
