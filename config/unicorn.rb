@@ -1,13 +1,15 @@
 # unicorn_rails -c /opt/tedxperth/staging/config/unicorn.rb -E production -D
 require 'pathname'
-rails_env  = ENV['RAILS_ENV'] || 'production'
-rails_root = Pathname(__FILE__).dirname.dirname.expand_path
+
+app_name   = ENV['USER']
+rails_env  = ENV['RAILS_ENV'] || 'staging'
+rails_root = Pathname(ENV['HOME']).join(rails_env).expand_path
 
 timeout           30
-worker_processes  4
+worker_processes  2
 preload_app       true
 working_directory rails_root.to_s
-listen            rails_root.join("tmp/sockets/unicorn.sock").to_s, :backlog => 256
+listen            "/var/run/unicorn/#{app_name}_#{rails_env}.sock", :backlog => 256
 pid               rails_root.join("tmp/pids/unicorn.pid").to_s
 
 stderr_path rails_root.join("log/unicorn.stderr.log").to_s
@@ -27,5 +29,5 @@ end
 
 after_fork do |server, worker|
   ActiveRecord::Base.establish_connection if defined?(ActiveRecord::Base)
-  worker.user('deploy', 'deploy') if Process.euid == 0
+  worker.user(app_name, app_name) if Process.euid == 0
 end

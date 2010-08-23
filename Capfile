@@ -1,13 +1,11 @@
 require 'rvm/capistrano'
-require 'bundler/capistrano'
 
 load 'deploy' if respond_to?(:namespace) 
 set :application, "tedxperth"
 
-set :scm, :git
-
 # Default is staging
 set :rails_env, "staging"
+set :use_sudo,  false
 
 # Setup users.
 set(:user)   { application }
@@ -36,7 +34,7 @@ role(:db, :primary => true) { server_hosts[rails_env.to_sym] }
 set(:rvm_ruby_string) { "ree@#{application}" }
 
 def bundle_exec(command)
-  run "cd '#{latest_release}' && bundle exec #{command}"
+  run "cd '#{latest_release}' && RAILS_ENV='#{rails_env}' bundle exec #{command}"
 end
 
 namespace :unicorn do
@@ -49,10 +47,12 @@ namespace :unicorn do
   task :configure, :roles => :app do
     run "rm -rf '#{latest_release}/config/unicorn.rb'"
     run "ln -s '#{shared_path}/unicorn.rb' '#{latest_release}/config/unicorn.rb'"
+    run "rm -rf '#{latest_release}/tmp/sockets'"
+    run "ln -s '#{shared_path}/sockets' '#{latest_release}/tmp/sockets'"
   end
   
   task :start, :roles => :app do
-    run "cd '#{current_path}' && unicorn -D -E #{rails_env} -c '#{current_path}/config/unicorn.rb'"
+    run "cd '#{current_path}' && unicorn_rails -D -E #{rails_env} -c '#{current_path}/config/unicorn.rb'"
   end
   
   task :stop, :roles => :app do
@@ -69,7 +69,8 @@ namespace :app do
   task :setup do
     run "touch '#{shared_path}/unicorn.rb'"
     run "touch '#{shared_path}/database.yml'"
-    run "mkdir -p '#{shared_path}/uploads'"
+    run "touch '#{shared_path}/settings.yml'"
+    run "mkdir -p '#{shared_path}/uploads' '#{shared_path}/sockets'"
   end
 end
 
@@ -100,24 +101,35 @@ namespace :uploads do
   end
 end
 
+namespace :settings do
+  task :symlink do
+    run "rm -rf '#{latest_release}/settings.yml'"
+    run "ln -s '#{shared_path}/settings.yml' '#{latest_release}/config/settings.yml'"
+  end
+end
+
 namespace :db do
   task :symlink do
     run "rm -rf '#{latest_release}/config/database.yml'"
     run "ln -s '#{shared_path}/database.yml' '#{latest_release}/config/database.yml'"
   end
 end
-after "deploy:update_code", "db:symlink"
 
-namespace :assets do
+namespace :bundle do
+  task :install do
+    run "cd '#{latest_release}' && bundle install --path '#{shared_path}/bundle' --deployment --without development:test"
+  end
+end
+
+namespace :app do
   task :prepare do
+    unicorn.configure
     barista.prepare
     compass.prepare
     jammit.prepare
     uploads.symlink
   end
 end
-
-after "deploy:update_code", "assets:prepare"
 
 namespace :deploy do
   task :start, :roles => :app do
@@ -130,3 +142,8 @@ namespace :deploy do
     unicorn.restart
   end
 end
+
+after "deploy:update_code", "bundle:install"
+after "deploy:update_code", "db:symlink"
+after "deploy:update_code", "settings:symlink"
+after "deploy:update_code", "app:prepare"
