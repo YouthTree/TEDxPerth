@@ -234,6 +234,8 @@ GEM
     treetop (1.4.8)
       polyglot (>= 0.3.1)
     tzinfo (0.3.23)
+    unicorn (1.1.2)
+      rack
     uuid (2.3.1)
       macaddr (~> 1.0)
     validates_url_format_of (0.1.0)
@@ -307,6 +309,7 @@ DEPENDENCIES
   state_machine (>= 0.9.0)!
   stringex
   title_estuary (>= 1.2.0)
+  unicorn
   uuid
   validates_url_format_of
   validation_reflection (>= 1.0.0.rc.1)
