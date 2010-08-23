@@ -50,7 +50,7 @@ namespace :unicorn do
   end
   
   task :start, :roles => :app do
-    run "cd '#{current_path}' && unicorn_rails -D -E #{rails_env} -c '#{current_path}/config/unicorn.rb'"
+    run "cd '#{current_path}' && bundle exec unicorn_rails -D -E #{rails_env} -c '#{current_path}/config/unicorn.rb'"
   end
   
   task :stop, :roles => :app do

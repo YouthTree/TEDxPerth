@@ -66,9 +66,8 @@ gem 'rpx_now'
 
 gem 'validates_url_format_of'
 
-group :staging, :production do
-  gem 'unicorn'
-end
+# Bundle it!
+gem 'unicorn', :require => nil
 
 group :development do
   gem 'rails3-generators'
