@@ -6,6 +6,7 @@ set :application, "tedxperth"
 # Default is staging
 set :rails_env, "staging"
 set :use_sudo,  false
+set :keep_releases, 10
 
 # Setup users.
 set(:user)   { application }
@@ -21,9 +22,6 @@ set(:deploy_to) { "/opt/#{application}/#{rails_env}" }
 # Set how it is deployed
 set :scm,             :git
 set :repository_name, "TEDxPerth"
-set :copy_exclude,     %w(config/database.yml config/settings.yml test spec .git doc)
-
-set(:deploy_via) { defined?(Capistrano::Deploy::Strategy::FastRemoteCache) ? :fast_remote_cache : :remote_cache }
 set(:repository) { "git://github.com/YouthTree/#{repository_name}.git" }
 
 # Setup dynamic roles.

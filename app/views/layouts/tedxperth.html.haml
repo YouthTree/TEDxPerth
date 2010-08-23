@@ -3,10 +3,7 @@
   %head
     %meta{"http-equiv" => "Content-Type", :content => "text/html; charset=utf-8"}
     %title== #{page_title} - TEDxPerth
-    - if Settings.twitter.anywhere_key?
-      = javascript_include_tag "http://platform.twitter.com/anywhere.js?v=1&id=#{Settings.twitter.anywhere_key}"
     = include_stylesheets :base, :media => 'screen, projection'
-    = include_javascripts :base
     = csrf_meta_tag
     - if Settings.twitter.user?
       = meta_tag "twitter-user", Settings.twitter.user.to_s
@@ -22,6 +19,9 @@
         
       %footer#page-footer= partial 'shared/footer'
     = yield :page_bottom
+    - if Settings.twitter.anywhere_key?
+      = javascript_include_tag "http://platform.twitter.com/anywhere.js?v=1&id=#{Settings.twitter.anywhere_key}"
+    = include_javascripts :base
     = analytics_code
     
     
