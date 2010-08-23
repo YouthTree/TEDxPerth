@@ -110,7 +110,7 @@ GEM
       show_for
       will_paginate
       will_paginate
-    bhm-google-maps (0.2.1)
+    bhm-google-maps (0.3.0)
     builder (2.1.2)
     capistrano (2.5.19)
       highline
@@ -273,7 +273,7 @@ DEPENDENCIES
   barista_growl
   bcrypt-ruby (>= 2.1.2)
   bhm-admin (>= 0.2.2)
-  bhm-google-maps (>= 0.2.0)
+  bhm-google-maps (>= 0.3.0)
   capistrano
   carrierwave!
   compass (>= 0.10.2)

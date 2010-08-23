@@ -7,6 +7,7 @@
     = csrf_meta_tag
     - if Settings.twitter.user?
       = meta_tag "twitter-user", Settings.twitter.user.to_s
+    = include_javascripts :base
     = yield :extra_head
   %body
     = flash_messages :alert, :notice
@@ -19,9 +20,7 @@
         
       %footer#page-footer= partial 'shared/footer'
     = yield :page_bottom
-    - if Settings.twitter.anywhere_key?
-      = javascript_include_tag "http://platform.twitter.com/anywhere.js?v=1&id=#{Settings.twitter.anywhere_key}"
-    = include_javascripts :base
+    = anywhere_code
     = analytics_code
     
     

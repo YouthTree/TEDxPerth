@@ -38,6 +38,7 @@ header#page-header
         font-weight: bold
 
   nav#page-navigation
+    display: block
     clear: both
     padding: 0
     margin: 1em 0 1.5em
@@ -45,7 +46,7 @@ header#page-header
     border-top: 0.1em dashed $main-nav-border
     border-bottom: 0.2em solid darken($main-nav-border, 10%)
     ul
-      +inline-list
+      display: block
       padding: 0
       margin: 0
       text-align: center
@@ -58,6 +59,7 @@ header#page-header
           padding: 0.75em 1.25em
           border-left: 0.1em dashed transparent
           border-right: 0.1em dashed transparent
+          cursor: pointer
           &:link
             span.menu-item-title
               color: $main-nav-title-link
@@ -84,6 +86,7 @@ header#page-header
           span.menu-item-title, span.menu-item-expanded
             display: block
             text-align: center
+            cursor: pointer
           span.menu-item-title
             font-size: 1.25em
             font-weight: bold

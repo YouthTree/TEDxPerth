@@ -40,4 +40,10 @@ module ContentHelper
     content_tag(:div, inner, options.merge(:class => 'image-slider'))
   end
   
+  def anywhere_code
+    if Settings.twitter.anywhere_key?
+      javascript_include_tag "http://platform.twitter.com/anywhere.js?v=1&id=#{Settings.twitter.anywhere_key}"
+    end
+  end
+  
 end

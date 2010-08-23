@@ -3,7 +3,7 @@ javascripts:
   base:
     - public/javascripts/vendor/json2.js
     - public/javascripts/vendor/css_browser_selector.js
-    - public/javascripts/vendor/modernizr.js
+    # - public/javascripts/vendor/modernizr.js
     - public/javascripts/vendor/jquery/*.js
     - public/javascripts/vendor/shuriken/**/*.js
     - public/javascripts/tedxperth.js

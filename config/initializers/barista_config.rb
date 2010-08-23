@@ -9,3 +9,6 @@ Barista.configure do |c|
   end
   
 end
+
+# Preferrerd place.
+Barista::Compiler.bin_path = "/usr/local/bin/coffee" if File.executable?("/usr/local/bin/coffee")

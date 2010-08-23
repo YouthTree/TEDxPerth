@@ -2,16 +2,13 @@ var __bind = function(func, context) {
     return function(){ return func.apply(context, arguments); };
   };
 TEDxPerth.withNS('Twitter', function(ns) {
+  ns.anywhereInstance = null;
   ns.withNS('Util', function(utilNS) {
-    ns.anywhereInstance = null;
-    utilNS.highlightUsers = function(t) {
-      return t.replace(/(^|\s)@([_a-z0-9]+)/gi, '$1@<a href="http://twitter.com/$2" target="_blank">$2</a>');
-    };
     utilNS.highlightTags = function(t) {
       return t.replace(/(^|\s)#(\S+(\/|\b))/gi, '$1<a href="http://twitter.com/search?q=%23$2" target="_blank">#$2</a>');
     };
     return (utilNS.twitterize = function(t) {
-      return utilNS.highlightTags(utilNS.highlightUsers(TEDxPerth.Util.autolink(t)));
+      return utilNS.highlightTags(TEDxPerth.Util.autolink(t));
     });
   });
   ns.processTweets = function(tweets) {
@@ -27,7 +24,7 @@ TEDxPerth.withNS('Twitter', function(ns) {
   };
   ns.showHomepageTweet = function(tweet) {
     if ((typeof tweet !== "undefined" && tweet !== null)) {
-      $("#homepage-twitter-feed #recent-tweet").text(tweet.text);
+      $("#homepage-twitter-feed #recent-tweet").html(ns.Util.twitterize(tweet.text));
       ns.anywhere(function(T) {
         return T("#homepage-twitter-feed #recent-tweet").hovercards();
       });
@@ -39,7 +36,7 @@ TEDxPerth.withNS('Twitter', function(ns) {
     tweetID = ("anywhere-tweet-" + (tweet.id));
     ns.container.append($("<li />", {
       id: tweetID
-    }).text(tweet.text));
+    }).html(ns.Util.twitterize(tweet.text)));
     return ns.anywhere(function(T) {
       return T(("#" + (tweetID))).hovercards();
     });
