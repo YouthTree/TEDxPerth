@@ -11,4 +11,8 @@
       %dd.choice= link_to tu('authentication.internal'), new_user_path(:traditional => true), :id => 'traditional-authentication-link'
   
   #authentication-with-standard-account{:style => ("display: none;" if on_new_page)}
+    %h1 We'd love to know more about you...
+    %p.summary
+      Before you can continue on, we need to know a couple of small details.
+      Once that's done, you'll be able to continue on from where you were before.
     = partial :form

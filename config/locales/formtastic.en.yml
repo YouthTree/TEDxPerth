@@ -13,3 +13,4 @@ en:
         url: "URL from TED site"
       user:
         role_ids: "Roles"
+        password_confirmation: "Confirm your Password"
