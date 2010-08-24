@@ -9,12 +9,15 @@ class Post < ActiveRecord::Base
   is_sluggable   :title
   
   scope :for_listing, select('title, cached_slug, published_at, id')
-  scope :for_sidebar, ordered.published.for_listing
 
   mount_uploader :image, BlogImageUploader
 
   def self.find_using_preview_key(key)
     where(:preview_key => key).first
+  end
+  
+  def self.for_sidebar
+    ordered.published.for_listing
   end
 
   before_save :generate_preview_key
