@@ -24,6 +24,6 @@
 = form.fields_for :ted_videos do |tvf|
   = partial :video_form, tvf
   
-- content_for :extra_head do
+- extra_footer_content do
   :javascript
     TEDxPerth.Admin.TEDVideoEditor.template = #{render_ted_video_editor(form).to_str.to_json};

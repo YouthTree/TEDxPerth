@@ -7,8 +7,7 @@
     = csrf_meta_tag
     - if Settings.twitter.user?
       = meta_tag "twitter-user", Settings.twitter.user.to_s
-    = include_javascripts :base
-    = yield :extra_head
+    = extra_head_content
   %body
     = flash_messages :alert, :notice
     #container
@@ -19,8 +18,9 @@
           %aside.inner-content.right= sidebar_content
         
       %footer#page-footer= partial 'shared/footer'
-    = yield :page_bottom
-    = anywhere_code
+    = include_javascripts :base
+    = extra_footer_content
     = analytics_code
+    = anywhere_code
     
     

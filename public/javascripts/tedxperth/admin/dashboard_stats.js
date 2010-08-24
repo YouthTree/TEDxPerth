@@ -16,8 +16,6 @@ TEDxPerth.withNS('Admin.DashboardStats', function(ns) {
   };
   ns.showUserSignups = function() {
     return ns.withContainer('signups-chart', function(labels, values) {
-      console.log(labels);
-      console.log(values);
       return TEDxPerth.Admin.ColumnChart.create('signups-chart', function() {
         this.setTitle('Signups Per Day');
         this.setCategories(labels);
