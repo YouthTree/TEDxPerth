@@ -45,7 +45,7 @@ TEDxPerth.withNS('Admin.Analytics', function(ns) {
   };
   ns.showVisitChart = function(days, groups) {
     return TEDxPerth.Admin.ColumnChart.create('visits-chart', function() {
-      this.setTitle('TEDxPerth Website Traffic');
+      this.setTitle('Visitors Per Day');
       this.setCategories(formatDays(days));
       this.setSideTitle('Visitors per Day');
       this.addSeries('Visitors', groups['visitors']);

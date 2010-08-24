@@ -34,13 +34,12 @@ TEDxPerth.withNS 'Admin.Analytics', (ns) ->
   
   ns.showVisitChart = (days, groups) ->
     TEDxPerth.Admin.ColumnChart.create 'visits-chart', ->
-      @setTitle      'TEDxPerth Website Traffic'
+      @setTitle      'Visitors Per Day'
       @setCategories formatDays(days)
       @setSideTitle  'Visitors per Day'
       @addSeries     'Visitors',        groups['visitors']
       @addSeries     'Unique Visitors', groups['visitors-unique']
       @setDataToolTip -> "#{@y} #{@series.name.toLowerCase()}<br/>on #{@x}."
-        
   
   ns.getVisitData = ->
     url = "#{ns.apiBaseUrl}?#{ns.mergedParams type: "visitors,visitors-unique"}&json_callback=?"

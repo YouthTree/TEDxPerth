@@ -37,7 +37,7 @@ TEDxPerth.withNS 'Admin.ColumnChart', (ns) ->
       })
     
     draw: ->
-      $("##{@id}").empty()
+      $("##{@id}").empty().show()
       new Highcharts.Chart @options
   
   ns.create = (id, cb) ->

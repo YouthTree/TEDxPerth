@@ -3,10 +3,12 @@
 
 %h2 Welcome to your Dashboard
 
-%p
-  In the future, there will be some graphs etc here. At the moment, I honestly don't know what
-  would you help the most. Why not let me know?
-
-%section#inner-dashboard  
+%section#inner-dashboard
   #visits-chart.dashboard-chart
-    %p.loading Loading chart...
+  #signups-chart.dashboard-chart
+    %dl
+      - UserStatistics.signups_per_day.each_pair do |date, value|
+        %dt= date
+        %dd= value
+      
+    

@@ -48,7 +48,7 @@ TEDxPerth.withNS('Admin.ColumnChart', function(ns) {
     });
   };
   InnerChart.prototype.draw = function() {
-    $(("#" + (this.id))).empty();
+    $(("#" + (this.id))).empty().show();
     return new Highcharts.Chart(this.options);
   };
   return (ns.create = function(id, cb) {

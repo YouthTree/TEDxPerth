@@ -39,6 +39,7 @@ javascripts:
     - public/javascripts/vendor/highcharts.js
     - public/javascripts/tedxperth/admin/column_chart.js
     - public/javascripts/tedxperth/admin/analytics.js
+    - public/javascripts/tedxperth/admin/dashboard_stats.js
 stylesheets:
   base:
     - public/stylesheets/tedxperth.css
