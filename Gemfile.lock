@@ -240,7 +240,7 @@ GEM
     validates_url_format_of (0.1.0)
       activerecord (>= 2.3.4)
     validation_reflection (1.0.0.rc.1)
-    youthtree-capistrano (0.0.3)
+    youthtree-capistrano (0.0.5)
       bundler (~> 1.0)
       capistrano
       rvm (~> 1.0)
