@@ -3,7 +3,6 @@ javascripts:
   base:
     - public/javascripts/vendor/json2.js
     - public/javascripts/vendor/css_browser_selector.js
-    # - public/javascripts/vendor/modernizr.js
     - public/javascripts/vendor/jquery/*.js
     - public/javascripts/vendor/shuriken/**/*.js
     - public/javascripts/tedxperth.js
@@ -36,6 +35,10 @@ javascripts:
     - public/javascripts/tedxperth/disqus.js
   gmaps_js:
     - public/javascripts/vendor/bhm-google-maps/*.js
+  dashboard:
+    - public/javascripts/vendor/highcharts.js
+    - public/javascripts/tedxperth/admin/column_chart.js
+    - public/javascripts/tedxperth/admin/analytics.js
 stylesheets:
   base:
     - public/stylesheets/tedxperth.css
