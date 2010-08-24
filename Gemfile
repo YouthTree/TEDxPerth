@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.0.rc'
+gem 'rails', '3.0.0.rc2'
 
 gem "json_pure", ">= 1.4.5"
 gem 'json'
@@ -31,6 +31,8 @@ gem 'state_machine',    '>= 0.9.0', :git => 'git://github.com/pluginaweek/state_
 gem 'msales-carmen',    '>= 0.1.4', :require => ['carmen', 'carmen/action_view_helpers']
 
 gem 'awesome_print'
+
+gem 'youthtree-capistrano', :require => nil
 
 # Controller Related
 
@@ -74,9 +76,6 @@ group :development do
   gem 'mongrel'
   gem 'barista_growl'
   gem 'annotate', :git => 'git://github.com/miyucy/annotate_models.git'
-  # For deployment
-  gem 'capistrano'
-  gem 'rvm'
 end
 
 group :test, :development do
