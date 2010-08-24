@@ -3,9 +3,10 @@
 #authentication-container
 
   - if on_new_page
+    %h1 Sign in to your TEDxPerth Account
     %p#general-page-notice
       If you've never visited the website before or created an account (using either of the options
-      ==  below), You should instead #{link_to 'Click here', :new_user} to sign up instead.
+      ==  below), You should instead #{link_to 'click here', :new_user} to sign up instead.
 
     - has_jammit_js :authentication_with_rpx_now
     %dl#authentication-choices
