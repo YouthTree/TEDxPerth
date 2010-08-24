@@ -4,7 +4,7 @@ class UserStatistics
     from, to = from.to_date, to.to_date
     users = User.select("DATE(users.created_at) AS users_date, count(*) AS count_all").group("users_date")
     users = users.having(["users_date > ? AND users_date < ?", from - 1, to + 1]).all
-    users = users.inject({}) { |a, c| a[Date.parse(c.users_date)] = c.count_all.to_i; a }
+    users = users.inject({}) { |a, c| a[c.users_date] = c.count_all.to_i; a }
     results = ActiveSupport::OrderedHash.new
     while from <= to
       results[from] = users[from].to_i
