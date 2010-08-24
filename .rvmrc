@@ -6,6 +6,7 @@ if [[ -s "./tedxperth.gems" ]]; then
   fi
 fi
 
-if command -v bundle >/dev/null; then
+# Bundle is available, non-custom config.
+if command -v bundle >/dev/null && [[ ! -s .bundle/config ]]; then
   bundle install >/dev/null 2>&1
 fi
