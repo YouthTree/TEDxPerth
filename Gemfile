@@ -95,3 +95,7 @@ group :test do
   gem 'remarkable_activerecord', '>= 4.0.0.alpah4', :require => 'remarkable/active_record'
   gem 'rr'
 end
+
+group :staging, :production do
+  gem 'hoptoad_notifier'
+end
