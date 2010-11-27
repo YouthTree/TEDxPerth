@@ -127,6 +127,11 @@ GEM
     gem_plugin (0.2.3)
     geokit (1.5.0)
     haml (3.0.24)
+    haml-rails (0.3.4)
+      actionpack (~> 3.0)
+      activesupport (~> 3.0)
+      haml (~> 3.0)
+      railties (~> 3.0)
     has_scope (0.5.0)
     highline (1.6.1)
     hoptoad_notifier (2.3.12)
@@ -168,8 +173,6 @@ GEM
     nokogiri (1.4.4)
     open4 (1.0.1)
     polyglot (0.3.1)
-    pseudocephalopod (0.3.2)
-      slugged
     rack (1.2.1)
     rack-mount (0.6.13)
       rack (>= 1.0.0)
@@ -224,6 +227,7 @@ GEM
       uuid
     stringex (1.2.0)
     sys-uname (0.8.4)
+    therubyracer (0.7.5)
     thor (0.14.6)
     title_estuary (1.2.0)
     treetop (1.4.9)
@@ -284,6 +288,7 @@ DEPENDENCIES
   formtastic (~> 1.2.1)
   geokit
   haml (~> 3.0.24)
+  haml-rails
   hoptoad_notifier
   inherited_resources (~> 1.1.2)
   jammit
@@ -294,7 +299,6 @@ DEPENDENCIES
   msales-carmen (~> 0.1.4)
   mysql2 (~> 0.2.6)
   nokogiri
-  pseudocephalopod (~> 0.3.2)
   rails (= 3.0.3)
   rails3-generators
   remarkable (>= 4.0.0.alpah4)
@@ -306,8 +310,10 @@ DEPENDENCIES
   rspec-rails (~> 2.1)
   show_for (~> 0.2.3)
   shuriken (~> 0.2)
+  slugged (~> 0.3.2)
   state_machine (~> 0.9.0)!
   stringex (~> 1.2.0)
+  therubyracer
   title_estuary (~> 1.2.0)
   unicorn
   uuid (~> 2.3.1)

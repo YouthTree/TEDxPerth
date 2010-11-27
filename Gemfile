@@ -14,6 +14,7 @@ gem 'awesome_print', '0.2.1', :require => nil
 
 
 # View Related
+gem 'haml-rails'
 gem 'haml',                  '~> 3.0.24'
 gem 'compass',               '~> 0.10.0'
 gem 'compass-colors',        '~> 0.3.1'
@@ -25,14 +26,14 @@ gem 'show_for',              '~> 0.2.3'
 gem 'inherited_resources',   '~> 1.1.2'
 
 # Model Related
-gem 'uuid',             '~> 2.3.1'
-gem 'stringex',         '~> 1.2.0'
-gem 'pseudocephalopod', '~> 0.3.2'
-gem 'almost-happy',     '~> 0.3.0'
-gem 'will_paginate',    '~> 3.0.pre2', :git => gh('mislav', 'will_paginate'), :branch => 'rails3'
-gem 'bcrypt-ruby',      '~> 2.1.2',    :require => 'bcrypt'
-gem 'state_machine',    '~> 0.9.0',    :git => gh('pluginaweek', 'state_machine')
-gem 'msales-carmen',    '~> 0.1.4',    :require => ['carmen', 'carmen/action_view_helpers']
+gem 'uuid',          '~> 2.3.1'
+gem 'stringex',      '~> 1.2.0'
+gem 'slugged',       '~> 0.3.2'
+gem 'almost-happy',  '~> 0.3.0'
+gem 'will_paginate', '~> 3.0.pre2', :git => gh('mislav', 'will_paginate'), :branch => 'rails3'
+gem 'bcrypt-ruby',   '~> 2.1.2',    :require => 'bcrypt'
+gem 'state_machine', '~> 0.9.0',    :git => gh('pluginaweek', 'state_machine')
+gem 'msales-carmen', '~> 0.1.4',    :require => ['carmen', 'carmen/action_view_helpers']
 
 # Controller Related
 gem 'youthtree-settings',       '~>  0.1.4'
@@ -94,5 +95,6 @@ group :test_mac do
 end
 
 group :staging, :production do
+  gem 'therubyracer', :require => nil
   gem 'hoptoad_notifier'
 end
