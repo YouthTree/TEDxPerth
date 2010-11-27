@@ -1,104 +1,85 @@
 GIT
-  remote: git://github.com/jnicklas/carrierwave.git
-  revision: 015530b
-  specs:
-    carrierwave (0.5.0.beta2)
-      activesupport (>= 3.0.0.rc)
-
-GIT
-  remote: git://github.com/justinfrench/formtastic.git
-  revision: d4e5326
-  branch: rails3
-  specs:
-    formtastic (1.0.1)
-      actionpack (>= 2.3.0)
-      activesupport (>= 2.3.0)
-      i18n (>= 0.4.0)
-
-GIT
-  remote: git://github.com/mislav/will_paginate.git
-  revision: 3615938
-  branch: rails3
-  specs:
-    will_paginate (3.0.pre2)
-
-GIT
-  remote: git://github.com/miyucy/annotate_models.git
-  revision: ace84ab
-  specs:
-    annotate (2.4.0)
-
-GIT
-  remote: git://github.com/odorcicd/authlogic.git
-  revision: a087ad0
-  branch: rails3
-  specs:
-    authlogic (2.1.3)
-      activesupport
-
-GIT
-  remote: git://github.com/pluginaweek/state_machine.git
-  revision: e625d26
-  specs:
-    state_machine (0.9.4)
-
-GIT
-  remote: git://github.com/tardate/authlogic_rpx.git
-  revision: 6d1d9f6
+  remote: git://github.com/kuldarkrabbi/authlogic_rpx.git
+  revision: cb2b49453afb71344fa3653057a8df563776d76c
   specs:
     authlogic_rpx (1.1.1)
       authlogic (>= 2.1.3)
       rpx_now (>= 0.6.12)
 
+GIT
+  remote: git://github.com/kurbmedia/authlogic.git
+  revision: 025d9baf7f15e6becf3cdeb2154931b4b70cdad1
+  specs:
+    authlogic (2.1.6)
+      activesupport
+
+GIT
+  remote: git://github.com/mislav/will_paginate.git
+  revision: b1a5beeec9f56ecbe3594fcdca76d92b6767ce50
+  branch: rails3
+  specs:
+    will_paginate (3.0.pre3)
+
+GIT
+  remote: git://github.com/miyucy/annotate_models.git
+  revision: ace84ab47a21a0fcbbed431051ea3a140a4f99f9
+  specs:
+    annotate (2.4.0)
+
+GIT
+  remote: git://github.com/pluginaweek/state_machine.git
+  revision: e625d2645a71fb5bc50ca61553b59b4890444508
+  specs:
+    state_machine (0.9.4)
+
 GEM
   remote: http://rubygems.org/
   specs:
     RedCloth (4.2.3)
-    RubyInline (3.8.4)
-      ZenTest
-    ZenTest (4.3.3)
+    RubyInline (3.8.6)
+      ZenTest (~> 4.3)
+    ZenTest (4.4.0)
     abstract (1.0.0)
-    actionmailer (3.0.0.rc2)
-      actionpack (= 3.0.0.rc2)
-      mail (~> 2.2.5)
-    actionpack (3.0.0.rc2)
-      activemodel (= 3.0.0.rc2)
-      activesupport (= 3.0.0.rc2)
+    actionmailer (3.0.3)
+      actionpack (= 3.0.3)
+      mail (~> 2.2.9)
+    actionpack (3.0.3)
+      activemodel (= 3.0.3)
+      activesupport (= 3.0.3)
       builder (~> 2.1.2)
       erubis (~> 2.6.6)
-      i18n (~> 0.4.1)
+      i18n (~> 0.4)
       rack (~> 1.2.1)
-      rack-mount (~> 0.6.12)
-      rack-test (~> 0.5.4)
+      rack-mount (~> 0.6.13)
+      rack-test (~> 0.5.6)
       tzinfo (~> 0.3.23)
-    activemodel (3.0.0.rc2)
-      activesupport (= 3.0.0.rc2)
+    activemodel (3.0.3)
+      activesupport (= 3.0.3)
       builder (~> 2.1.2)
-      i18n (~> 0.4.1)
-    activerecord (3.0.0.rc2)
-      activemodel (= 3.0.0.rc2)
-      activesupport (= 3.0.0.rc2)
-      arel (~> 1.0.0.rc1)
+      i18n (~> 0.4)
+    activerecord (3.0.3)
+      activemodel (= 3.0.3)
+      activesupport (= 3.0.3)
+      arel (~> 2.0.2)
       tzinfo (~> 0.3.23)
-    activeresource (3.0.0.rc2)
-      activemodel (= 3.0.0.rc2)
-      activesupport (= 3.0.0.rc2)
-    activesupport (3.0.0.rc2)
-    acts_as_indexed (0.6.5)
+    activeresource (3.0.3)
+      activemodel (= 3.0.3)
+      activesupport (= 3.0.3)
+    activesupport (3.0.3)
+    acts_as_indexed (0.6.6)
     almost-happy (0.3.0)
       RedCloth
       activerecord (>= 3.0.0.beta3)
       nokogiri
       open4
       rdiscount
-    arel (1.0.0.rc1)
-      activesupport (>= 3.0.0.beta)
+    arel (2.0.4)
+    autotest-fsevent (0.2.3)
+      sys-uname
+    autotest-growl (0.2.6)
     awesome_print (0.2.1)
-    barista (0.5.0)
-      open4
-    barista_growl (0.1.0)
-      barista
-      growl
+    barista (0.7.0.pre2)
+      coffee-script (~> 2.1.1)
     bcrypt-ruby (2.1.2)
     bhm-admin (0.2.2)
       compass (>= 0.10.0.rc4)
@@ -118,46 +99,56 @@ GEM
       net-sftp (>= 2.0.0)
       net-ssh (>= 2.0.14)
       net-ssh-gateway (>= 1.0.0)
+    carrierwave (0.5.0)
+      activesupport (~> 3.0.0)
     cgi_multipart_eof_fix (2.5.0)
-    closure-compiler (0.3.2)
-    compass (0.10.4)
+    closure-compiler (0.3.3)
+    coffee-script (2.1.1)
+      coffee-script-source
+    coffee-script-source (0.9.5)
+    compass (0.10.6)
       haml (>= 3.0.4)
-    compass-960-plugin (0.9.13)
-      compass (>= 0.10.0.rc3)
+    compass-960-plugin (0.10.0)
+      compass (>= 0.10.0)
     compass-colors (0.3.1)
       compass (>= 0.8.7)
     daemons (1.1.0)
     diff-lcs (1.1.2)
     erubis (2.6.6)
       abstract (>= 1.0.0)
-    fancy-buttons (0.5.5)
-      compass (>= 0.10.0)
-      haml (>= 3.0.2)
+    fancy-buttons (1.0.4)
+      compass (>= 0.10.6)
     fastthread (1.0.7)
-    forgery (0.3.4)
+    forgery (0.3.6)
+    formtastic (1.2.1)
+      actionpack (>= 2.3.7)
+      activesupport (>= 2.3.7)
+      i18n (>= 0.4.0)
     gem_plugin (0.2.3)
     geokit (1.5.0)
-    growl (1.0.3)
-    haml (3.0.17)
+    haml (3.0.24)
     has_scope (0.5.0)
     highline (1.6.1)
-    hoptoad_notifier (2.3.5)
+    hoptoad_notifier (2.3.12)
       activesupport
-    i18n (0.4.1)
+      builder
+    i18n (0.4.2)
     inherited_resources (1.1.2)
       has_scope (~> 0.5.0)
       responders (~> 0.6.0)
-    jammit (0.5.1)
+    jammit (0.5.4)
       closure-compiler (>= 0.1.0)
       yui-compressor (>= 0.9.1)
     json (1.4.6)
     json_pure (1.4.6)
+    kgio (2.0.0)
     macaddr (1.0.0)
     machinist (2.0.0.beta2)
-    mail (2.2.5)
+    mail (2.2.10)
       activesupport (>= 2.3.6)
-      mime-types
-      treetop (>= 1.4.5)
+      i18n (~> 0.4.1)
+      mime-types (~> 1.16)
+      treetop (~> 1.4.8)
     mail_form (1.3.0)
     mime-types (1.16)
     mongrel (1.1.5)
@@ -166,40 +157,38 @@ GEM
       fastthread (>= 1.0.1)
       gem_plugin (>= 0.2.3)
     msales-carmen (0.1.4)
-    mysql2 (0.2.3)
-    net-scp (1.0.3)
+    mysql2 (0.2.6)
+    net-scp (1.0.4)
       net-ssh (>= 1.99.1)
     net-sftp (2.0.5)
       net-ssh (>= 2.0.9)
     net-ssh (2.0.23)
     net-ssh-gateway (1.0.1)
       net-ssh (>= 1.99.1)
-    nokogiri (1.4.3.1)
+    nokogiri (1.4.4)
     open4 (1.0.1)
     polyglot (0.3.1)
-    pseudocephalopod (0.2.4)
-      activerecord (>= 3.0.0.beta2)
-      activesupport (>= 3.0.0.beta2)
-      uuid
+    pseudocephalopod (0.3.2)
+      slugged
     rack (1.2.1)
-    rack-mount (0.6.12)
+    rack-mount (0.6.13)
       rack (>= 1.0.0)
-    rack-test (0.5.4)
+    rack-test (0.5.6)
       rack (>= 1.0)
-    rails (3.0.0.rc2)
-      actionmailer (= 3.0.0.rc2)
-      actionpack (= 3.0.0.rc2)
-      activerecord (= 3.0.0.rc2)
-      activeresource (= 3.0.0.rc2)
-      activesupport (= 3.0.0.rc2)
-      bundler (>= 1.0.0.rc.6)
-      railties (= 3.0.0.rc2)
-    rails3-generators (0.12.1)
-    railties (3.0.0.rc2)
-      actionpack (= 3.0.0.rc2)
-      activesupport (= 3.0.0.rc2)
-      rake (>= 0.8.3)
-      thor (~> 0.14.0)
+    rails (3.0.3)
+      actionmailer (= 3.0.3)
+      actionpack (= 3.0.3)
+      activerecord (= 3.0.3)
+      activeresource (= 3.0.3)
+      activesupport (= 3.0.3)
+      bundler (~> 1.0)
+      railties (= 3.0.3)
+    rails3-generators (0.14.0)
+    railties (3.0.3)
+      actionpack (= 3.0.3)
+      activesupport (= 3.0.3)
+      rake (>= 0.8.7)
+      thor (~> 0.14.4)
     rake (0.8.7)
     rdiscount (1.6.5)
     remarkable (4.0.0.alpha4)
@@ -215,38 +204,49 @@ GEM
     rmagick (2.13.1)
     rpx_now (0.6.23)
       json_pure
-    rr (1.0.0)
-    rspec (2.0.0.beta.20)
-      rspec-core (= 2.0.0.beta.20)
-      rspec-expectations (= 2.0.0.beta.20)
-      rspec-mocks (= 2.0.0.beta.20)
-    rspec-core (2.0.0.beta.20)
-    rspec-expectations (2.0.0.beta.20)
-      diff-lcs (>= 1.1.2)
-    rspec-mocks (2.0.0.beta.20)
-    rspec-rails (2.0.0.beta.20)
-      rspec (= 2.0.0.beta.20)
-    rvm (1.0.0)
+    rr (1.0.2)
+    rspec (2.1.0)
+      rspec-core (~> 2.1.0)
+      rspec-expectations (~> 2.1.0)
+      rspec-mocks (~> 2.1.0)
+    rspec-core (2.1.0)
+    rspec-expectations (2.1.0)
+      diff-lcs (~> 1.1.2)
+    rspec-mocks (2.1.0)
+    rspec-rails (2.1.0)
+      rspec (~> 2.1.0)
+    rvm (1.1.1)
     show_for (0.2.3)
     shuriken (0.2.1)
-    stringex (1.1.0)
-    thor (0.14.0)
+    slugged (0.3.2)
+      activerecord (~> 3.0.0)
+      activesupport (~> 3.0.0)
+      uuid
+    stringex (1.2.0)
+    sys-uname (0.8.4)
+    thor (0.14.6)
     title_estuary (1.2.0)
-    treetop (1.4.8)
+    treetop (1.4.9)
       polyglot (>= 0.3.1)
     tzinfo (0.3.23)
-    unicorn (1.1.2)
+    unicorn (3.0.0)
+      kgio (~> 2.0.0)
       rack
     uuid (2.3.1)
       macaddr (~> 1.0)
     validates_url_format_of (0.1.0)
       activerecord (>= 2.3.4)
-    validation_reflection (1.0.0.rc.1)
-    youthtree-capistrano (0.0.5)
+    validation_reflection (1.0.0)
+    ydd (0.0.8)
+      activerecord (~> 3.0.0)
+      activesupport (~> 3.0.0)
+      thor (~> 0.14)
+    youthtree-capistrano (0.2.2)
       bundler (~> 1.0)
       capistrano
       rvm (~> 1.0)
-    youthtree-controller-ext (0.1.0)
+      ydd
+    youthtree-controller-ext (0.1.2)
       activesupport (>= 3.0.0.beta4)
     youthtree-helpers (0.1.4)
       actionpack (~> 3.0.0.rc)
@@ -254,7 +254,7 @@ GEM
       youthtree-js
       youthtree-settings
     youthtree-js (0.2.0)
-    youthtree-settings (0.1.1)
+    youthtree-settings (0.1.4)
       activesupport (>= 3.0.0.beta4)
     yui-compressor (0.9.1)
 
@@ -265,57 +265,57 @@ DEPENDENCIES
   RubyInline
   ZenTest
   acts_as_indexed
-  almost-happy (>= 0.3.0)
+  almost-happy (~> 0.3.0)
   annotate!
   authlogic!
   authlogic_rpx!
-  awesome_print
-  barista (>= 0.5.0)
-  barista_growl
-  bcrypt-ruby (>= 2.1.2)
-  bhm-admin (>= 0.2.2)
-  bhm-google-maps (>= 0.3.0)
-  carrierwave!
-  compass (>= 0.10.2)
-  compass-colors (>= 0.3.1)
-  fancy-buttons (>= 0.5.4)
+  autotest-fsevent
+  autotest-growl
+  awesome_print (= 0.2.1)
+  barista (>= 0.7.0.pre2)
+  bcrypt-ruby (~> 2.1.2)
+  bhm-admin (~> 0.2.2)
+  bhm-google-maps (~> 0.3)
+  carrierwave
+  compass (~> 0.10.0)
+  compass-colors (~> 0.3.1)
+  fancy-buttons (~> 1.0.4)
   forgery
-  formtastic (>= 1.0.0.beta)!
+  formtastic (~> 1.2.1)
   geokit
-  haml (>= 3.0.13)
+  haml (~> 3.0.24)
   hoptoad_notifier
-  inherited_resources
+  inherited_resources (~> 1.1.2)
   jammit
-  json
-  json_pure (>= 1.4.5)
+  json (~> 1.4.6)
   machinist (>= 2.0.0.beta2)
   mail_form
   mongrel
-  msales-carmen (>= 0.1.4)
-  mysql2
+  msales-carmen (~> 0.1.4)
+  mysql2 (~> 0.2.6)
   nokogiri
-  pseudocephalopod (>= 0.2.4)
-  rails (= 3.0.0.rc2)
+  pseudocephalopod (~> 0.3.2)
+  rails (= 3.0.3)
   rails3-generators
   remarkable (>= 4.0.0.alpah4)
   remarkable_activerecord (>= 4.0.0.alpah4)
   rmagick
   rpx_now
   rr
-  rspec (>= 2.0.0.beta.16)
-  rspec-rails (>= 2.0.0.beta.16)
-  show_for
-  shuriken (>= 0.2.0)
-  state_machine (>= 0.9.0)!
-  stringex
-  title_estuary (>= 1.2.0)
+  rspec (~> 2.1)
+  rspec-rails (~> 2.1)
+  show_for (~> 0.2.3)
+  shuriken (~> 0.2)
+  state_machine (~> 0.9.0)!
+  stringex (~> 1.2.0)
+  title_estuary (~> 1.2.0)
   unicorn
-  uuid
+  uuid (~> 2.3.1)
   validates_url_format_of
-  validation_reflection (>= 1.0.0.rc.1)
-  will_paginate (>= 3.0.pre)!
+  validation_reflection (~> 1.0.0)
+  will_paginate (~> 3.0.pre2)!
   youthtree-capistrano
-  youthtree-controller-ext
-  youthtree-helpers (>= 0.1.2)
-  youthtree-js (>= 0.2.0)
-  youthtree-settings (>= 0.1.1)
+  youthtree-controller-ext (~> 0.1.2)
+  youthtree-helpers (~> 0.1)
+  youthtree-js (~> 0.2)
+  youthtree-settings (~> 0.1.4)
