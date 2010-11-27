@@ -12,3 +12,8 @@ config/database.yml
 public/assets/
 index/
 public/uploads/
+public/javascripts/tedxperth.js
+public/javascripts/tedxperth
+public/javascripts/vendor/shuriken
+public/javascripts/vendor/youthtree
+public/javascripts/vendor/bhm-google-maps

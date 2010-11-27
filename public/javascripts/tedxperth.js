@@ -1,1 +1,0 @@
-Shuriken.as('TEDxPerth');
