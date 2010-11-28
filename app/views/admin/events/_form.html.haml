@@ -5,7 +5,7 @@
   - unless form.object.new_record?
     = form.input :state_event, :collection => form.object.state_events_for_select
   = form.input :starts_at, :as => :datetime_picker
-  = form.input :ends_at, :as => :datetime_picker
+  = form.input :ends_at, :as => :datetime_picker, :hint => clone_value_link(form, 'Copy value from starts at.', :starts_at, :ends_at)
   = form.input :venue_id, :as => :select, :collection => Venue.for_select
   = form.input :image, :as => :file
   

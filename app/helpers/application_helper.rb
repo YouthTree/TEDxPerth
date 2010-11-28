@@ -4,6 +4,13 @@ module ApplicationHelper
     page.key == "home" ? root_path : page_path(page)
   end
   
+  def clone_value_link(form, text, from_field, to_field, options = {})
+    id_base = "##{form.send :sanitized_object_name}"
+    options = options.merge "data-clone-from" => "#{id_base}_#{from_field}", "data-clone-to" => "#{id_base}_#{to_field}"
+    options[:class] = [options.delete(:class), "clone-form-value"].join(" ").strip
+    link_to text, '#', options
+  end
+  
   protected
   
   def normalized_content_scope(key, scope = nil)
