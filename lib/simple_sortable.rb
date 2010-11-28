@@ -2,19 +2,19 @@ module SimpleSortable
   
   def is_sortable(field = :position, options = {})
     cattr_accessor :sortable_field, :sortable_condition_field
-    self.sortable_field           = field.to_sym
+    self.sortable_field = field.to_sym
     if options[:if_field]
       self.sortable_condition_field = options[:if_field]
       scope :sortable_items, where(sortable_condition_field => true)
     else
-      scope :sortable_items, unscoped
+      scope :sortable_items, scoped
     end
-    scope :sorted_desc, order("#{self.sortable_field} DESC")
-    scope :sorted_asc,  order("#{self.sortable_field} ASC")
     extend ClassMethods
     include InstanceMethods
     before_save :auto_set_order
     after_save  :normalize_ordering
+    scope :sorted_desc, order("#{quoted_sortable_field} DESC")
+    scope :sorted_asc,  order("#{quoted_sortable_field} ASC")
   end
   
   module InstanceMethods
@@ -42,16 +42,31 @@ module SimpleSortable
       reorder! ids
     end
     
-    def reorder!(items = nil)
-      ids = Array(items).map { |i| i.to_i }.uniq
-      # MySQL-fu. Avoid on other databases, mmmkay?
-      update_all ["#{sortable_field} = FIND_IN_SET(id, '?')", ids], ['id IN (?)', ids]
+    def reorder!(id_array = nil)
+      id_array = Array(id_array).flatten.reject(&:blank?).map(&:to_i).uniq
+      update_all sortable_sql_for_ids(id_array), ['id IN (?)', id_array]
     end
     
     def current_max_position
       sortable_items.maximum(sortable_field) || 0
     end
     
+    protected
+
+    def quoted_sortable_field
+      connection.quote_column_name(sortable_field)
+    end
+
+    def sortable_sql_for_ids(ids)
+      ids = ids.join(",")
+      case connection.adapter_name
+      when /^mysql/i
+        ["#{quoted_sortable_field} = FIND_IN_SET(id, ?)", ids]
+      when /^postgres/i
+        ["#{quoted_sortable_field} = STRPOS(?, ','||id||',')", ",#{ids},"]
+      end
+    end
+
   end
   
 end

@@ -1,16 +1,24 @@
 class UserStatistics
 
   def self.signups_per_day(from = Date.today - 6, to = Date.today)
-    from, to = from.to_date, to.to_date
-    users = User.select("DATE(users.created_at) AS users_date, count(*) AS count_all").group("users_date")
-    users = users.having(["users_date > ? AND users_date < ?", from - 1, to + 1]).all
-    users = users.inject({}) { |a, c| a[c.users_date] = c.count_all.to_i; a }
-    results = ActiveSupport::OrderedHash.new
-    while from <= to
-      results[from] = users[from].to_i
-      from += 1
+      from, to = from.to_date, to.to_date
+      scope = User.where(["users.created_at > ? AND users.created_at < ?", from.beginning_of_day, to.beginning_of_day])
+      counts = normalize_dates scope.count(:all, :group => "DATE(users.created_at)")
+      results = ActiveSupport::OrderedHash.new
+      while from <= to
+        results[from] = counts[from].to_i
+        from += 1
+      end
+      results
     end
-    results
-  end
+
+    protected
+
+    def self.normalize_dates(collection)
+      collection.inject({}) do |acc, (k, v)|
+        acc[k.to_date] = v
+        acc
+      end
+    end
 
 end

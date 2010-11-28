@@ -162,7 +162,6 @@ GEM
       fastthread (>= 1.0.1)
       gem_plugin (>= 0.2.3)
     msales-carmen (0.1.4)
-    mysql2 (0.2.6)
     net-scp (1.0.4)
       net-ssh (>= 1.99.1)
     net-sftp (2.0.5)
@@ -172,6 +171,7 @@ GEM
       net-ssh (>= 1.99.1)
     nokogiri (1.4.4)
     open4 (1.0.1)
+    pg (0.9.0)
     polyglot (0.3.1)
     rack (1.2.1)
     rack-mount (0.6.13)
@@ -297,8 +297,8 @@ DEPENDENCIES
   mail_form
   mongrel
   msales-carmen (~> 0.1.4)
-  mysql2 (~> 0.2.6)
   nokogiri
+  pg (~> 0.9.0)
   rails (= 3.0.3)
   rails3-generators
   remarkable (>= 4.0.0.alpah4)

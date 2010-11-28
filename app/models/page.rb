@@ -15,10 +15,10 @@ class Page < ActiveRecord::Base
   is_sluggable   :title
   is_sortable    :menu_position, :if_field => :show_in_menu
   
-  scope :renderable, select('rendered_content, `key`, title, keywords, description')
+  scope :renderable, select('rendered_content, key, title, keywords, description')
   
   def self.for_menu
-    published.sortable_items.sorted_asc.select('id, `key`, cached_slug, menu_subtitle, menu_title, title')
+    published.sortable_items.sorted_asc.select('id, key, cached_slug, menu_subtitle, menu_title, title')
   end
   
   def self.[](identifier)

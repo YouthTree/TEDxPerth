@@ -9,7 +9,7 @@ gem 'rails', '3.0.3'
 
 # Core Dependencies
 gem 'json',   '~> 1.4.6'
-gem 'mysql2', '~> 0.2.6'
+gem 'pg',     '~> 0.9.0'
 gem 'awesome_print', '0.2.1', :require => nil
 
 
