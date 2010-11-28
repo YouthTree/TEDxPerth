@@ -11,7 +11,7 @@ class UserStatistics
       end
       results
     end
-
+    
     protected
 
     def self.normalize_dates(collection)

@@ -4,8 +4,8 @@
   = form.input :name
   - unless form.object.new_record?
     = form.input :state_event, :collection => form.object.state_events_for_select
-  = form.input :starts_at, :use_short_month => true, :start_year => Time.now.year, :end_year => (Time.now.year + 2)
-  = form.input :ends_at,   :use_short_month => true, :start_year => Time.now.year, :end_year => (Time.now.year + 2)
+  = form.input :starts_at, :as => :datetime_picker
+  = form.input :ends_at, :as => :datetime_picker
   = form.input :venue_id, :as => :select, :collection => Venue.for_select
   = form.input :image, :as => :file
   

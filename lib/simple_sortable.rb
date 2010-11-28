@@ -52,11 +52,11 @@ module SimpleSortable
     end
     
     protected
-
+    
     def quoted_sortable_field
       connection.quote_column_name(sortable_field)
     end
-
+    
     def sortable_sql_for_ids(ids)
       ids = ids.join(",")
       case connection.adapter_name
@@ -66,7 +66,7 @@ module SimpleSortable
         ["#{quoted_sortable_field} = STRPOS(?, ','||id||',')", ",#{ids},"]
       end
     end
-
+    
   end
   
 end

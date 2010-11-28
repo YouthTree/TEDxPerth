@@ -45,3 +45,4 @@ stylesheets:
     - public/stylesheets/tedxperth.css
   admin:
     - public/stylesheets/tedxperth-admin.css
+    - public/jquery-ui/smoothness/jquery-ui-1.8.custom.css
